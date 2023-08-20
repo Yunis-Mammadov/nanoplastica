@@ -1,0 +1,74 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Dai Banna SIL', serif;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.parentNavbar {
+    display: flex;
+    width: 100%;
+    height: 18vh;
+    background-color: black;
+}
+
+.responsiveParentNavbar {
+    display: flex;
+    width: 100%;
+    height: 18vh;
+    background-color: black;
+}
+
+.parentLogoAndLinks {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    /* background-color: blue; */
+}
+
+.responsiveParentLogoAndLinks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+    width: 90%;
+    /* background-color: blue; */
+}
+
+.responsiveParentLogoAndLinks img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 10vh;
+}
+
+.parentLogoAndLinks img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 10vh;
+}
+
+.navbarLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.navbarLinks a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.drawerLinks {
+    font-weight: 600;
+    font-family: 'Dai Banna SIL', serif;
+    font-family: 'Varela Round', sans-serif;
+}

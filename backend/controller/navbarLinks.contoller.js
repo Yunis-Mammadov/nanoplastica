@@ -2,17 +2,24 @@ const navbarLinksModel = require("../models/navbarLinks.model")
 
 const navbarLinksController = {
     getAll: async (req, res) => {
-        const { name } = req.query
-        const navbarLinks = await navbarLinksModel.find()
-        if (name) {
-            res.status(200).send(navbarLinks)
-        } else {
-            const searchNavbarLinks = navbarLinks.filter((x) =>
-                x.name.toLowerCase().trim().includes(name.toLowerCase().trim())
-            )
-            res.status(200).send(searchNavbarLinks)
+        const { name } = req.query;
+    
+        try {
+          const navbarLinks = await navbarLinksModel.find();
+    
+          if (!name) {
+            res.status(200).send(navbarLinks);
+          } else {
+            const searchNavbarLinks = navbarLinks.filter(x =>
+              x.name && x.name.toLowerCase().trim().includes(name.toLowerCase().trim())
+            );
+            res.status(200).send(searchNavbarLinks);
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          res.status(500).send('An error occurred while fetching navbar links.');
         }
-    },
+      },
     getOne: async (req, res) => {
         const { id } = req.params
         const navbarLinks = await navbarLinksModel.findById(id)
