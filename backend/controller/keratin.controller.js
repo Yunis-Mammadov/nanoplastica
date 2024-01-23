@@ -4,13 +4,13 @@ const keratinController = {
     getAll: async (req, res) => {
         const { name } = req.query
         const keratin = await keratinModel.find()
-        if (name) {
-            res.status(200).send(keratin)
-        } else {
+        if (name !== undefined) {
             const searchKeratin = keratin.filter((x) =>
                 x.name.toLowerCase().trim().includes(name.toLowerCase().trim())
-            )
-            res.status(200).send(searchKeratin)
+            );
+            res.status(200).send(searchKeratin);
+        } else {
+            res.status(200).send(keratin);
         }
     },
     getOne: async (req, res) => {
@@ -26,7 +26,7 @@ const keratinController = {
         })
     },
     post: async (req, res) => {
-        const { name, brand, price, productImgUrl, postImgUrl, description, productDetails } = req.body
+        const { name, brand, price, productImgUrl, postImgUrl, description, productDetails, bestSeller, filterName, filterInput } = req.body
         const newKeratin = new keratinModel({
             name: name,
             brand: brand,
@@ -34,7 +34,10 @@ const keratinController = {
             productImgUrl: productImgUrl,
             postImgUrl: postImgUrl,
             description: description,
-            productDetails: productDetails
+            productDetails: productDetails,
+            bestSeller: bestSeller,
+            filterName: filterName,
+            filterInput: filterInput
         })
         await newKeratin.save()
         res.status(201).send({
@@ -44,7 +47,7 @@ const keratinController = {
     },
     edit: async (req, res) => {
         const id = req.params.id
-        const { name, brand, price, productImgUrl, postImgUrl, description, productDetails } = req.body
+        const { name, brand, price, productImgUrl, postImgUrl, description, productDetails, filterName, filterInput } = req.body
         const updatingKeratin = {
             name: name,
             brand: brand,
@@ -52,7 +55,9 @@ const keratinController = {
             productImgUrl: productImgUrl,
             postImgUrl: postImgUrl,
             description: description,
-            productDetails: productDetails
+            productDetails: productDetails,
+            filterName: filterName, 
+            filterInput: filterInput
         }
         const keratin = await keratinModel.findByIdAndUpdate(id, updatingKeratin)
         res.status(200).send({

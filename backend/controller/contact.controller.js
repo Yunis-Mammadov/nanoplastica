@@ -4,12 +4,13 @@ const contactController = {
     getAll: async (req, res) => {
         const { name } = req.query
         const contact = await contactModel.find()
-        if (name) {
-            res.status(200).send(contact)
-        } else {
-            const searchcontact = contact.filter((x) =>
+        if (name !== undefined) { 
+            const searchContact = contact.filter((x) =>
                 x.name.toLowerCase().trim().includes(name.toLowerCase().trim())
             )
+            res.status(200).send(searchContact)
+        } else {
+            res.status(200).send(contact)
         }
     },
     getOne: async (req, res) => {
@@ -28,7 +29,7 @@ const contactController = {
         const { location, number1, number2 } = req.body
         const newContact = new contactModel({
             location: location,
-            number1: number1, 
+            number1: number1,
             number2: number2
         })
         await newContact.save()
@@ -42,7 +43,7 @@ const contactController = {
         const { location, number1, number2 } = req.body
         const updatingContact = {
             location: location,
-            number1: number1, 
+            number1: number1,
             number2: number2
         }
         const contact = await contactModel.findByIdAndUpdate(id, updatingContact)

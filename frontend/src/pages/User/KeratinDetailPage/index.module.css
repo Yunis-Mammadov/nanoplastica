@@ -1,0 +1,112 @@
+.parentDetailKeratin{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;    
+}
+
+
+.mobileParentDetailKeratin{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.parentProductImg{
+    width: 40%;
+    margin: 40px 0;
+    border: 1px solid rgb(148, 136, 136);
+}
+
+.parentProductImg img{
+    width: 100%;
+}
+
+.mobileParentProductImg{
+    width: 70%;
+    margin: 40px 0;
+    border: 1px solid black;
+}
+
+.mobileParentProductImg img{
+    width: 100%;
+}
+
+.keratinDetailInfo{
+    width: 35%;
+    height: 96vh;
+}
+
+.mobileKeratinDetailInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.firstDetail{
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    gap: 15px; 
+    font-size: 17px;
+}
+
+.mobileFirstDetail{
+    /* background-color: aqua; */
+    width: 80%;
+}
+
+.productDetails{
+    letter-spacing: 1px;
+}
+
+.inputParent{
+    margin: 26px;
+}
+
+.mobileInputParent{
+    margin: 20px;
+}
+
+.mobileInputParent input{
+    margin-top: 10px;
+    width: 50px;
+    height: 7vh;
+    text-indent: 10px;
+    font-size: 17px;
+}
+
+.inputParent input{
+    margin-top: 10px;
+    width: 80px;
+    height: 7vh;
+    text-indent: 10px;
+    font-size: 17px;
+}
+
+.detailWhislistButton{
+    margin-top: 10px;
+    width: 200px;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid black;
+    transition: 0.4s ease;
+}
+
+.detailWhislistButton:hover{
+    background-color: rgb(216, 153, 16);
+    cursor: pointer;
+}
+
+.detailWhislistButton:hover p{
+    color: white;
+}
+
+
+
+
+

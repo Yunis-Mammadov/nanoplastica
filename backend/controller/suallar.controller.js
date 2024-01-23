@@ -4,12 +4,13 @@ const suallarController = {
     getAll: async (req, res) => {
         const { name } = req.query
         const suallar = await suallarModel.find()
-        if (name) {
-            res.status(200).send(suallar)
-        } else {
+        if (name !== undefined) {
             const searchSuallar = suallar.filter((x) =>
                 x.name.toLowerCase().trim().includes(name.toLowerCase().trim())
             )
+            res.status(200).send(searchSuallar)
+        } else {
+            res.status(200).send(suallar)
         }
     },
     getOne: async (req, res) => {
@@ -21,31 +22,31 @@ const suallarController = {
         const id = req.params.id
         const suallar = await suallarModel.findByIdAndDelete(id)
         res.status(203).send({
-            message: `${suallar.question} deleted successfully!`
+            message: `${suallar.location} deleted successfully!`
         })
     },
     post: async (req, res) => {
-        const { question, answer } = req.body
+        const { sual, cavab } = req.body
         const newSuallar = new suallarModel({
-            question: question,
-            answer: answer
+            sual: sual,
+            cavab: cavab
         })
         await newSuallar.save()
         res.status(201).send({
-            message: `${newSuallar.question} posted successfully!`,
+            message: `${newSuallar.location} posted successfully!`,
             suallar: newSuallar
         })
     },
     edit: async (req, res) => {
         const id = req.params.id
+        const { sual, cavab } = req.body
         const updatingSuallar = {
-            name: name,
-            link: link,
-            icon: icon
+            sual: sual,
+            cavab: cavab
         }
         const suallar = await suallarModel.findByIdAndUpdate(id, updatingSuallar)
         res.status(200).send({
-            message: `${suallar.name} updated successfully!`
+            message: `${suallar.location} updated successfully!`
         })
     }
 }

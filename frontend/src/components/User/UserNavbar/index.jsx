@@ -1,155 +1,134 @@
-import MenuIcon from '@mui/icons-material/Menu';
+import ClearIcon from '@mui/icons-material/Clear';
+import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 import SearchIcon from '@mui/icons-material/Search';
-import { Drawer, IconButton, List, ListItem, ListItemText, useMediaQuery } from '@mui/material';
-import InputBase from '@mui/material/InputBase';
-import { alpha, styled } from '@mui/system';
 import React, { useEffect, useState } from 'react';
-import { getAllNavbarLinks } from '../../../api/request';
+import { Link } from 'react-router-dom';
+import { getAllKeratin } from '../../../api/request';
+import { useCart, useCartItemCount } from '../../../context/CartContext';
 import styles from './index.module.css';
 
-
-const UserNavbar = () => {
-    const isMobile = useMediaQuery((theme) => theme.breakpoints.down('lg'));
-    const [navbarLinks, setNavbarLinks] = useState([]);
-    const [mobileOpen, setMobileOpen] = useState(false);
-
-    const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
-    };
+const Navbar = () => {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [keratin, setKeratin] = useState([]);
+    const [searchResults, setSearchResults] = useState([]);
+    const cartItemCount = useCartItemCount();
+    const { addToCart, setCartItemCount } = useCart();
 
     useEffect(() => {
-        getAllNavbarLinks().then(data => {
-            setNavbarLinks(data);
+        getAllKeratin().then(data => {
+            setKeratin(data);
         });
     }, []);
 
+    const handleInputChange = (event) => {
+        const term = event.target.value;
+        setSearchTerm(term);
+
+        const handleAddToCart = (item) => {
+            addToCart(item);
+            setCartItemCount(cartItemCount + 1);
+        };
+
+        if (term.trim() !== '') {
+            const filteredResults = keratin.filter(item =>
+                item.name.toLowerCase().includes(term.toLowerCase())
+            );
+            setSearchResults(filteredResults);
+        } else {
+            setSearchResults([]);
+        }
+    };
+
+    const handleRemoveFromCart = (item) => {
+        setCartItemCount(cartItemCount - 1);
+    };
 
 
-    const Search = styled('div')(({ theme }) => ({
-        position: 'relative',
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: alpha(theme.palette.common.white, 0.15),
-        '&:hover': {
-            backgroundColor: alpha(theme.palette.common.white, 0.25),
-        },
-        marginLeft: 0,
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(1),
-            width: 'auto',
-        },
-    }));
+    const clearSearch = () => {
+        setSearchTerm('');
+        setSearchResults([]);
+    };
 
-    const SearchIconWrapper = styled('div')(({ theme }) => ({
-        padding: theme.spacing(0, 2),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    }));
+    const handleLinkClick = () => {
+        clearSearch();
+    };
 
-    const StyledInputBase = styled(InputBase)(({ theme }) => ({
-        color: 'inherit',
-        '& .MuiInputBase-input': {
-            padding: theme.spacing(1, 1, 1, 0),
-            paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-            transition: theme.transitions.create('width'),
-            width: '100%',
-            [theme.breakpoints.up('sm')]: {
-                width: '12ch',
-                '&:focus': {
-                    width: '20ch',
-                },
-            },
-        },
-    }));
+    const handleAddToCart = (item) => {
+        addToCart(item);
+    };
 
     return (
         <>
-            {!isMobile && (
-                < div className={styles.parentNavbar} >
-                    <div className={styles.parentLogoAndLinks}>
-                        <div className={styles.centerLogo}>
-                            <img src="./img/logo.jpg" alt="" className={styles.logoImage} />
+            <div className={styles.parentNavbar}>
+                <div className={styles.navbarLogo}>
+                    <Link to={``}>
+                        <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1704196009/NanoPlastica_1_qz64fz.jpg" alt="" />
+                    </Link>
+                </div>
+                <div className={styles.search}>
+                    <div className={styles.parentSeachIcon}>
+                        <SearchIcon className={styles.searchIcon} />
+                    </div>
+                    <input
+                        type="search"
+                        placeholder='Axtarış...'
+                        onChange={handleInputChange}
+                        value={searchTerm}
+                    />
+                    {searchTerm && (
+                        <div className={styles.clearIcon} onClick={clearSearch}>
+                            <ClearIcon />
                         </div>
-                        <div className={styles.navbarLinks}>
-                            {navbarLinks.map(item => (
-                                <a key={item.label} href={item.path}>
-                                    {item.label}
-                                </a>
-                            ))}
-                        </div>
-                        <div>
-                            <Search>
-                                <SearchIconWrapper>
-                                    <SearchIcon />
-                                </SearchIconWrapper>
-                                <StyledInputBase
-                                    placeholder="Search…"
-                                    inputProps={{ 'aria-label': 'search' }}
-                                />
-                            </Search>
-                        </div>
+                    )}
+                </div>
+                <div style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "15px"
+                }}>
+                    <div>
+                        <a style={{ color: "white", textDecoration: "none", fontSize: "18px" }} href="contact">Əlaqə</a>
+                    </div>
+                    <div className={styles.basketAndSignIn}>
+                        <Link style={{ textDecoration: "none" }} to="/basket">
+                            <LocalGroceryStoreIcon sx={{ fontSize: '28px', color: 'white' }} />
+                            {cartItemCount > 0 && (
+                                <span className={styles.cartItemCount}>{cartItemCount}</span>
+                            )}
+                        </Link>
                     </div>
                 </div>
-            )}
-            {isMobile && (
-                <div className={styles.responsiveParentNavbar}>
-                    <div className={styles.responsiveParentLogoAndLinks}>
-                        <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
-                            edge="start"
-                            onClick={handleDrawerToggle}
+            </div>
+            <div className={styles.toolbar}>
+                <div className={styles.parentNavbarLinks}>
+                    <a className={styles.navbarLinks} href="home">Ev</a>
+                    <a className={styles.navbarLinks} href="keratin">Keratin</a>
+                    <a className={styles.navbarLinks} href="sacqulluq">Saç Qulluq</a>
+                    <a className={styles.navbarLinks} href="utuler">Ütülər</a>
+                    <a className={styles.navbarLinks} href="fenler">Fenlər</a>
+                    <a className={styles.navbarLinks} href="about">Haqqımızda</a>
+                </div>
+            </div>
+            {searchResults.length > 0 && (
+                <div className={styles.searchResults}>
+                    {searchResults.map(item => (
+                        <Link
+                            to={`/keratin/${item._id}`}
+                            key={item.id}
+                            className={styles.resultItem}
+                            onClick={handleLinkClick}
                         >
-                            <MenuIcon sx={{ color: "white" }} />
-                        </IconButton>
-                        <div className={styles.centerLogo}>
-                            <img src="./img/logo.jpg" alt="" className={styles.logoImage} />
-                        </div>
-                        <div>
-                            <Search>
-                                <SearchIconWrapper>
-                                    <SearchIcon />
-                                </SearchIconWrapper>
-                                <StyledInputBase
-                                    placeholder="Search…"
-                                    inputProps={{ 'aria-label': 'search' }}
-                                />
-                            </Search>
-                        </div>
-                    </div>
+                            <div onClick={() => handleAddToCart(item)}>
+                                <img src={item.productImgUrl} alt={item.name} />
+                                <p style={{ textAlign: "center" }}>{item.name}</p>
+                            </div>
+                        </Link>
+                    ))}
                 </div>
-            )}
-            {isMobile && (
-                <Drawer
-                    anchor="left"
-                    open={mobileOpen}
-                    onClose={handleDrawerToggle}
-                    PaperProps={{
-                        sx: {
-                            width: "240px",
-                            backgroundColor: "black"
-                        },
-                    }}
-                >
-                    <List>
-                        {navbarLinks.map(item => (
-                            <ListItem sx={{
-                                color: "white",
-                                marginLeft:"30px",
-                                paddingTop:"20px"
-                            }}  key={item.label}  button component="a" href={item.path}>
-                                <ListItemText primary={item.label} />
-                            </ListItem>
-                        ))}
-                    </List>
-                </Drawer>
             )}
         </>
-    )
-}
+    );
+};
 
-export default UserNavbar
+export default Navbar;

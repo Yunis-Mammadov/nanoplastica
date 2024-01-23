@@ -1,0 +1,11 @@
+.parentSuallar{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin-top: 100px;
+}
+
+.sualAccordion{
+    min-width: 700px;
+}

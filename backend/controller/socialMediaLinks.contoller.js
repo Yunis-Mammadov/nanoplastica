@@ -1,17 +1,10 @@
-const socialMediaLinksModel = require("../models/socialMediaLinks.model")
+const socialMediaLinksModel = require("../models/socialMediaLinks.model");
 
 const socialMediaLinksController = {
     getAll: async (req, res) => {
-        const { name } = req.query
-        const socialMediaLinks = await socialMediaLinksModel.find()
-        if (name) {
-            res.status(200).send(socialMediaLinks)
-        } else {
-            const searchSocialMediaLinks = socialMediaLinks.filter((x) => 
-                x.name.toLowerCase().trim().includes(name.toLowerCase().trim())
-            )
-            res.status(200).send(searchSocialMediaLinks)
-        }
+        const { name } = req.query;
+        const socialMediaLinks = await socialMediaLinksModel.find();
+        res.status(200).send(socialMediaLinks);
     },
     getOne: async (req, res) => {
         const { id } = req.params
@@ -26,9 +19,10 @@ const socialMediaLinksController = {
         })
     },
     post: async (req, res) => {
-        const { name, link, icon } = req.body
+        const { name, platform, link, icon } = req.body
         const newSocialMediaLinks = new socialMediaLinksModel({
             name: name,
+            platform: platform,
             link: link,
             icon: icon
         })
@@ -40,9 +34,10 @@ const socialMediaLinksController = {
     },
     edit: async (req, res) => {
         const id = req.params.id
-        const { name, link, icon } = req.body
+        const { name, platform, link, icon } = req.body
         const updatingSocialMediaLinks = {
             name: name,
+            platform: platform,
             link: link,
             icon: icon
         }
@@ -54,4 +49,4 @@ const socialMediaLinksController = {
 }
 
 
-module.exports = socialMediaLinksController
+module.exports = socialMediaLinksController;

@@ -1,8 +1,8 @@
 const Joi = require("joi")
 
 const suallarPostSchema = Joi.object({
-    question: Joi.string().required,
-    answer: Joi.string().required,
+    sual: Joi.string().required(),
+    cavab: Joi.string().required(),
 })
 
 

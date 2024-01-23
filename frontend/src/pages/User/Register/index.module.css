@@ -1,0 +1,247 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 2000px) {
+    .parentRegister {
+        background-image: url("https://my.account.sony.com/central/signin/9fe91826ca150e7fa133749535fa2ed86e5c1b70/assets/images/wallpaper.jpg");
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .formRegister {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        background-color: white;
+        height: 70vh;
+    }
+
+    .RegisterInput {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+
+    .RegisterInput input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 300px;
+        height: 5vh;
+        padding: 10px;
+    }
+
+    .RegisterInput select {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 300px;
+        height: 5vh;
+        padding: 10px 8px;
+
+    }
+
+    .RegisterLabel {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 15px;
+    }
+
+    .RegisterButtons {
+        padding-bottom: 40px;
+    }
+
+    .Register {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+    }
+
+    .RegisterButton {
+        width: 100px;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        font-size: 15px;
+        background-color: rgb(25, 118, 210);
+        color: white;
+        cursor: pointer
+    }
+
+    .disabledButton {
+        opacity: 0.5;
+    }
+
+    .RegisterLink {
+        color: rgb(115, 115, 115);
+        padding-left: 5px;
+    }
+
+    .RegisterLink:hover {
+        cursor: pointer;
+        color: rgb(25, 118, 210);
+    }
+
+    .logoContainer {
+        position: relative;
+    }
+
+    .closeIcon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 27px;
+        color: rgb(158, 153, 153);
+        transition: 0.5s;
+    }
+
+    .closeIcon:hover {
+        cursor: pointer;
+        color: rgb(114, 111, 111);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .parentRegister {
+        background-image: url("https://my.account.sony.com/central/signin/9fe91826ca150e7fa133749535fa2ed86e5c1b70/assets/images/wallpaper.jpg");
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .formRegister {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        background-color: white;
+        height: 65vh;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .parentRegister {
+        background-image: url("https://my.account.sony.com/central/signin/9fe91826ca150e7fa133749535fa2ed86e5c1b70/assets/images/wallpaper.jpg");
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .formRegister {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        background-color: white;
+        height: 65vh;
+        width: 300px
+    }
+
+    .RegisterInput {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .RegisterInput input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 230px;
+        height: 5vh;
+        padding: 5px;
+    }
+    .RegisterInput select {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 300px;
+        height: 5vh;
+        padding: 10px 8px;
+    }
+    
+    .RegisterLabel {
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 5px;
+    }
+    
+    .RegisterButtons {
+        padding-bottom: 40px;
+    }
+    
+    .Register {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 10px;
+    }
+    
+    .RegisterButton {
+        width: 100px;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        font-size: 15px;
+        background-color: rgb(25, 118, 210);
+        color: white;
+        cursor: pointer
+    }
+    
+    .disabledButton {
+        opacity: 0.5;
+    }
+    
+    .RegisterLink {
+        color: rgb(115, 115, 115);
+        padding-left: 5px;
+    }
+    
+    .RegisterLink:hover {
+        cursor: pointer;
+        color: rgb(25, 118, 210);
+    }
+    
+    .logoContainer {
+        position: relative;
+    }
+    
+    .closeIcon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 27px;
+        color: rgb(158, 153, 153);
+        transition: 0.5s;
+    }
+    
+    .closeIcon:hover {
+        cursor: pointer;
+        color: rgb(114, 111, 111);
+    }
+}

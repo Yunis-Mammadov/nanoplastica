@@ -1,74 +1,164 @@
-* {
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Dai Banna SIL', serif;
-    font-family: 'Varela Round', sans-serif;
 }
 
 .parentNavbar {
-    display: flex;
-    width: 100%;
-    height: 18vh;
     background-color: black;
-}
-
-.responsiveParentNavbar {
-    display: flex;
-    width: 100%;
-    height: 18vh;
-    background-color: black;
-}
-
-.parentLogoAndLinks {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    height: 21vh;
+    gap: 200px;
+}
+
+.toolbar{
+    background-color: black;
+    /* width: 100%; */
+    height: 10vh;
+}
+
+.navbarLogo {
+    width: 10%;
+    height: 20vh;
+    background-color: red;
+}
+
+.navbarLogo img {
     width: 100%;
-    /* background-color: blue; */
+    height: 100%;
 }
 
-.responsiveParentLogoAndLinks {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 10px;
-    width: 90%;
-    /* background-color: blue; */
-}
-
-.responsiveParentLogoAndLinks img {
+.basketAndSignIn {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 160px;
-    height: 10vh;
+    gap: 20px;
 }
 
-.parentLogoAndLinks img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 160px;
-    height: 10vh;
+.signIn {
+    font-size: 17px;
 }
 
-.navbarLinks {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-}
-
-.navbarLinks a {
-    text-decoration: none;
+.search {
     color: white;
-    font-weight: 600;
-    font-size: 1rem;
+    background-color: white;
+    width: 40%;
+    height: 35%;
+    display: flex;
 }
 
-.drawerLinks {
-    font-weight: 600;
-    font-family: 'Dai Banna SIL', serif;
-    font-family: 'Varela Round', sans-serif;
+.parentSeachIcon {
+    width: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.searchIcon {
+    color: black;
+    width: 100%;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.search input[type="search"] {
+    -webkit-search-cancel-button: none;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+input[type="search"]::placeholder {
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+input[type="search"]:focus::placeholder {
+    opacity: 0;
+}
+
+.searchResults {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.resultItem img {
+    width: 100%;
+    max-height: 300px;
+}
+
+.resultItem p {
+    margin-bottom: 10px;
+}
+
+.clearIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: red;
+}
+
+.searchButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+}
+
+.searchButton button {
+    width: 45px;
+    height: 100%;
+    background-color: white;
+}
+
+
+.signIn {
+    color: white;
+}
+
+.navbarBasket {
+    color: white;
+}
+
+.cartItemCount {
+    position: relative;
+    top: -15px;
+    background-color: orange;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 10px;
+    font-size: 12px;
+    min-width: 2    0px;
+    text-align: center;
+}
+
+.navbarLinks{
+    margin-left: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 19px;
+}
+
+.parentNavbarLinks{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 5vh;
+    gap: 20px;
+    padding-left: 40px;
 }

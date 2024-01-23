@@ -1,7 +1,7 @@
 const express = require("express")
 const suallar_router = express.Router()
 const suallarController = require("../controller/suallar.controller")
-const suallarPostMiddleware = require("../middleware/suallarPostSchema.middleware")
+const suallarPostMiddleware = require("../middleware/suallar.middleware")
 
 
 suallar_router.get("/", suallarController.getAll)

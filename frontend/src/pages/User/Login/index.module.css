@@ -1,0 +1,202 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 2000px) {
+
+    .parentLogin {
+        background-image: url("https://my.account.sony.com/central/signin/9fe91826ca150e7fa133749535fa2ed86e5c1b70/assets/images/wallpaper.jpg");
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-size: cover;
+    }
+
+    .formLogin {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        background-color: white;
+        height: 50vh;
+    }
+
+
+    .loginInput {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .loginInput input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 300px;
+        height: 5vh;
+        padding: 10px;
+    }
+
+    .loginLabel {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 10px;
+    }
+
+    .loginButtons {
+        padding-bottom: 20px;
+    }
+
+    .signIn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+    }
+
+    .signInButton {
+        width: 100px;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        font-size: 15px;
+        background-color: rgb(25, 118, 210);
+        color: white;
+        cursor: pointer
+    }
+
+    .disabledButton {
+        opacity: 0.5;
+    }
+
+    .loginRemove {
+        color: rgb(158, 153, 153);
+    }
+
+    .logoContainer {
+        position: relative;
+    }
+
+    .closeIcon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 27px;
+        color: rgb(158, 153, 153);
+        transition: 0.5s;
+    }
+
+    .closeIcon:hover {
+        cursor: pointer;
+        color: rgb(114, 111, 111);
+    }
+    .loginToRegister{
+        padding: 10px 25px;
+    }
+}
+
+
+@media screen and (max-width: 576px) {
+    .parentLogin {
+        background-image: url("https://my.account.sony.com/central/signin/9fe91826ca150e7fa133749535fa2ed86e5c1b70/assets/images/wallpaper.jpg");
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .formLogin {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        background-color: white;
+        height: 50vh;
+        width: 350px;
+    }
+
+    .loginInput {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .loginInput input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 250px;
+        height: 5vh;
+        padding: 10px;
+    }
+
+    .loginLabel {
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 10px;
+    }
+
+    .loginButtons {
+        padding-bottom: 20px;
+    }
+
+    .signIn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+    }
+
+    .signInButton {
+        width: 100px;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        font-size: 15px;
+        background-color: rgb(25, 118, 210);
+        color: white;
+        cursor: pointer
+    }
+
+    .disabledButton {
+        opacity: 0.5;
+    }
+
+    .loginRemove {
+        color: rgb(158, 153, 153);
+    }
+
+    .logoContainer {
+        position: relative;
+    }
+
+    .closeIcon {
+        position: absolute;
+        top: 10px;
+        right: 30px;
+        font-size: 27px;
+        color: rgb(158, 153, 153);
+        transition: 0.5s;
+    }
+
+    .closeIcon:hover {
+        cursor: pointer;
+        color: rgb(114, 111, 111);
+    }
+    .loginToRegister{
+        padding: 10px 8px;
+    }
+}

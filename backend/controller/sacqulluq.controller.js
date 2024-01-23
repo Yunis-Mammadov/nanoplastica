@@ -2,14 +2,16 @@ const sacqulluqModel = require("../models/sacqulluq.model")
 
 const sacqulluqController = {
     getAll: async (req, res) => {
-        const { name } = req.query
-        const sacqulluq = await sacqulluqModel.find()
+        const { name } = req.query;
+        const sacqulluq = await sacqulluqModel.find();
+
         if (name) {
-            res.status(200).send(sacqulluq)
-        } else {
             const searchSacqulluq = sacqulluq.filter((x) =>
                 x.name.toLowerCase().trim().includes(name.toLowerCase().trim())
-            )
+            );
+            res.status(200).send(searchSacqulluq);
+        } else {
+            res.status(200).send(sacqulluq);
         }
     },
     getOne: async (req, res) => {
@@ -25,10 +27,11 @@ const sacqulluqController = {
         })
     },
     post: async (req, res) => {
-        const { name, brand, price, productImgUrl, postImgUrl, description, productDetails } = req.body
+        const { name, brand, type, price, productImgUrl, postImgUrl, description, productDetails } = req.body
         const newSacqulluq = new sacqulluqModel({
             name: name,
             brand: brand,
+            type: type,
             price: price,
             productImgUrl: productImgUrl,
             postImgUrl: postImgUrl,
@@ -43,10 +46,11 @@ const sacqulluqController = {
     },
     edit: async (req, res) => {
         const id = req.params.id
-        const { name, brand, price, productImgUrl, postImgUrl, description, productDetails } = req.body
+        const { name, brand, type, price, productImgUrl, postImgUrl, description, productDetails } = req.body
         const updatingSacqulluq = {
             name: name,
             brand: brand,
+            type: type,
             price: price,
             productImgUrl: productImgUrl,
             postImgUrl: postImgUrl,

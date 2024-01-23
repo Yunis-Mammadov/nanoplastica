@@ -1,0 +1,12 @@
+.countdown{
+    display: flex;
+    gap: 20px;
+}
+
+.countdownText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
