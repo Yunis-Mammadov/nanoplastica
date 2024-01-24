@@ -1,17 +1,16 @@
-import Button from '@mui/material/Button';
 import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 import { getAllKeratin } from '../../../api/request';
+import { useCart } from '../../../context/CartContext';
+import Carousel from './Carousel';
 import Countdown from './Countdown';
+import CoxSatan from './CoxSatan';
 import FirstCommercial from './FirstCommercial';
 import HomeSetler from './HomeSetler';
 import Slider from './Slider';
+import Videos from './Videos';
 import WhyUs from './WhyUs';
 import styles from './index.module.css';
-import Swal from 'sweetalert2';
-import { useCart } from '../../../context/CartContext';
-import CoxSatan from './CoxSatan';
-import Carousel from './Carousel';
-import Videos from './Videos';
 
 
 const Home = () => {
@@ -28,8 +27,8 @@ const Home = () => {
 
 
   const images = [
-    "https://i.pinimg.com/originals/84/b2/d2/84b2d2bb17e1fedd394c37d6d2a38e19.png",
-    "https://wallpapercave.com/wp/wp3788129.jpg",
+    "https://cdn11.bigcommerce.com/s-qaf2yg6x1o/images/stencil/1920w/carousel/132/Nioxidin.jpg?c=1",
+    "https://cdn11.bigcommerce.com/s-qaf2yg6x1o/images/stencil/1920w/carousel/131/health-hair.jpg?c=1"
   ];
 
   const handleAddToCart = () => {
@@ -53,16 +52,19 @@ const Home = () => {
 
   return (
     <div className={styles.parentHome}>
-      {/* <div className={styles.topContent}>
-        <div className={styles.navbarLinks}>
+        <div className={styles.sliderContainer}>
+          <Slider images={images} />
+        </div>
+      <div className={styles.topContent}>
+        {/* <div className={styles.navbarLinks}>
           <a href="/keratin">Keratin</a>
           <a href="/sacqulluq">Saç Qulluq Vasitələri</a>
           <a href="/fenler">Fenlər</a>
           <a href="/utuler">Ütülər</a>
           <a href="/setler">Setlər</a>
-        </div>
-        <div className={styles.sliderContainer}>
-          <Slider images={images} />
+        </div> */}
+        <div>
+          <HomeSetler />
         </div>
         <div className={styles.weeklyChat}>
           <h2>
@@ -82,9 +84,9 @@ const Home = () => {
             <p onClick={handleAddToCart}>Səbətə Əlavə Et</p>
           </div>
         </div>
-      </div> */}
+      </div>
       <div>
-        <HomeSetler />
+        {/* <HomeSetler /> */}
         <div>
           <FirstCommercial />
         </div>

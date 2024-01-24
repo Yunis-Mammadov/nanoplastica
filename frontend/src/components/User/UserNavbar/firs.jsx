@@ -87,88 +87,90 @@ const Navbar = () => {
   if (isExtraLarge) {
     return (
       <>
-        <div className={styles.parentNavbar}>
-          <div className={styles.toolbar}>
-            <div className={styles.parentLogo}>
-              <img className={styles.logoImg} src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1704196009/NanoPlastica_1_qz64fz.jpg" alt="" />
-            </div>
-            <List className={styles.parentMainLinks}>
-              {navItems.map((item) => (
-                <ListItem
-                  component={Link}
-                  key={item.label}
-                  to={`/${item.path}`}
-                  disablePadding
-                >
-                  <p className={styles.links}>{item.label}</p>
-                </ListItem>
-              ))}
-            </List>
-            <div className={styles.searchAndBasket}>
-              <div className={styles.search}>
-                <div className={styles.parentSeachIcon}>
-                  <SearchIcon className={styles.searchIcon} />
-                </div>
-                <div>
-
-                  <input
-                    type="search"
-                    placeholder='Axtarış...'
-                    onChange={handleInputChange}  
-                    value={searchTerm}
-                  />
-                </div>
-                {searchTerm && (
-                  <div className={styles.clearIcon} onClick={clearSearch}>
-                    <ClearIcon />
-                  </div>
-                )}
+        <div className={styles.navbarata}>
+          <div className={styles.parentNavbar}>
+            <div className={styles.toolbar}>
+              <div className={styles.parentLogo}>
+                <img className={styles.logoImg} src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1704196009/NanoPlastica_1_qz64fz.jpg" alt="" />
               </div>
-              <Link to="/basket">
-                <LocalGroceryStoreIcon sx={{ fontSize: "28px", color: "white" }} />
-                {cartItemCount > 0 && <span className={styles.cartItemCount}>{cartItemCount}</span>}
-              </Link>
-            </div>
-          </div>
-          <Drawer
-            anchor="left"
-            open={drawerOpen}
-            backgroundColor={"red"}
-            onClose={toggleDrawer}
-            PaperProps={{ style: { backgroundColor: 'black  ', width: "250px" } }}
-          >
-            <List className={styles.drawerMainLinks}>
-              {navItems.map((item) => (
-                <ListItem
-                  component={Link}
-                  key={item.label}
-                  to={`/${item.path}`}
-                  disablePadding
-                  onClick={closeDrawer}
-                >
-                  <p className={styles.drawerLinks}>{item.label}</p>
-                </ListItem>
-              ))}
-            </List>
-          </Drawer>
-        </div>
-        {searchResults.length > 0 && (
-          <div className={styles.searchResults}>
-            {searchResults.map(item => (
-              <Link
-                to={`/keratin/${item._id}`}
-                key={item.id}
-                className={styles.resultItem}
-                onClick={handleLinkClick}
-              >
-                <div onClick={() => handleAddToCart(item)}>
-                  <img src={item.productImgUrl} alt={item.name} />
-                  <p style={{ textAlign: "center" }}>{item.name}</p>
+              <List className={styles.parentMainLinks}>
+                {navItems.map((item) => (
+                  <ListItem
+                    component={Link}
+                    key={item.label}
+                    to={`/${item.path}`}
+                    disablePadding
+                  >
+                    <p className={styles.links}>{item.label}</p>
+                  </ListItem>
+                ))}
+              </List>
+              <div className={styles.searchAndBasket}>
+                <div className={styles.search}>
+                  <div className={styles.parentSeachIcon}>
+                    <SearchIcon className={styles.searchIcon} />
+                  </div>
+                  <div>
+
+                    <input
+                      type="search"
+                      placeholder='Axtarış...'
+                      onChange={handleInputChange}
+                      value={searchTerm}
+                    />
+                  </div>
+                  {searchTerm && (
+                    <div className={styles.clearIcon} onClick={clearSearch}>
+                      <ClearIcon />
+                    </div>
+                  )}
                 </div>
-              </Link>
-            ))}
+                <Link to="/basket">
+                  <LocalGroceryStoreIcon sx={{ fontSize: "28px", color: "white" }} />
+                  {cartItemCount > 0 && <span className={styles.cartItemCount}>{cartItemCount}</span>}
+                </Link>
+              </div>
+            </div>
+            <Drawer
+              anchor="left"
+              open={drawerOpen}
+              backgroundColor={"red"}
+              onClose={toggleDrawer}
+              PaperProps={{ style: { backgroundColor: 'black  ', width: "250px" } }}
+            >
+              <List className={styles.drawerMainLinks}>
+                {navItems.map((item) => (
+                  <ListItem
+                    component={Link}
+                    key={item.label}
+                    to={`/${item.path}`}
+                    disablePadding
+                    onClick={closeDrawer}
+                  >
+                    <p className={styles.drawerLinks}>{item.label}</p>
+                  </ListItem>
+                ))}
+              </List>
+            </Drawer>
           </div>
-        )}
+          {searchResults.length > 0 && (
+            <div className={styles.searchResults}>
+              {searchResults.map(item => (
+                <Link
+                  to={`/keratin/${item._id}`}
+                  key={item.id}
+                  className={styles.resultItem}
+                  onClick={handleLinkClick}
+                >
+                  <div onClick={() => handleAddToCart(item)}>
+                    <img src={item.productImgUrl} alt={item.name} />
+                    <p style={{ textAlign: "center" }}>{item.name}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
       </>
     );
   }
@@ -176,69 +178,71 @@ const Navbar = () => {
   if (isLarge && !isExtraLarge) {
     return (
       <>
-        <div className={styles.parentNavbar}>
-          <div className={styles.toolbar}>
-            <div style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center"
-            }}>
-              <div>
-                <IconButton sx={{ color: "white" }} onClick={toggleDrawer}>
-                  <MenuIcon />
-                </IconButton>
-              </div>
-              <div>
-                <Modal />
-              </div>
-            </div>
-            <div className={styles.parentIsLargeLogo}>
-              <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1704196009/NanoPlastica_1_qz64fz.jpg" alt="" />
-            </div>
-            <div className={styles.searchAndBasket}>
-              <div className={styles.search}>
-                <div className={styles.parentSeachIcon}>
-                  <SearchIcon className={styles.searchIcon} />
+        <div className={styles.navbarata}>  
+          <div className={styles.parentNavbar}>
+            <div className={styles.toolbar}>
+              <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}>
+                <div>
+                  <IconButton sx={{ color: "white" }} onClick={toggleDrawer}>
+                    <MenuIcon />
+                  </IconButton>
                 </div>
-                <input
-                  type="search"
-                  placeholder='Axtarış...'
-                  onChange={handleInputChange}
-                  value={searchTerm}
-                />
-                {searchTerm && (
-                  <div className={styles.clearIcon} onClick={clearSearch}>
-                    <ClearIcon />
-                  </div>
-                )}
+                <div>
+                  <Modal />
+                </div>
               </div>
-              <Link to="/basket">
-                <LocalGroceryStoreIcon sx={{ fontSize: "28px", color: "white" }} />
-                {cartItemCount > 0 && <span className={styles.cartItemCount}>{cartItemCount}</span>}
-              </Link>
+              <div className={styles.parentIsLargeLogo}>
+                <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1704196009/NanoPlastica_1_qz64fz.jpg" alt="" />
+              </div>
+              <div className={styles.searchAndBasket}>
+                <div className={styles.search}>
+                  <div className={styles.parentSeachIcon}>
+                    <SearchIcon className={styles.searchIcon} />
+                  </div>
+                  <input
+                    type="search"
+                    placeholder='Axtarış...'
+                    onChange={handleInputChange}
+                    value={searchTerm}
+                  />
+                  {searchTerm && (
+                    <div className={styles.clearIcon} onClick={clearSearch}>
+                      <ClearIcon />
+                    </div>
+                  )}
+                </div>
+                <Link to="/basket">
+                  <LocalGroceryStoreIcon sx={{ fontSize: "28px", color: "white" }} />
+                  {cartItemCount > 0 && <span className={styles.cartItemCount}>{cartItemCount}</span>}
+                </Link>
+              </div>
             </div>
+            <Drawer
+              anchor="left"
+              open={drawerOpen}
+              backgroundColor={"red"}
+              onClose={toggleDrawer}
+              PaperProps={{ style: { backgroundColor: 'black  ', width: "250px" } }}
+            >
+              <List className={styles.drawerMainLinks}>
+                {navItems.map((item) => (
+                  <ListItem
+                    component={Link}
+                    key={item.label}
+                    to={`/${item.path}`}
+                    disablePadding
+                    onClick={closeDrawer}
+                  >
+                    <p className={styles.drawerLinks}>{item.label}</p>
+                  </ListItem>
+                ))}
+              </List>
+            </Drawer>
           </div>
-          <Drawer
-            anchor="left"
-            open={drawerOpen}
-            backgroundColor={"red"}
-            onClose={toggleDrawer}
-            PaperProps={{ style: { backgroundColor: 'black  ', width: "250px" } }}
-          >
-            <List className={styles.drawerMainLinks}>
-              {navItems.map((item) => (
-                <ListItem
-                  component={Link}
-                  key={item.label}
-                  to={`/${item.path}`}
-                  disablePadding
-                  onClick={closeDrawer}
-                >
-                  <p className={styles.drawerLinks}>{item.label}</p>
-                </ListItem>
-              ))}
-            </List>
-          </Drawer>
         </div>
       </>
     );

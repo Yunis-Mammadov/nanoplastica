@@ -17,8 +17,8 @@ const Slider = ({ images }) => {
     <div
       style={{
         position: 'relative',
-        width: '100%',
-        height: '100%',
+        width: '1920px',
+        height: '726px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -33,7 +33,6 @@ const Slider = ({ images }) => {
           style={{
             width: '100%',
             height: '100%',
-            objectFit: 'cover',
             transition: 'opacity 1s ease-in-out',
             opacity: index === currentIndex ? 1 : 0,
             position: 'absolute',

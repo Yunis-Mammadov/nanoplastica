@@ -7,7 +7,7 @@ const UserMainRoot = () => {
     return (
         <>
             <div>
-                <UserNavbar />
+                <UserNavbar sx={{width:"100%"}} />
             </div>
             <div>
                 <Outlet />

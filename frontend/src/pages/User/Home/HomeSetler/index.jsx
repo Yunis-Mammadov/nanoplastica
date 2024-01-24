@@ -1,8 +1,6 @@
-import { Grid, Typography } from '@mui/material';
-import React, { useState, useEffect } from 'react';
-import styles from './index.module.css';
+import React, { useEffect, useState } from 'react';
 import { getAllSetler } from '../../../../api/request';
-import { Link } from 'react-router-dom';
+import styles from './index.module.css';
 
 const Setler = () => {
 
@@ -19,24 +17,19 @@ const Setler = () => {
 
 
     return (
-        <div style={{marginTop:"100px"}}>
-            <h2 style={{textAlign:"center"}}>Setlər</h2>
+        <div style={{ marginTop: "100px" }}>
+            <a className={styles.linkSetler} href="/setler">
+                <h2 style={{ width: "100%", textAlign: "center" }}>Setlər</h2>
+            </a>
             <div className={styles.parentColumn2}>
-                <Grid container spacing={2} item margin={"30px auto"} xs={11}>
-                    {setler.length > 0 ? filteredItems.map((setlers) => (
-                        <Grid item xs={12} sm={6} md={4} key={setlers._id}>
-                            <Link style={{ textDecoration: "none" }} to={`/keratin/${setlers._id}`}>
-                                <div className={styles.card}>
-                                    <img className={styles.cardImg} src={setlers.productImgUrl} alt='' />
-                                    <h3 className={styles.keratinName}>{setlers.name}</h3>
-                                    <p style={{ fontSize: '14px', color: '#555' }}>{setlers.description}</p>
-                                </div>
-                            </Link>
-                        </Grid>
-                    )) : (
-                        <Typography>Məhsul Tapılmadı...</Typography>
-                    )}
-                </Grid>
+                <div className={styles.homeSetlerParent}>
+                    <div className={styles.card}>
+                        <img className={styles.cardImg} src="/SetImg/setrevive3.jpg" alt='' />
+                    </div>
+                    <div className={styles.card}>
+                        <img className={styles.cardImg} src="/SetImg/setrevive1.jpg" alt='' />
+                    </div>
+                </div>
             </div>
         </div>
     )

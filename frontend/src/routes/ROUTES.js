@@ -33,7 +33,7 @@ export const ROUTES = [
         element: <UserMainRoot />,
         children: [
             {
-                path: "/home",
+                path: "",
                 element: <Home />
             },
             {
