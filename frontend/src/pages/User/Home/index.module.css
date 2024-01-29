@@ -1,15 +1,13 @@
+.parentHome {
+    min-width: 100%;
+}
+
 .topContent {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 92%;
     margin: 0 auto;
-}
-
-.navbarLinks {
-    width: 20%;
-    height: 80vh;
-    background-color: red;
 }
 
 .sliderContainer {
@@ -32,13 +30,13 @@
     border: 1px solid black;
 }
 
-.weekImg{
+.weekImg {
     width: 100%;
     max-height: 300px;
     box-shadow: 0px 0px 2px 0px;
 }
 
-.detailWhislistButton{
+.detailWhislistButton {
     margin-top: 10px;
     width: 200px;
     height: 7vh;
@@ -50,11 +48,11 @@
     transition: 0.4s ease;
 }
 
-.detailWhislistButton:hover{
+.detailWhislistButton:hover {
     background-color: rgb(216, 153, 16);
     cursor: pointer;
 }
 
-.detailWhislistButton:hover p{
+.detailWhislistButton:hover p {
     color: white;
 }

@@ -1,6 +1,10 @@
 import ClearIcon from '@mui/icons-material/Clear';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
+import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import { useMediaQuery } from '@mui/material';
+import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllKeratin } from '../../../api/request';
@@ -9,9 +13,12 @@ import styles from './index.module.css';
 
 
 const Navbar = () => {
+    const isLarge = useMediaQuery('(min-width:1200px)');
+    const isMobile = useMediaQuery('(max-width:600px)');
     const [searchTerm, setSearchTerm] = useState('');
     const [keratin, setKeratin] = useState([]);
     const [searchResults, setSearchResults] = useState([]);
+    const [drawerOpen, setDrawerOpen] = useState(false);
     const cartItemCount = useCartItemCount();
     const { addToCart, setCartItemCount } = useCart();
 
@@ -40,10 +47,6 @@ const Navbar = () => {
         }
     };
 
-    const handleRemoveFromCart = (item) => {
-        setCartItemCount(cartItemCount - 1);
-    };
-
 
     const clearSearch = () => {
         setSearchTerm('');
@@ -58,10 +61,19 @@ const Navbar = () => {
         addToCart(item);
     };
 
+    const toggleDrawer = () => {
+        setDrawerOpen(!drawerOpen);
+    }
+
     return (
         <>
             <div className={styles.parentNavbar}>
                 <div className={styles.navbar}>
+                    {/* {isMobile && (
+                        <IconButton onClick={toggleDrawer} edge="start" color="white" aria-label="menu">
+                            <MenuIcon />
+                        </IconButton>
+                    )} */}
                     <div className={styles.navbarLogo}>
                         <Link to={``}>
                             <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1704196009/NanoPlastica_1_qz64fz.jpg" alt="" />
@@ -107,17 +119,30 @@ const Navbar = () => {
                         </div>
                     </div>
                 </div>
-
-                <div className={styles.toolbar}>
-                    <div className={styles.parentNavbarLinks}>
-                        <a className={styles.navbarLinks} href="/">Ev</a>
-                        <a className={styles.navbarLinks} href="keratin">Keratin</a>
-                        <a className={styles.navbarLinks} href="sacqulluq">Saç Qulluq</a>
-                        <a className={styles.navbarLinks} href="utuler">Ütülər</a>
-                        <a className={styles.navbarLinks} href="fenler">Fenlər</a>
-                        <a className={styles.navbarLinks} href="about">Haqqımızda</a>
-                    </div>  
-                </div>
+                {isLarge && (
+                    <div className={styles.toolbar}>
+                        <div className={styles.parentNavbarLinks}>
+                            <a className={styles.navbarLinks} href="/">Ev</a>
+                            <a className={styles.navbarLinks} href="keratin">Keratin</a>
+                            <a className={styles.navbarLinks} href="sacqulluq">Saç Qulluq</a>
+                            <a className={styles.navbarLinks} href="utuler">Ütülər</a>
+                            <a className={styles.navbarLinks} href="fenler">Fenlər</a>
+                            <a className={styles.navbarLinks} href="about">Haqqımızda</a>
+                        </div>
+                    </div>
+                )}
+                <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer}>
+                    <div className={styles.drawerContent}>
+                        <div className={styles.parentNavbarLinks}>
+                            <a className={styles.navbarLinks} href="/">Ev</a>
+                            <a className={styles.navbarLinks} href="keratin">Keratin</a>
+                            <a className={styles.navbarLinks} href="sacqulluq">Saç Qulluq</a>
+                            <a className={styles.navbarLinks} href="utuler">Ütülər</a>
+                            <a className={styles.navbarLinks} href="fenler">Fenlər</a>
+                            <a className={styles.navbarLinks} href="about">Haqqımızda</a>
+                        </div>
+                    </div>
+                </Drawer>
                 {searchResults.length > 0 && (
                     <div className={styles.searchResults}>
                         {searchResults.map(item => (
@@ -136,7 +161,6 @@ const Navbar = () => {
                     </div>
                 )}
             </div>
-
         </>
     );
 };

@@ -40,7 +40,7 @@ const Home = () => {
       quantity: quantity,
     };
 
-    addToCart(item); 
+    addToCart(item);
 
     Swal.fire({
       icon: 'success',
@@ -52,17 +52,10 @@ const Home = () => {
 
   return (
     <div className={styles.parentHome}>
-        <div className={styles.sliderContainer}>
-          <Slider images={images} />
-        </div>
+      <div className={styles.sliderContainer}>
+        <Slider images={images} />
+      </div>
       <div className={styles.topContent}>
-        {/* <div className={styles.navbarLinks}>
-          <a href="/keratin">Keratin</a>
-          <a href="/sacqulluq">Saç Qulluq Vasitələri</a>
-          <a href="/fenler">Fenlər</a>
-          <a href="/utuler">Ütülər</a>
-          <a href="/setler">Setlər</a>
-        </div> */}
         <div>
           <HomeSetler />
         </div>
@@ -86,7 +79,6 @@ const Home = () => {
         </div>
       </div>
       <div>
-        {/* <HomeSetler /> */}
         <div>
           <FirstCommercial />
         </div>
