@@ -1,0 +1,239 @@
+.parentNavbar {
+    background-color: black;
+    min-width: 800px;
+    min-height: 15vh;
+}
+
+.navbar {
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 25vh;
+    gap: 200px;
+    position: sticky;
+    z-index: 999;
+    top: -10px;
+    box-shadow: 0 -2px 20px 0px rgba(240, 228, 228, 0.5);
+    min-width: 100%;
+}
+
+.drawerContent {
+    color: white;
+}
+
+.navbarLogo {
+    max-width: 12%;
+    max-height: 18vh;
+}
+
+.navbarLogo img {
+    width: 100%;
+    height: 100%;
+}
+
+.basketAndSignIn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.signIn {
+    font-size: 17px;
+}
+
+.search {
+    color: white;
+    background-color: white;
+    width: 40%;
+    height: 25%;
+    display: flex;
+    border-radius: 20px;
+}
+
+.parentSeachIcon {
+    width: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchInput {
+    border-radius: 20px;
+}
+
+.searchIcon {
+    color: black;
+    width: 100%;
+}
+
+
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.search input[type="search"] {
+    -webkit-search-cancel-button: none;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+input[type="search"]::placeholder {
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+input[type="search"]:focus::placeholder {
+    opacity: 0;
+}
+
+.searchResults {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.resultItem img {
+    width: 100%;
+    max-height: 300px;
+}
+
+.resultItem p {
+    margin-bottom: 10px;
+}
+
+.clearIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: red;
+}
+
+.searchButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+}
+
+.searchButton button {
+    width: 45px;
+    height: 100%;
+    background-color: white;
+}
+
+
+.signIn {
+    color: white;
+}
+
+.navbarBasket {
+    color: rgba(255, 255, 255, 0.785);
+}
+
+.cartItemCount {
+    position: relative;
+    top: -15px;
+    background-color: orange;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 10px;
+    font-size: 12px;
+    min-width: 2 0px;
+    text-align: center;
+}
+
+.navbarLinks {
+    margin-left: 15px;
+    color: rgba(255, 255, 255, 0.833);
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.navbarLinks::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.navbarLinks:hover::after {
+    width: 100%;
+}
+
+.parentNavbarLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 5vh;
+    gap: 20px;
+    padding-left: 40px;
+}
+
+.contactLink {
+    color: rgba(255, 255, 255, 0.833);
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contactLink:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.contactLink::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.contactLink:hover::after {
+    width: 100%;
+}
+
+
+@media (max-width: 1200px) {
+    .parentNavbar {
+        background-color: black;
+        min-width: 1000px;
+    }
+
+    .navbar {
+        background-color: black;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 25vh;
+        gap: 200px;
+        position: sticky;
+        z-index: 999;
+        top: -10px;
+        box-shadow: 0 -2px 20px 0px rgba(240, 228, 228, 0.5);
+        width: 100%;
+    }
+}

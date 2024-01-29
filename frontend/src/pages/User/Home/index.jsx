@@ -51,51 +51,11 @@ const Home = () => {
   };
 
   return (
-    <div className={styles.parentHome}>
-      <div className={styles.sliderContainer}>
-        <Slider images={images} />
-      </div>
-      <div className={styles.topContent}>
-        <div>
-          <HomeSetler />
-        </div>
-        <div className={styles.weeklyChat}>
-          <h2>
-            Həftənin təklifi
-          </h2>
-          <div>
-            <Countdown />
-          </div>
-          <p>
-            name
-          </p>
-          <p>
-            endirim faiz
-          </p>
-          <img className={styles.weekImg} src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1696447644/Ozonio_Gold_Enzyme_nqlb8n.jpg" alt="" />
-          <div className={styles.detailWhislistButton}>
-            <p onClick={handleAddToCart}>Səbətə Əlavə Et</p>
-          </div>
-        </div>
-      </div>
+    <>
       <div>
-        <div>
-          <FirstCommercial />
-        </div>
-        <div>
-          <CoxSatan />
-        </div>
-        <div>
-          <Carousel />
-        </div>
-        <div>
-          <WhyUs />
-        </div>
-        <div>
-          <Videos />
-        </div>
+        <HomeSetler />
       </div>
-    </div>
+    </>
   );
 };
 

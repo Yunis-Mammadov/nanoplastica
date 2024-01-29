@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from "./index.module.css"
 
 const Slider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,29 +16,16 @@ const Slider = ({ images }) => {
 
   return (
     <div
-      style={{
-        position: 'relative',
-        width: '1920px',
-        height: '726px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        overflow: 'hidden',
-      }}
+      className={styles.parentSliderContainer}
     >
       {images.map((image, index) => (
         <img
           key={index}
           src={image}
           alt={`Slide ${index + 1}`}
+          className={styles.sliderImage}
           style={{
-            width: '100%',
-            height: '100%',
-            transition: 'opacity 1s ease-in-out',
             opacity: index === currentIndex ? 1 : 0,
-            position: 'absolute',
-            top: 0,
-            left: 0,
             zIndex: index === currentIndex ? 1 : 0,
           }}
         />

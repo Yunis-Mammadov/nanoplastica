@@ -58,7 +58,7 @@ const isSmallStyle = {
 };
 
 export default function TransitionsModal() {
-    const isExtraLarge = useMediaQuery('(min-width:1000px)');
+    const isExtraLarge = useMediaQuery('(min-width:1100px)');
     const isLarge = useMediaQuery('(min-width:500px)');
     const isSmallScreen = useMediaQuery('(min-width:250px)');   
     const [open, setOpen] = React.useState(false);
@@ -82,17 +82,17 @@ export default function TransitionsModal() {
             <div>
                 <Button sx={{ minWidth: "10px" }} onClick={handleOpen}><SearchIcon sx={{ color: "white" }} /></Button>
                 <Modal
-                    // aria-labelledby="transition-modal-title"
-                    // aria-describedby="transition-modal-description"
-                    // open={open}
-                    // onClose={handleClose}
-                    // closeAfterTransition
-                    // slots={{ backdrop: Backdrop }}
-                    // slotProps={{
-                    //     backdrop: {
-                    //         timeout: 500,
-                    //     },
-                    // }}
+                    aria-labelledby="transition-modal-title"
+                    aria-describedby="transition-modal-description"
+                    open={open}
+                    onClose={handleClose}
+                    closeAfterTransition
+                    slots={{ backdrop: Backdrop }}
+                    slotProps={{
+                        backdrop: {
+                            timeout: 500,
+                        },
+                    }}
                 >
                     <Fade in={open}>
                         <Box sx={isExtraLargeStyle}>
