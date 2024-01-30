@@ -1,12 +1,8 @@
 .countdown{
-    display: flex;
-    gap: 20px;
-}
-
-.countdownText{
+    background-color: red;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    width: 100%;
+    gap: 15px;
+    width: 30%;
 }

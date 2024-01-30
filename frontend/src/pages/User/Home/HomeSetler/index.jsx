@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getAllSetler } from '../../../../api/request';
 import styles from './index.module.css';
+import Countdown from '../Countdown';
 
 const Setler = () => {
 
@@ -25,6 +26,9 @@ const Setler = () => {
                 <div className={styles.homeSetlerParent}>
                     <div className={styles.card}>
                         <img className={styles.cardImg} src="/SetImg/setrevive3.jpg" alt='' />
+                    </div>
+                    <div className={styles.card}>
+                        <img className={styles.cardImg} src="/SetImg/setrevive2.jpg" alt='' />
                     </div>
                     <div className={styles.card}>
                         <img className={styles.cardImg} src="/SetImg/setrevive1.jpg" alt='' />

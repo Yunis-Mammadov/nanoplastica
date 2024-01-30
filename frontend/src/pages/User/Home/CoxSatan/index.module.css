@@ -49,3 +49,23 @@
 .nextButton {
     right: 10px;
 }
+
+.largeCarousel {
+    margin: 20px;
+}
+
+.largeCarousel .gridItem {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    width: 48%;
+    margin: 1%;
+}
+
+
+@media (min-width: 769px) {
+    .largeCarousel .gridItem {
+        width: 48%;
+        margin: 1%;
+    }
+}

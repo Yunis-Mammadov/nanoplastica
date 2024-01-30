@@ -1,8 +1,8 @@
-.parentKeratin {
+/* .parentKeratin {
     display: flex;
     justify-content: space-between;
     width: 100%;
-}
+} */
 
 .parentColumn2 {
     width: 100%;
@@ -16,7 +16,7 @@
     border-radius: 10px;
     padding: 16px;
     margin: 16px;
-    max-width: 400px;
+    width: 1500px;
     background-color: white;
     display: flex;
     justify-content: center;
@@ -43,7 +43,7 @@
 
 .cardImg {
     width: 100%;
-    max-height: 300px;
+    height: 100%;
     margin-bottom: 30px;
 }
 

@@ -55,6 +55,12 @@ const Home = () => {
       <div>
         <HomeSetler />
       </div>
+      <div>
+        <CoxSatan/>
+      </div>
+      <div>
+        <Carousel/>
+      </div>
     </>
   );
 };
