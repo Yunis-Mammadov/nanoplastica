@@ -1,0 +1,142 @@
+.slider {
+    overflow: hidden;
+    width: 50vw;
+    height: 80vh;
+    position: relative;
+    margin-top: 20px;
+}
+
+@media (max-Width: 1200px) {
+    .slider {
+        overflow: hidden;
+        width: 80vw;
+        height: 80vh;
+        position: relative;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .slider .slide1,
+    .slider .slide2,
+    .slider .slide3,
+    .slider .slide4,
+    .slider .slide5 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: left;
+        animation: slide 20s infinite;
+        margin-left: 50px;
+        background-color: red;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+}
+
+@media (max-Width: 768px) {
+    .slider {
+        overflow: hidden;
+        width: 100vw;
+        min-height: 20vh;
+        position: relative;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .slider .slide1,
+    .slider .slide2,
+    .slider .slide3,
+    .slider .slide4,
+    .slider .slide5 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: left;
+        animation: slide 20s infinite;
+        margin-left: 50px;
+        background-color: green;
+        display: flex;
+    }
+
+}
+
+.slider .slide1,
+.slider .slide2,
+.slider .slide3,
+.slider .slide4,
+.slider .slide5 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
+    animation: slide 20s infinite;
+    margin-left: 50px;
+}
+
+.slider .slide1 {
+    background-image: url('https://res.cloudinary.com/dsb3j1ozv/image/upload/v1706718472/slider1_hoceyt.jpg');
+    animation-delay: -2;
+}
+
+.slider .slide2 {
+    background-image: url('https://res.cloudinary.com/dsb3j1ozv/image/upload/v1706718472/slider5_mjz8ro.jpg');
+    animation-delay: -2s;
+}
+
+.slider .slide3 {
+    background-image: url('https://res.cloudinary.com/dsb3j1ozv/image/upload/v1706718471/slider6_mqtrtb.jpg');
+    animation-delay: -8s;
+}
+
+.slider .slide4 {
+    background-image: url('https://res.cloudinary.com/dsb3j1ozv/image/upload/v1706718471/slider4jpg_ep8pfy.jpg');
+    animation-delay: -12s;
+}
+
+.slider .slide5 {
+    background-image: url('https://res.cloudinary.com/dsb3j1ozv/image/upload/v1706718471/slider3_kt1nt2.jpg');
+    animation-delay: -16s;
+}
+
+@keyframes slide {
+
+    0%,
+    15%,
+    100% {
+        transform: translateX(0);
+        animation-timing-function: ease;
+    }
+
+    20% {
+        transform: translateX(-100%);
+        animation-timing-function: step-end;
+    }
+
+    95% {
+        transform: translateX(100%);
+        animation-timing-function: ease;
+    }
+}
+
+.countdownContainer {
+    width: 45%;
+    height: 60vh;
+    background-color: yellow;
+    background-image: url("https://thumbs.dreamstime.com/b/digital-abstract-art-colorful-abstract-background-wallpaper-55379419.jpg");
+}

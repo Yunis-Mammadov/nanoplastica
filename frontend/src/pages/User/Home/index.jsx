@@ -5,12 +5,10 @@ import { useCart } from '../../../context/CartContext';
 import Carousel from './Carousel';
 import Countdown from './Countdown';
 import CoxSatan from './CoxSatan';
-import FirstCommercial from './FirstCommercial';
 import HomeSetler from './HomeSetler';
-import Slider from './Slider';
-import Videos from './Videos';
 import WhyUs from './WhyUs';
-import styles from './index.module.css';
+import FirstCommercial from './FirstCommercial';
+import Sliders from './Sliders';
 
 
 const Home = () => {
@@ -53,13 +51,25 @@ const Home = () => {
   return (
     <>
       <div>
+        <Sliders />
+      </div>
+      <div>
         <HomeSetler />
       </div>
       <div>
-        <CoxSatan/>
+        <CoxSatan />
+      </div>
+      {/* <div>
+        <Countdown />
+      </div> */}
+      <div>
+        <Carousel />
       </div>
       <div>
-        <Carousel/>
+        <FirstCommercial />
+      </div>
+      <div>
+        <WhyUs />
       </div>
     </>
   );

@@ -9,7 +9,7 @@ const keratinModel = new mongoose.model("Keratin", (
         postImgUrl: String,  
         description: String,
         productDetails: String,
-        bestSeller: Boolean,
+        bestSeller: String,
         filterName: String,
         filterInput: String
     })

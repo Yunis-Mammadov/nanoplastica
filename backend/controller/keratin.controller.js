@@ -47,7 +47,7 @@ const keratinController = {
     },
     edit: async (req, res) => {
         const id = req.params.id
-        const { name, brand, price, productImgUrl, postImgUrl, description, productDetails, filterName, filterInput } = req.body
+        const { name, brand, price, productImgUrl, postImgUrl, description, productDetails, bestSeller, filterName, filterInput } = req.body
         const updatingKeratin = {
             name: name,
             brand: brand,
@@ -56,7 +56,8 @@ const keratinController = {
             postImgUrl: postImgUrl,
             description: description,
             productDetails: productDetails,
-            filterName: filterName, 
+            bestSeller: bestSeller,
+            filterName: filterName,
             filterInput: filterInput
         }
         const keratin = await keratinModel.findByIdAndUpdate(id, updatingKeratin)

@@ -1,8 +1,46 @@
-.countdown{
-    background-color: red;
+.parentCountdown {
+    margin: 200px 0;
+    background-image: url("https://cdn11.bigcommerce.com/s-qaf2yg6x1o/images/stencil/original/image-manager/novo-banner-i-belli.jpg?t=1691776263&_gl=1*ard71p*_ga*MzU1OTM1NzIwLjE2NjgwNzkyNzU.*_ga_WS2VZYPC6G*MTY5MTc3NzM0MC4yMTAuMS4xNjkxNzc3NzEwLjI3LjAuMA..");
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-    width: 30%;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20%;
+    height: 350px;
+    background-color: white;
+}
+
+.countdownImg {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+
+.countdownImg img {
+    width: 100%;
+    height: 100%;
+}
+
+.countdownText {
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    margin: 10px;
+}
+
+.timer {
+    display: flex;
+    gap: 30px;
+    box-shadow: 0 4px 2px -2px rgba(206, 15, 15, 0.2);
+    border: transparent;
 }

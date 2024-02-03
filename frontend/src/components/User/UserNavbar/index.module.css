@@ -28,12 +28,12 @@
 
 .parentIsLargeLogo {
     width: 17%;
-    height: 9vh;
+    height: 13vh;
 }
 
 .parentIsSmallLogo {
     width: 30%;
-    height: 9vh;
+    height: 12vh;
 }
 
 .parentIsSmallLogo img {
@@ -103,7 +103,6 @@
     flex-direction: column;
     gap: 20px;
 }
-
 
 
 .styles.parentMainLinksExtraSmall {
