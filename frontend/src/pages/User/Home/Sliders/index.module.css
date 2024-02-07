@@ -32,7 +32,6 @@
         background-position: left;
         animation: slide 20s infinite;
         margin-left: 50px;
-        background-color: red;
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
@@ -66,7 +65,6 @@
         background-position: left;
         animation: slide 20s infinite;
         margin-left: 50px;
-        background-color: green;
         display: flex;
     }
 
@@ -137,6 +135,5 @@
 .countdownContainer {
     width: 45%;
     height: 60vh;
-    background-color: yellow;
     background-image: url("https://thumbs.dreamstime.com/b/digital-abstract-art-colorful-abstract-background-wallpaper-55379419.jpg");
 }

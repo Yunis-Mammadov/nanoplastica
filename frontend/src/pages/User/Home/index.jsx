@@ -65,9 +65,9 @@ const Home = () => {
       <div>
         <Carousel />
       </div>
-      <div>
+      {/* <div>
         <FirstCommercial />
-      </div>
+      </div> */}
       <div>
         <WhyUs />
       </div>
