@@ -9,7 +9,7 @@ import TwoWheelerIcon from '@mui/icons-material/TwoWheeler';
 export default function WhyUs() {
 
   const isExtraLarge = useMediaQuery('(min-width:1200px)');
-  const isLarge = useMediaQuery('(min-width:370px)');
+  const isLarge = useMediaQuery('(min-width:270px)');
 
   if (isExtraLarge) {
     return (
