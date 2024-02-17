@@ -54,10 +54,9 @@ function Carousel() {
 export default Carousel;
 
 const AppContainer = styled.div`
-  width: 100vw;
-  height: 10vh;
+  width: 100wv;
+  height: 15vh;
   color: #000000;
-
   position: relative;
   display: flex;
   align-items: center;
@@ -67,27 +66,14 @@ const AppContainer = styled.div`
 const Wrapper = styled.div`
   width: 100%;
   max-width: 1200px; 
-  height: fit-content;
-
+  height: 15vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 `;
 
-const Text = styled.div`
-  font-size: 5vw; /* Changed to vw for responsiveness */
-  font-weight: 500;
-  margin-bottom: 1.5vw; /* Changed to vw for responsiveness */
-  color: #02203c;
-`;
 
-const Note = styled.div`
-  font-size: 2vw; /* Changed to vw for responsiveness */
-  font-weight: 200;
-  margin-bottom: 4vw; /* Changed to vw for responsiveness */
-  color: #7c8e9a;
-`;
 
 const Marquee = styled.div`
   display: flex;
@@ -95,7 +81,6 @@ const Marquee = styled.div`
   max-width: 1200px; /* Added for responsiveness */
   overflow: hidden;
   user-select: none;
-
   mask-image: linear-gradient(
     to right,
     hsl(0 0% 0% / 0),
@@ -137,7 +122,7 @@ const ImageGroup = styled.div`
   display: grid;
   place-items: center;
   width: 100%; /* Modified for responsiveness */
-  height: 10vh;
+  height: 15vh;
   max-width: 300px; /* Added for responsiveness */
   padding: 1vw; /* Changed to vw for responsiveness */
 `;
