@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import { ROUTES } from './routes/ROUTES';
-import MusicPlayer from './components/User/MusicPlayer';
+
 
 const theme = createTheme({
   palette: {
@@ -22,6 +22,7 @@ const App = () => {
     return () => clearTimeout(timeout);
   }, []);
 
+
   const routes = createBrowserRouter(ROUTES);
 
   return (
@@ -30,7 +31,6 @@ const App = () => {
         <ThemeProvider theme={theme}>
           <RouterProvider router={routes} />
         </ThemeProvider >
-        {/* <MusicPlayer /> */}
       </CartProvider >
     </>
   );

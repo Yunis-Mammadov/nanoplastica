@@ -3,12 +3,8 @@ import Swal from 'sweetalert2';
 import { getAllKeratin } from '../../../api/request';
 import { useCart } from '../../../context/CartContext';
 import Carousel from './Carousel';
-import Countdown from './Countdown';
-import CoxSatan from './CoxSatan';
-import HomeSetler from './HomeSetler';
-import WhyUs from './WhyUs';
-import FirstCommercial from './FirstCommercial';
 import Sliders from './Sliders';
+import WhyUs from './WhyUs';
 
 
 const Home = () => {
@@ -54,23 +50,17 @@ const Home = () => {
         <Sliders />
       </div>
       <div>
-        <HomeSetler />
-      </div>
-      <div>
-        <CoxSatan />
-      </div>
-      {/* <div>
-        <Countdown />
-      </div> */}
-      <div>
         <Carousel />
       </div>
       {/* <div>
-        <FirstCommercial />
+        <CoxSatan />
       </div> */}
-      <div>
+      {/* <div>
+        <Countdown />
+      </div> */}
+      {/* <div>
         <WhyUs />
-      </div>
+      </div> */}
     </>
   );
 };

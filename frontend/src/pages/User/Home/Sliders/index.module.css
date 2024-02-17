@@ -1,51 +1,49 @@
 .slider {
     overflow: hidden;
     width: 50vw;
-    height: 80vh;
+    height: 10vh;
     position: relative;
-    margin-top: 20px;
 }
 
-@media (max-Width: 1200px) {
-    .slider {
-        overflow: hidden;
-        width: 80vw;
-        height: 80vh;
-        position: relative;
-        margin-top: 20px;
-        display: flex;
-        justify-content: center;
-    }
+    /* @media (max-Width: 1200px) {
+        .slider {
+            overflow: hidden;
+            width: 80vw;
+            height: 80vh;
+            position: relative;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
 
-    .slider .slide1,
-    .slider .slide2,
-    .slider .slide3,
-    .slider .slide4,
-    .slider .slide5 {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: left;
-        animation: slide 20s infinite;
-        margin-left: 50px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
+        .slider .slide1,
+        .slider .slide2,
+        .slider .slide3,
+        .slider .slide4,
+        .slider .slide5 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: left;
+            animation: slide 20s infinite;
+            margin-left: 50px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
 
-}
+    } */
 
 @media (max-Width: 768px) {
     .slider {
         overflow: hidden;
         width: 100vw;
-        min-height: 20vh;
+        min-height: 50vh;
         position: relative;
-        margin-top: 20px;
         display: flex;
         justify-content: center;
     }
@@ -59,12 +57,11 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: 90%;
         background-size: contain;
         background-repeat: no-repeat;
         background-position: left;
         animation: slide 20s infinite;
-        margin-left: 50px;
         display: flex;
     }
 
@@ -77,14 +74,13 @@
 .slider .slide5 {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 5px;
     width: 100%;
-    height: 100%;
+    height: 90%;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: left;
     animation: slide 20s infinite;
-    margin-left: 50px;
 }
 
 .slider .slide1 {

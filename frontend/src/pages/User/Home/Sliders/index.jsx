@@ -3,7 +3,7 @@ import styles from './index.module.css';
 
 const Sliders = () => {
   return (
-    <div style={{display:"flex",width:"100%"}}>
+    <div style={{display:"flex",width:"100%",marginTop:"0"}}>
       <div className={styles.slider}>
         <div className={styles.slide1}></div>
         <div className={styles.slide2}></div>
@@ -11,7 +11,7 @@ const Sliders = () => {
         <div className={styles.slide4}></div>
         <div className={styles.slide5}></div>
       </div>
-      {/* <div className={styles.countdownContainer}>
+      {/* <div className={styles.countdownContainer}> 
       </div> */}
     </div>
   );
