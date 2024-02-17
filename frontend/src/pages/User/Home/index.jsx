@@ -52,14 +52,14 @@ const Home = () => {
       <div>
         <Carousel />
       </div>
+      <div>
+        <WhyUs />
+      </div>
       {/* <div>
         <CoxSatan />
       </div> */}
       {/* <div>
         <Countdown />
-      </div> */}
-      {/* <div>
-        <WhyUs />
       </div> */}
     </>
   );

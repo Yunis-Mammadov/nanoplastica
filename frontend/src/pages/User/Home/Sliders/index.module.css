@@ -1,14 +1,14 @@
 .slider {
     overflow: hidden;
-    width: 50vw;
+    width: 100vw;
     height: 10vh;
     position: relative;
 }
 
-    /* @media (max-Width: 1200px) {
+    @media (min-Width: 1200px) {
         .slider {
             overflow: hidden;
-            width: 80vw;
+            width: 100vw;
             height: 80vh;
             position: relative;
             margin-top: 20px;
@@ -36,9 +36,9 @@
             align-items: flex-start;
         }
 
-    } */
+    }
 
-@media (max-Width: 768px) {
+@media (max-Width: 1200px) {
     .slider {
         overflow: hidden;
         width: 100vw;

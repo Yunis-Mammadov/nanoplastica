@@ -11,8 +11,6 @@ const Sliders = () => {
         <div className={styles.slide4}></div>
         <div className={styles.slide5}></div>
       </div>
-      {/* <div className={styles.countdownContainer}> 
-      </div> */}
     </div>
   );
 };
