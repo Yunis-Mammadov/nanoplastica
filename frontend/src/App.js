@@ -4,38 +4,34 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import { ROUTES } from './routes/ROUTES';
 
-
 const theme = createTheme({
   palette: {
     primary: {
       main: '#FFFFFF', // Ana renk
     },
-    common: {
-      white: '#FFFFFF', // Arka plan rengi
+    background: {
+      default: '#FFFFFF', // Arka plan rengi
     },
   },
 });
 
-
 const App = () => {
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-    }, 1000);
+    const timeout = setTimeout(() => { }, 1000);
 
     return () => clearTimeout(timeout);
   }, []);
-
 
   const routes = createBrowserRouter(ROUTES);
 
   return (
     <>
-      <CartProvider>
-        <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <CartProvider>
           <RouterProvider router={routes} />
-        </ThemeProvider >
-      </CartProvider >
+        </CartProvider>
+      </ThemeProvider>
     </>
   );
 };
