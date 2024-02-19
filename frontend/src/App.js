@@ -5,13 +5,17 @@ import { CartProvider } from './context/CartContext';
 import { ROUTES } from './routes/ROUTES';
 
 
-// const theme = createTheme({
-//   palette: {
-//     primary: {
-//       main: '#FFFFFF',
-//     },
-//   },
-// });
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#FFFFFF', // Ana renk
+    },
+    common: {
+      white: '#FFFFFF', // Arka plan rengi
+    },
+  },
+});
+
 
 const App = () => {
 
