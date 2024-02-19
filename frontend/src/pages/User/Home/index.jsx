@@ -5,12 +5,17 @@ import { useCart } from '../../../context/CartContext';
 import Carousel from './Carousel';
 import Sliders from './Sliders';
 import WhyUs from './WhyUs';
+import Countdown from '../Home/Countdown'
+import { useMediaQuery } from '@mui/material';
+import CoxSatan from './CoxSatan';
 
 
 const Home = () => {
   const [keratin, setKeratin] = useState([])
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart()
+  const isExtraLarge = useMediaQuery('(min-width:1200px)');
+  const isLarge = useMediaQuery('(min-width:270px)');
 
   useEffect(() => {
     getAllKeratin().then(data => {
@@ -44,25 +49,52 @@ const Home = () => {
     });
   };
 
-  return (
-    <>
-      <div>
-        <Sliders />
-      </div>
-      <div>
-        <Carousel />
-      </div>
-      <div>
-        <WhyUs />
-      </div>
-      {/* <div>
-        <CoxSatan />
-      </div> */}
-      {/* <div>
-        <Countdown />
-      </div> */}
-    </>
-  );
+  if (isExtraLarge) {
+    return (
+      <>
+        <div style={{ display: "flex" }}>
+          <div>
+            <Sliders />
+          </div>
+          <div>
+            <Countdown />
+          </div>
+        </div>
+        <div>
+          <Carousel />
+        </div>
+        <div>
+          <WhyUs />
+        </div>
+        <div>
+          <CoxSatan />
+        </div>
+      </>
+    );
+  }
+
+  if (isLarge && !isExtraLarge) {
+    return (
+      <>
+        <div>
+          <Sliders />
+        </div>
+        <div>
+          <Carousel />
+        </div>
+        <div>
+          <WhyUs />
+        </div>
+        <div>
+          <Countdown />
+        </div>
+        <div>
+          <CoxSatan />
+        </div>
+      </>
+    );
+  }
+
 };
 
 export default Home;

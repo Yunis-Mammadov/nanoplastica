@@ -18,10 +18,6 @@ import Setler from "../pages/User/Setler";
 import Suallar from "../pages/User/Suallar";
 import UserMainRoot from "../pages/User/UserMainRoot";
 import Utuler from "../pages/User/Utuler";
-import PulsuzCatdırılma from "../pages/User/Home/WhyUs/PulsuzCatdırılma";
-import Qapıda from "../pages/User/Home/WhyUs/Qapıda";
-import Qızıl from "../pages/User/Home/WhyUs/Qızıl";
-import Zemanet from "../pages/User/Home/WhyUs/Zemanet";
 
 const addToCart = (product) => {
 
@@ -82,24 +78,8 @@ export const ROUTES = [
             },
             {
                 path: 'suallar',
-                element: <Suallar/>
+                element: <Suallar />
             },
-            {
-                path: 'catdirilma',
-                element: <PulsuzCatdırılma />
-            },
-            {
-                path: 'qapıda',
-                element: <Qapıda />
-            },
-            {
-                path: 'qızılzemanet',
-                element: <Qızıl />
-            },
-            {
-                path: 'zemanet',
-                element: <Zemanet />
-            }
         ]
     },
     {

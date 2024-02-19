@@ -50,7 +50,6 @@
   grid-template-rows: min-content;
   gap: var(--_spacer);
   padding: var(--_spacer);
-  background: var(--surface-2);
   border-radius: var(--radius-2);
   box-shadow: var(--shadow-2);
   display: flex;
@@ -71,7 +70,6 @@
 .page-header {
   padding-block: var(--size-9);
   margin-block-end: var(--size-9);
-  background: var(--gradient-16);
   box-shadow: var(--shadow-2);
 }
 

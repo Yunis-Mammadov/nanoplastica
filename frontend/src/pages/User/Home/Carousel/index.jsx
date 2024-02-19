@@ -103,7 +103,7 @@ const common = css`
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   white-space: nowrap;
   width: 100%;
   animation: ${scrollX} 30s linear infinite;
@@ -134,6 +134,5 @@ const Image = styled.img`
   border-radius: 0.5vw; /* Changed to vw for responsiveness */
   aspect-ratio: 16/9;
   padding: 0.5vw 2vw; /* Changed to vw for responsiveness */
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 0.5vw 2vw 0px; /* Changed to vw for responsiveness */
 `;
 

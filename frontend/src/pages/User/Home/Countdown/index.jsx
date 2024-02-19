@@ -4,7 +4,7 @@ import { getAllKeratin } from '../../../../api/request';
 
 const Countdown = () => {
     const calculateTimeLeft = () => {
-        let difference = +new Date('2024-02-11');
+        let difference = +new Date('2024-02-24');
         let currentTime = +new Date();
         let timeLeft = difference - currentTime;
         let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
@@ -32,7 +32,7 @@ const Countdown = () => {
         });
     }, []);
 
-console.log(keratin.bestSeller);
+    console.log(keratin.bestSeller);
 
     return (
         <div className={styles.parentCountdown}>
@@ -57,8 +57,8 @@ console.log(keratin.bestSeller);
                     </div>
                 </div>
                 <div className={styles.countdownImg}>
-                    <img src={keratin.bestSeller === "true" ? keratin.productImgUrl : "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tfGVufDB8fDB8fHww" }
-                    alt='' />
+                    <img src={keratin.bestSeller === "true" ? keratin.productImgUrl : "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tfGVufDB8fDB8fHww"}
+                        alt='' />
                 </div>
             </div>
         </div>

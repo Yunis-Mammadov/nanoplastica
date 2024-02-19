@@ -1,10 +1,7 @@
 .parentCountdown {
-    margin: 200px 0;
-    background-image: url("https://cdn11.bigcommerce.com/s-qaf2yg6x1o/images/stencil/original/image-manager/novo-banner-i-belli.jpg?t=1691776263&_gl=1*ard71p*_ga*MzU1OTM1NzIwLjE2NjgwNzkyNzU.*_ga_WS2VZYPC6G*MTY5MTc3NzM0MC4yMTAuMS4xNjkxNzc3NzEwLjI3LjAuMA..");
-    background-size: contain;
-    background-position: center;
+    margin: 80px 0;
     width: 100%;
-    height: 80vh;
+    height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +13,7 @@
     align-items: center;
     flex-direction: column;
     width: 20%;
-    height: 350px;
+    height: 100%;
     background-color: white;
 }
 
