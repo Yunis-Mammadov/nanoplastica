@@ -7,10 +7,7 @@ const app = express();
 
 
 
-app.use(cors({
-  origin: 'https://nanoplastica.az', // Sadece belirli bir origin'den gelen isteklere izin ver
-  credentials: true // Gerekirse, credentails kullanılacaksa
-}));
+app.use(cors());
 app.use(bodyParser.json());
 require('dotenv').config();
 const router = require("./routes");
