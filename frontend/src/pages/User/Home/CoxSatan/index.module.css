@@ -1,5 +1,5 @@
 .sliderContainer {
-    margin-top: 50px;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,7 @@
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 10px;
-    max-width: 300px;
+    max-width: 320px;
     min-height: 50vh;
     background-color: white;
     transition: 0.4s;
@@ -36,7 +36,7 @@
 }
 
 .keratinName {
-    margin-top: -45px;
+    margin-top: -25px;
     font-size: 18px;
     color: #555;
     text-decoration: none;
@@ -53,6 +53,7 @@
     border: 1px solid black;
     border-radius: 10px;
     transition: 0.4s ease;
+    margin: 20px auto;
 }
 
 .detailWhislistButton:hover {
@@ -64,10 +65,10 @@
     color: white;
 }
 
-
+    /* mobile */
 
 .sliderContainerMobile {
-    margin-top: 50px;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -143,5 +144,4 @@
 
 .detailWhislistButtonMobile:hover p {
     color: white;
-    /* font-size: 15px; */
 }

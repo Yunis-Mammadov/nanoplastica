@@ -8,6 +8,7 @@ import WhyUs from './WhyUs';
 import Countdown from '../Home/Countdown'
 import { useMediaQuery } from '@mui/material';
 import CoxSatan from './CoxSatan';
+import Videos from './Videos';
 
 
 const Home = () => {
@@ -30,29 +31,10 @@ const Home = () => {
     "https://cdn11.bigcommerce.com/s-qaf2yg6x1o/images/stencil/1920w/carousel/131/health-hair.jpg?c=1"
   ];
 
-  const handleAddToCart = () => {
-    const item = {
-      id: keratin.id,
-      img: keratin.productImgUrl,
-      name: keratin.name,
-      brand: keratin.brand,
-      quantity: quantity,
-    };
-
-    addToCart(item);
-
-    Swal.fire({
-      icon: 'success',
-      title: 'Məhsul səbətə əlavə edildi!',
-      showConfirmButton: false,
-      timer: 1500
-    });
-  };
-
   if (isExtraLarge) {
     return (
       <>
-        <div style={{ display: "flex", justifyContent:"space-between" }}>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div>
             <Sliders />
           </div>
@@ -69,6 +51,9 @@ const Home = () => {
         <div>
           <CoxSatan />
         </div>
+        {/* <div>
+          <Videos />
+        </div> */}
       </>
     );
   }
@@ -91,6 +76,9 @@ const Home = () => {
         <div>
           <CoxSatan />
         </div>
+        {/* <div>
+          <Videos />
+        </div> */}
       </>
     );
   }

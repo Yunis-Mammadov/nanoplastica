@@ -65,6 +65,7 @@ export default function CoxSatan() {
   if (isExtraLarge) {
     return (
       <>
+        <h4 style={{ marginLeft: "100px" }}>Satış Liderləri</h4>
         {sacqulluq && sacqulluq.length > 0 && (
           <div className={styles.sliderContainer}>
             <button onClick={goToPreviousItems} className={styles.iconButton}><ChevronLeft style={{ fontSize: 50 }} /></button>
@@ -95,6 +96,7 @@ export default function CoxSatan() {
   if (isLarge && !isExtraLarge) {
     return (
       <>
+        <h4 style={{ marginLeft: "50px", marginTop:"50px" }}>Satış Liderləri</h4>
         {sacqulluq && sacqulluq.length > 0 && (
           <div className={styles.sliderContainerMobile}>
             <button onClick={goToPreviousItemsMobile} className={styles.iconButtonMobile}><ChevronLeft style={{ fontSize: 25 }} /></button>
@@ -115,11 +117,10 @@ export default function CoxSatan() {
             <button onClick={goToNextItemsMobile} className={styles.iconButton}><ChevronRight style={{ fontSize: 25 }} /></button>
           </div>
         )}
-        {!sacqulluq || sacqulluq.length === 0 && ( 
+        {!sacqulluq || sacqulluq.length === 0 && (
           <Typography>Məhsul Tapılmadı...</Typography>
         )}
       </>
     );
   }
 }
-  
