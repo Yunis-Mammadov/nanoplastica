@@ -51,16 +51,6 @@ export default function WhyUs() {
               <p class="title">Sifarişlərinizi sürətli şəkildə qəbul edir, etibarlı çatdırılma vasitəsilə ünvanınıza çatdırırıq.</p>
             </div>
           </div>
-          <div class="desktop-media-element">
-            <div class="desktop-media-icon">
-              <TwoWheelerIcon />
-            </div>
-            <div>
-              <h6>Pulsuz və Sürətli Çatdırılma</h6>
-              <p class="title">Sifarişlərinizi sürətli şəkildə qəbul edir, etibarlı çatdırılma vasitəsilə ünvanınıza çatdırırıq.</p>
-            </div>
-          </div>
-
         </div>
       </>
     );
@@ -106,16 +96,6 @@ export default function WhyUs() {
               <p class="title">Sifarişlərinizi sürətli şəkildə qəbul edir, etibarlı çatdırılma vasitəsilə ünvanınıza çatdırırıq.</p>
             </div>
           </div>
-          <div class="media-element">
-            <div class="media-icon">
-              <TwoWheelerIcon />
-            </div>
-            <div>
-              <h6>Pulsuz və Sürətli Çatdırılma</h6>
-              <p class="title">Sifarişlərinizi sürətli şəkildə qəbul edir, etibarlı çatdırılma vasitəsilə ünvanınıza çatdırırıq.</p>
-            </div>
-          </div>
-
         </div>
       </>
     );

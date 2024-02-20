@@ -1,0 +1,147 @@
+.sliderContainer {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    transition: transform 0.5s ease;
+    margin-bottom: 20px;
+}
+
+.cardContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    transition: transform 0.5s ease;
+    overflow-x: auto;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 300px;
+    min-height: 50vh;
+    background-color: white;
+    transition: 0.4s;
+    flex-shrink: 0;
+}
+
+.cardImg {
+    max-width: 100%;
+    max-height: 100%;
+    margin-bottom: 10px;
+}
+
+.keratinName {
+    margin-top: -45px;
+    font-size: 18px;
+    color: #555;
+    text-decoration: none;
+}
+
+.detailWhislistButton {
+    margin-top: 10px;
+    width: 220px;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: 0.4s ease;
+}
+
+.detailWhislistButton:hover {
+    background-color: rgb(216, 153, 16);
+    cursor: pointer;
+}
+
+.detailWhislistButton:hover p {
+    color: white;
+}
+
+
+
+.sliderContainerMobile {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    transition: transform 0.5s ease;
+    margin-bottom: 20px;
+}
+
+.cardContainerMobile {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    transition: transform 0.5s ease;
+    overflow-x: auto;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+}
+
+.cardMobile {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 170px;
+    min-height: 40vh;
+    background-color: white;
+    transition: 0.4s;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cardImgMobile {
+    max-width: 170px;
+    height: 20vh;
+    margin-bottom: 10px;
+}
+
+.keratinNameMobile {
+    margin-top: -5px;
+    font-size: 14px;
+    color: #555;
+    text-decoration: none;
+}
+
+.descCoxSatan {
+    width: 100%;
+    font-size: 12px;
+    color: #555;
+}
+
+.detailWhislistButtonMobile {
+    margin-top: 10px;
+    width: 150px;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: 0.4s ease;
+    margin: 20px auto;
+    font-size: 15px;
+}
+
+.detailWhislistButtonMobile:hover {
+    background-color: rgb(216, 153, 16);
+    cursor: pointer;
+}
+
+.detailWhislistButtonMobile:hover p {
+    color: white;
+    /* font-size: 15px; */
+}

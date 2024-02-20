@@ -13,10 +13,14 @@
 }
 
 .desktop-media-element {
-  width: 100%;
+  width: 1000px;
+  height: 15vh;
   display: flex;
   justify-content: center;
+  align-items: center;
+  border-radius: 10px;
   gap: 20px;
+  background-color: white;
 }
 
 .desktop-media-icon{
@@ -87,7 +91,7 @@
 }
 
 .title{
-  font-size: 15px;
+  font-size: 12px;
 }
 
 .media-icon{
