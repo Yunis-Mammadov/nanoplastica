@@ -121,7 +121,6 @@ const RouteComponents = () => {
                 <React.Fragment key={index}>
                     {route.children.map((childRoute, childIndex) => (
                         <React.Fragment key={childIndex}>
-                            {/* Her bir sayfa bileşeninin yüklendiği yer */}
                             <Route path={childRoute.path} element={childRoute.element} />
                         </React.Fragment>
                     ))}
