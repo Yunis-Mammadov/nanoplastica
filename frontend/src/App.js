@@ -4,16 +4,16 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import { ROUTES } from './routes/ROUTES';
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#FFFFFF', // Ana renk
-    },
-    background: {
-      default: '#FFFFFF', // Arka plan rengi
-    },
-  },
-});
+// const theme = createTheme({
+//   palette: {
+//     primary: {
+//       main: '#FFFFFF', // Ana renk
+//     },
+//     background: {
+//       default: '#FFFFFF', // Arka plan rengi
+//     },
+//   },
+// });
 
 const App = () => {
 
@@ -28,11 +28,11 @@ const App = () => {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
+      {/* <ThemeProvider theme={theme}> */}
         <CartProvider>
           <RouterProvider router={routes} />
         </CartProvider>
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </>
   );
 };
