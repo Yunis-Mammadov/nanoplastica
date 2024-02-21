@@ -7,10 +7,10 @@ import { ROUTES } from './routes/ROUTES';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#FFFFFF', 
+      main: '#FFFFFF', // Ana renk
     },
     background: {
-      default: '#FFFFFF', 
+      default: '#FFFFFF', // Arka plan rengi
     },
   },
 });
