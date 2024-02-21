@@ -1,26 +1,44 @@
-import React from 'react'
-import styles from "./index.module.css"
+import React, { useState, useEffect } from 'react';
+import './index.module.css'; // Stil dosyası
 
-const Videos = () => {
+const Slider = ({ interval = 3000 }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    // Slider için sabit veri öğeleri
+    const items = [
+        <div key={1}>İçerik 1</div>,
+        <div key={2}>İçerik 2</div>,
+        <div key={3}>İçerik 3</div>,
+        // Daha fazla öğe eklenebilir
+    ];
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setCurrentIndex((prevIndex) =>
+                prevIndex === items.length - 1 ? 0 : prevIndex + 1
+            );
+        }, interval);
+
+        return () => clearInterval(intervalId);
+    }, [items.length, interval]);
+
     return (
-        <div>
-            <h2 style={{textAlign:"center"}}>Müştəri Məmnuniyyəti</h2>
-            <div className={styles.videoParent}>
-                <video className={styles.video} width="320" height="240" controls>
-                    <source src="oneminute.mp4" type="video/mp4" />
-                </video>
-                <video className={styles.video} width="320" height="240" controls>
-                    <source src="oneminute.mp4" type="video/mp4" />
-                </video>
-                <video className={styles.video} width="320" height="240" controls>
-                    <source src="oneminute.mp4" type="video/mp4" />
-                </video>
-                <video className={styles.video} width="320" height="240" controls>
-                    <source src="oneminute.mp4" type="video/mp4" />
-                </video>
+        <div className="slider">
+            <div
+                className="slider-wrapper"
+                style={{
+                    transform: `translateX(-${currentIndex * 100}%)`,
+                    transition: 'transform 1s ease-in-out',
+                }}
+            >
+                {items.map((item, index) => (
+                    <div key={index} className="slide">
+                        {item}
+                    </div>
+                ))}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Videos
+export default Slider;

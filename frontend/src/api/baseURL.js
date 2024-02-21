@@ -1,1 +1,1 @@
-export const BASE_URL = "https://revive-hair-pro-server.vercel.app";
+export const BASE_URL = "https://nanoplastica-backendserver5.onrender.com"

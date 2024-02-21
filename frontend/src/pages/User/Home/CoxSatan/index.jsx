@@ -5,7 +5,7 @@ import { getAllSacQulluq } from '../../../../api/request';
 import styles from "./index.module.css"
 import Swal from 'sweetalert2';
 import { useCart } from '../../../../context/CartContext';
-import { ChevronLeft, ChevronRight } from '@mui/icons-material'; // Material-UI ikonları
+import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 
 export default function CoxSatan() {
   const [sacqulluq, setSacqulluq] = useState([]);
