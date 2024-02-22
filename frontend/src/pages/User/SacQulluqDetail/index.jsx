@@ -1,7 +1,7 @@
 import { useMediaQuery } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useCart } from '../../../context/CartContext'; 
+import { useCart } from '../../../context/CartContext';
 import Swal from 'sweetalert2';
 import { getSacQulluqById } from '../../../api/request';
 import styles from "./index.module.css";
@@ -9,11 +9,11 @@ import styles from "./index.module.css";
 
 const SacQulluqDetail = () => {
     const { id } = useParams();
-    const { addToCart } = useCart(); // CartContext'ten addToCart fonksiyonunu alın
+    const { addToCart } = useCart();
     const [sacqulluq, setSacqulluq] = useState(null);
     const [quantity, setQuantity] = useState(1)
-    const isExtraLarge = useMediaQuery('(min-width:1000px)');
-    const isMobile = useMediaQuery('(min-width:340px)');
+    const isExtraLarge = useMediaQuery('(min-width:1200px)');
+    const isMobile = useMediaQuery('(min-width:270px)');
 
 
     useEffect(() => {
@@ -58,12 +58,12 @@ const SacQulluqDetail = () => {
 
         localStorage.setItem("cart", JSON.stringify(uniqueItems));
 
-        addToCart(item); // CartContext'teki addToCart fonksiyonunu çağırın
+        addToCart(item);
 
 
         Swal.fire({
             icon: 'success',
-            title: 'Ürün sepete eklendi!',
+            title: 'Məhsul səbətə əlavə edildi!',
             showConfirmButton: false,
             timer: 1500
         });

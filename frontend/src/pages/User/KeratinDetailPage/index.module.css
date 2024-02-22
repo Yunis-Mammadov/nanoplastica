@@ -53,8 +53,15 @@
 }
 
 .mobileFirstDetail{
-    /* background-color: aqua; */
     width: 80%;
+}
+
+.mobileFirstDetail p{
+    font-size: 15px;
+}
+
+.mobileFirstDetail h2{
+    font-size: 22px;
 }
 
 .productDetails{
