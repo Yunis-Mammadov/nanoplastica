@@ -9,12 +9,16 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
+import BeatLoader from "react-spinners/BeatLoader";
+
+
 
 const KeratinDetailPage = () => {
   const { id } = useParams();
   const { addToCart } = useCart();
   const [keratin, setKeratin] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const [loading, setLoading] = useState(true);
   const isExtraLarge = useMediaQuery('(min-width:1200px)');
   const isMobile = useMediaQuery('(min-width:270px)');
 
@@ -22,6 +26,7 @@ const KeratinDetailPage = () => {
     getKeratinById(id)
       .then((data) => {
         setKeratin(data);
+        setLoading(false);
       })
       .catch((error) => {
         console.error(error);
@@ -46,6 +51,20 @@ const KeratinDetailPage = () => {
       timer: 1500,
     });
   };
+
+  if (loading) {
+    return (
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "30vh",
+        color: "red",
+      }}>
+        <BeatLoader color="orange" />
+      </div>
+    );
+  }
 
   if (isExtraLarge) {
     return (

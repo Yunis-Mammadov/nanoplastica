@@ -8,12 +8,14 @@ import { Accordion, AccordionDetails, AccordionSummary, Grid, Typography, useMed
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllSacQulluq, getAllSocialMediaLinks } from '../../../api/request';
+import BeatLoader from "react-spinners/BeatLoader";
 import styles from './index.module.css';
 
 const SacQulluq = () => {
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
   const [socialLinks, setSocialLinks] = useState([]);
   const [sacqulluq, setSacQulluq] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [filteredItems, setFilteredItems] = useState(sacqulluq);
   const [isHamısı, setIsHamısı] = useState(false);
   const [isShampooChecked, setIsShampooChecked] = useState(false);
@@ -64,17 +66,34 @@ const SacQulluq = () => {
   }, [isHamısı, isShampooChecked, isBalsamoChecked, isMaskaChecked, isConditionerChecked, isBotoxChecked]);
 
   useEffect(() => {
-    getAllSacQulluq().then(data => {
-      setSacQulluq(data);
-      setFilteredItems(data);
-    });
+    getAllSacQulluq()
+      .then(data => {
+        setSacQulluq(data);
+        setFilteredItems(data);
+      })
+      .catch(error => console.error(error))
+      .finally(() => setLoading(false));
   }, []);
 
   useEffect(() => {
-    getAllSocialMediaLinks().then(data => {
-      setSocialLinks(data);
-    });
+    getAllSocialMediaLinks()
+      .then(data => setSocialLinks(data))
+      .catch(error => console.error(error));
   }, []);
+
+  if (loading) {
+    return (
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "30vh",
+        color: "red",
+      }}>
+        <BeatLoader color="orange" />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.parentKeratin}>
@@ -174,7 +193,7 @@ const SacQulluq = () => {
               </Link>
             </Grid>
           )) : (
-            <Typography>Məhsul Tapılmadı...</Typography>
+            <></>
           )}
         </Grid>
       </div>

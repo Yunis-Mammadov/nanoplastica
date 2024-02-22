@@ -8,6 +8,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
+import BeatLoader from "react-spinners/BeatLoader";
 import styles from "./index.module.css";
 
 
@@ -17,6 +18,7 @@ const SacQulluqDetail = () => {
     const { addToCart } = useCart();
     const [sacqulluq, setSacqulluq] = useState(null);
     const [quantity, setQuantity] = useState(1)
+    const [loading, setLoading] = useState(true);
     const isExtraLarge = useMediaQuery('(min-width:1200px)');
     const isMobile = useMediaQuery('(min-width:270px)');
 
@@ -26,6 +28,7 @@ const SacQulluqDetail = () => {
             .then((data) => {
                 console.log(data);
                 setSacqulluq(data);
+                setLoading(false);
             })
             .catch((error) => {
                 console.error(error);
@@ -73,6 +76,23 @@ const SacQulluqDetail = () => {
             timer: 1500
         });
     };
+
+
+    if (loading) {
+        return (
+            <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "30vh",
+                color: "red",
+            }}>
+                <BeatLoader color="orange" />
+            </div>
+        );
+    }
+
+
     if (isExtraLarge) {
         return (
             <>

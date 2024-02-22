@@ -5,6 +5,7 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import { Accordion, AccordionDetails, AccordionSummary, Grid, Typography, useMediaQuery } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import BeatLoader from "react-spinners/BeatLoader";
 import styles from './index.module.css';
 import { getAllSetler, getAllSocialMediaLinks } from '../../../api/request';
 
@@ -12,6 +13,7 @@ const Setler = () => {
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
   const [socialLinks, setSocialLinks] = useState([]);
   const [keratin, setKeratin] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [filteredItems, setFilteredItems] = useState([]);
   const [isHamısı, setIsHamısı] = useState(false);
   const [isReviveChecked, setIsReviveChecked] = useState(false);
@@ -38,19 +40,35 @@ const Setler = () => {
     setFilteredItems(filteredData);
   };
 
-
   useEffect(() => {
-    getAllSetler().then(data => {
-      setKeratin(data);
-      setFilteredItems(data);
-    });
+    getAllSetler()
+      .then(data => {
+        setKeratin(data);
+        setFilteredItems(data);
+      })
+      .catch(error => console.error(error))
+      .finally(() => setLoading(false));
   }, []);
 
   useEffect(() => {
-    getAllSocialMediaLinks().then(data => {
-      setSocialLinks(data);
-    });
+    getAllSocialMediaLinks()
+      .then(data => setSocialLinks(data))
+      .catch(error => console.error(error));
   }, []);
+
+  if (loading) {
+    return (
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "30vh",
+        color: "red",
+      }}>
+        <BeatLoader color="orange" />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.parentKeratin}>
@@ -122,14 +140,14 @@ const Setler = () => {
               </Link>
             </Grid>
           )) : (
-            <Typography>Məhsul Tapılmadı...</Typography>
+            <></>
           )}
         </Grid>
       </div>
       {!isMobile && (
         <div className={styles.socialKeratin}>
           {socialLinks.map(item => (
-            <a target='blank' style={{ color: "black" }} href={item.link}><InstagramIcon /></a>
+            <a target='_blank' style={{ color: "black" }} href={item.link}><InstagramIcon /></a>
           ))}
           <TelegramIcon />
           <EmailIcon />
