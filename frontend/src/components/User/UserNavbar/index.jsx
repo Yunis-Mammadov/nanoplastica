@@ -1,17 +1,17 @@
+import ClearIcon from '@mui/icons-material/Clear';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 import MenuIcon from '@mui/icons-material/Menu';
+import { List, ListItem } from '@mui/material';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getAllKeratin } from '../../../api/request';
 import { useCart } from '../../../context/CartContext';
 import Modal from "./Modal";
+import { useCartItemCount } from '../../../context/CartContext';
 import styles from "./index.module.css";
-import { List, ListItem } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
-import ClearIcon from '@mui/icons-material/Clear';
-import { getAllKeratin } from '../../../api/request';
 
 const Navbar = () => {
   const navItems = [
@@ -24,7 +24,7 @@ const Navbar = () => {
     { label: "Haqqımızda", path: "about" },
     { label: "Əlaqə", path: "contact" },
   ];
-  const { cartItemCount } = useCart();
+  const cartItemCount = useCartItemCount();
   const isExtraLarge = useMediaQuery('(min-width:1200px)');
   const isLarge = useMediaQuery('(min-width:500px)');
   const isSmallScreen = useMediaQuery('(min-width:250px)');
@@ -118,7 +118,7 @@ const Navbar = () => {
                       value={searchTerm}
                     />
                   </div> */}
-                  <Modal/>
+                  <Modal />
                   {searchTerm && (
                     <div className={styles.clearIcon} onClick={clearSearch}>
                       <ClearIcon />
@@ -178,7 +178,7 @@ const Navbar = () => {
   if (isLarge && !isExtraLarge) {
     return (
       <>
-        <div className={styles.navbarata}>  
+        <div className={styles.navbarata}>
           <div className={styles.parentNavbar}>
             <div className={styles.toolbar}>
               <div style={{

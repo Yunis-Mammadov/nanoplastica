@@ -30,7 +30,7 @@ const SacQulluqDetail = () => {
 
     const addToLocalStorage = () => {
         const item = {
-            id: sacqulluq.id,
+            id: sacqulluq._id,
             img: sacqulluq.productImgUrl,
             name: sacqulluq.name,
             brand: sacqulluq.brand,

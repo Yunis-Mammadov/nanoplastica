@@ -23,15 +23,15 @@ const KeratinDetailPage = () => {
 
   const handleAddToCart = () => {
     const item = {
-      id: keratin.id,
+      id: keratin._id,
       img: keratin.productImgUrl,
       name: keratin.name,
       brand: keratin.brand,
       quantity: quantity,
     };
 
+    console.log(keratin._id);
     addToCart(item);
-    console.log(item);
     Swal.fire({
       icon: 'success',
       title: 'Məhsul səbətə əlavə edildi!',
@@ -39,7 +39,6 @@ const KeratinDetailPage = () => {
       timer: 1500,
     });
   };
-
   return (
     <div>
       {keratin ? (

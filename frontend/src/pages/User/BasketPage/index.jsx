@@ -95,7 +95,7 @@ const BasketPage = () => {
         let message = `Ad: ${name}\nSoyad: ${surname}\nAdres:\n${userLocation}\n\nMəhsullar:\n`;
 
         cartItems.forEach(item => {
-            message += `${item.name} - ${item.quantity} adet\n`;
+            message += `${item.name} - ${item.quantity} ədəd\n`;
         });
         const whatsappMessage = encodeURIComponent(message);
         const phoneNumber = '+513518931';

@@ -19,6 +19,7 @@
     gap: 60px;
     background-color: black;
     height: 24vh;
+    padding: 10px;
 }
 
 .parentLogo {
@@ -32,7 +33,7 @@
 }
 
 .parentIsSmallLogo {
-    width: 30%;
+    width: 25%;
     height: 12vh;
 }
 

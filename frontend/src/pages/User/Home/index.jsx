@@ -51,9 +51,9 @@ const Home = () => {
         <div>
           <CoxSatan />
         </div>
-        <div>
+        {/* <div>
           <Videos />
-        </div>
+        </div> */}
       </>
     );
   }

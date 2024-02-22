@@ -13,6 +13,7 @@ export default function CoxSatan() {
   const [endIndex, setEndIndex] = useState(3);
   const [startIndexMobile, setStartIndexMobile] = useState(0);
   const [endIndexMobile, setEndIndexMobile] = useState(1);
+  const [loading, setLoading] = useState(true); // Loading state
   const { addToCart } = useCart();
   const isExtraLarge = useMediaQuery('(min-width:1200px)');
   const isLarge = useMediaQuery('(min-width:270px)');
@@ -20,6 +21,7 @@ export default function CoxSatan() {
   useEffect(() => {
     getAllSacQulluq().then(data => {
       setSacqulluq(data);
+      setLoading(false); // Set loading to false when data is fetched
     });
   }, []);
 
@@ -62,6 +64,7 @@ export default function CoxSatan() {
     }
   }
 
+
   if (isExtraLarge) {
     return (
       <>
@@ -96,7 +99,7 @@ export default function CoxSatan() {
   if (isLarge && !isExtraLarge) {
     return (
       <>
-        <h4 style={{ marginLeft: "50px", marginTop:"50px" }}>Satış Liderləri</h4>
+        <h4 style={{ marginLeft: "50px", marginTop: "50px" }}>Satış Liderləri</h4>
         {sacqulluq && sacqulluq.length > 0 && (
           <div className={styles.sliderContainerMobile}>
             <button onClick={goToPreviousItemsMobile} className={styles.iconButtonMobile}><ChevronLeft style={{ fontSize: 25 }} /></button>

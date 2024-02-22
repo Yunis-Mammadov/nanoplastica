@@ -6,11 +6,10 @@ import Button from '@mui/material/Button';
 import Fade from '@mui/material/Fade';
 import Modal from '@mui/material/Modal';
 import InputBase from '@mui/material/InputBase';
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { useMediaQuery } from '@mui/material';
-
-
-
+import { getAllKeratin } from '../../../../api/request';
+import styles from "./index.module.css"
 
 const isExtraLargeStyle = {
     position: 'absolute',
@@ -60,9 +59,12 @@ const isSmallStyle = {
 export default function TransitionsModal() {
     const isExtraLarge = useMediaQuery('(min-width:1100px)');
     const isLarge = useMediaQuery('(min-width:500px)');
-    const isSmallScreen = useMediaQuery('(min-width:250px)');   
-    const [open, setOpen] = React.useState(false);
-    const [inputValue, setInputValue] = React.useState("");
+    const isSmallScreen = useMediaQuery('(min-width:250px)');
+    const [open, setOpen] = useState(false);
+    const [inputValue, setInputValue] = useState("");
+    const [keratinList, setKeratinList] = useState([]);
+    const [searchResults, setSearchResults] = useState([]);
+
     const handleOpen = () => setOpen(true);
     const handleClose = () => {
         setOpen(false);
@@ -74,8 +76,26 @@ export default function TransitionsModal() {
     }
 
     const handleClearInput = (e) => {
-        setInputValue("")
+        setInputValue("");
+        setSearchResults([]);
     }
+
+    useEffect(() => {
+        getAllKeratin().then(data => {
+            setKeratinList(data);
+        });
+    }, []);
+
+    useEffect(() => {
+        if (inputValue.trim() !== "") {
+            const results = keratinList.filter(item =>
+                item.name.toLowerCase().includes(inputValue.toLowerCase())
+            );
+            setSearchResults(results);
+        } else {
+            setSearchResults([]);
+        }
+    }, [inputValue, keratinList]);
 
     if (isExtraLarge) {
         return (
@@ -138,9 +158,19 @@ export default function TransitionsModal() {
                             >
                                 <SearchIcon />
                             </button>
+
                         </Box>
                     </Fade>
                 </Modal>
+                    {searchResults.length > 0 && (
+                        <div className={styles.searchResults}>
+                            {searchResults.map((item, index) => (
+                                <div key={index}>
+                                    {item.name}
+                                </div>
+                            ))}
+                        </div>
+                    )}
             </div>
         );
     }

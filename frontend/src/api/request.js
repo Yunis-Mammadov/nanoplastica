@@ -40,13 +40,15 @@ export const getAllKeratin = async () => {
 }
 
 export const getKeratinById = async (id) => {
-    let keratin;
-    await axios.get(`${BASE_URL}/api/keratin/${id}`)
-        .then((res) => {
-            keratin = res.data
-        })
-    return keratin
+    try {
+        const response = await axios.get(`${BASE_URL}/api/keratin/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching keratin by id:", error);
+        return null; 
+    }
 }
+
 
 export const getAllSacQulluq = async () => {
     let sacqulluq;
@@ -87,9 +89,9 @@ export const getAllUtuler = async () => {
 export const getAllSetler = async () => {
     let setler;
     await axios.get(`${BASE_URL}/api/setler`)
-    .then((res) => {
-        setler = res.data
-    })
+        .then((res) => {
+            setler = res.data
+        })
     return setler
 }
 
@@ -97,9 +99,9 @@ export const getAllSetler = async () => {
 export const getAllSuallar = async () => {
     let suallar;
     await axios.get(`${BASE_URL}/api/suallar`)
-    .then((res) => {
-        suallar = res.data
-    })
+        .then((res) => {
+            suallar = res.data
+        })
     return suallar
 }
 
