@@ -271,7 +271,7 @@ const Navbar = () => {
             <div className={styles.parentIsSmallLogo}>
               <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1704196009/NanoPlastica_1_qz64fz.jpg" alt="" />
             </div>
-            <div className={styles.searchAndBasket}>
+            <div className={styles.mobilSearchAndBasket}>
               <div className={styles.search}>
                 {/* <div className={styles.parentSeachIcon}>
                   <SearchIcon className={styles.searchIcon} />
@@ -290,7 +290,7 @@ const Navbar = () => {
               </div>
               <Link to="/basket">
                 <LocalGroceryStoreIcon sx={{ fontSize: "28px", color: "white" }} />
-                {cartItemCount > 0 && <span className={styles.cartItemCount}>{cartItemCount}</span>}
+                {cartItemCount > 0 && <span className={styles.mobileCartItemCount}>{cartItemCount}</span>}
               </Link>
             </div>
           </div>

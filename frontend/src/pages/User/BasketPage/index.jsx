@@ -111,7 +111,7 @@ const BasketPage = () => {
                 setUserLocation(wazeLink);
             });
         } else {
-            setUserLocation('Konum bilgisi alınamıyor.');
+            setUserLocation('Konum adresi götürülə bilmir.');
         }
     };
 
