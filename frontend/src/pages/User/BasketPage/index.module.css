@@ -37,17 +37,17 @@
     padding: 8px 16px;
     border: none;
     border-radius: 4px;
-    background-color: rgb(37,211,102);
+    background-color: rgb(37, 211, 102);
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .modalContent button:hover {
-    background-color: rgb(37,211,102);
+    background-color: rgb(37, 211, 102);
 }
 
-.detailWhislistButton{
+.detailWhislistButton {
     margin-top: 10px;
     width: 200px;
     height: 7vh;
@@ -60,7 +60,22 @@
     margin: 0 auto;
 }
 
-.detailWhislistButton:hover{
+.detailWhislistButton:hover {
     background-color: rgb(216, 153, 16);
     cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .modalContent {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 400px;
+        background-color: white;
+        border: 2px solid #000;
+        padding: 10px;
+    }
 }

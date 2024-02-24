@@ -1,5 +1,5 @@
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Modal } from '@mui/material';
+import { Modal, useMediaQuery } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -21,6 +21,8 @@ const BasketPage = () => {
     const [userLocation, setUserLocation] = useState('');
     const [address, setAddress] = useState('');
     const [isCartEmpty, setIsCartEmpty] = useState(true);
+    const isExtraLarge = useMediaQuery('(min-width:1200px)');
+    const isMobile = useMediaQuery('(max-width:600px)'); // Adjusted media query for mobile devices
 
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {
@@ -98,7 +100,7 @@ const BasketPage = () => {
             message += `${item.name} - ${item.quantity} ədəd\n`;
         });
         const whatsappMessage = encodeURIComponent(message);
-        const phoneNumber = '+513518931';
+        const phoneNumber = '994708878799';
         const whatsappLink = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
         window.open(whatsappLink, '_blank');
     };
@@ -115,11 +117,10 @@ const BasketPage = () => {
         }
     };
 
-
     return (
         <div>
-            <TableContainer component={Paper}>
-                <Table className={styles.tableBasket} style={{ width: '60%' }}>
+            <TableContainer component={Paper} style={{ width: isMobile ? '100%' : '60%' }}>
+                <Table className={styles.tableBasket}>
                     <TableHead>
                         <TableRow>
                             <StyledTableCell sx={{ width: '50%' }} align='left'>Məhsul</StyledTableCell>
