@@ -18,6 +18,7 @@ import Setler from "../pages/User/Setler";
 import Suallar from "../pages/User/Suallar";
 import UserMainRoot from "../pages/User/UserMainRoot";
 import Utuler from "../pages/User/Utuler";
+import SacBoya from "../pages/User/SacBoya";
 
 const addToCart = (product) => {
 
@@ -55,6 +56,10 @@ export const ROUTES = [
             {
                 path: "utuler",
                 element: <Utuler />
+            },
+            {
+                path: "sacboya",
+                element: <SacBoya />
             },
             {
                 path: "setler",

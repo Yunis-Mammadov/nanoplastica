@@ -49,54 +49,50 @@ const UserFooter = () => {
             </div>
             <div className={styles.footerCol}>
               <h4>Digər Linklər</h4>
-                <ul>
-                  <a href="/">Əsas Səhifə</a>
-                  <a href="/keratin">Keratin</a>
-                  <a href="/sacqulluq">Sac Qulluq</a>
-                  <a href="/setler">Setlər</a>
-                </ul>
+              <ul>
+                <a href="/">Əsas Səhifə</a>
+                <a href="/keratin">Keratin</a>
+                <a href="/sacqulluq">Sac Qulluq</a>
+                <a href="/setler">Setlər</a>
+                <a href="/suallar">Suallar</a>
+              </ul>
             </div>
             <div className={styles.footerCol}>
               <h4>Bizimlə Əlaqə</h4>
               <div className={styles.socialLinks}>
-                {socialLinks.map(item => (
-                  <ul>
-                    <div>
-                      {item.platform === "Instagram" && (
-                        <a target='blank' href={item.link}>
-                          <div className={styles.socialMediaLinks} >
-                            <InstagramIcon sx={{ color: "black" }} />
-                            {item.name}
-                          </div>
-                        </a>
-                      )}
-                      {item.platform === "Facebook" && (
-                        <a target='blank' href={item.link}>
-                          <div className={styles.socialMediaLinks} >
-                            <FacebookIcon sx={{ color: "black" }} />
-                            {item.name}
-                          </div>
-                        </a>
-                      )}
-                      {item.platform === "Whatsapp" && (
-                        <a target='blank' href={item.link}>
-                          <div className={styles.socialMediaLinks} >
-                            <WhatsAppIcon sx={{ color: "black" }} />
-                            {item.name}
-                          </div>
-                        </a>
-                      )}
-                      {/* {item.platform === "Tiktok" && (
-                        <a target='blank' href={item.link}>
+                <ul>
+                  <div>
+                    <a target='blank' >
+                      <div className={styles.socialMediaLinks} >
+                        <InstagramIcon sx={{ color: "black" }} />
+                        Ozonio Instagram
+                      </div>
+                    </a>
+
+                    <a target='blank'>
+                      <div className={styles.socialMediaLinks} >
+                        <FacebookIcon sx={{ color: "black" }} />
+                        Ozonio Facebook
+                      </div>
+                    </a>
+
+                    <a target='blank' >
+                      <div className={styles.socialMediaLinks} >
+                        <WhatsAppIcon sx={{ color: "black" }} />
+                        Whatsapp 
+                      </div>
+                    </a>
+
+                    {/* {item.platform === "Tiktok" && (
+                        <a target='blank' >
                           <div className={styles.socialMediaLinks} >
                             <FontAwesomeIcon style={{ paddingLeft: "5px" }} icon={faTiktok} />
-                            {item.name}
-                          </div>
+
+                            </div>
                         </a>
                       )} */}
-                    </div>
-                  </ul>
-                ))}
+                  </div>
+                </ul>
               </div>
             </div>
           </div>

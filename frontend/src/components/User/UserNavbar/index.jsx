@@ -15,11 +15,12 @@ import styles from "./index.module.css";
 
 const Navbar = () => {
   const navItems = [
-    { label: "Home", path: "" },
+    { label: "Əsas Səhifə", path: "" },
     { label: "Keratin", path: "keratin" },
-    { label: "SacQulluq", path: "sacqulluq" },
+    { label: "Saç Qulluq", path: "sacqulluq" },
     { label: "Fenlər", path: "fenler" },
     { label: "Ütülər", path: "utuler" },
+    { label: "Saç Boyaları", path: "utuler" },
     { label: "Setlər", path: "setler" },
     { label: "Haqqımızda", path: "about" },
     { label: "Əlaqə", path: "contact" },
