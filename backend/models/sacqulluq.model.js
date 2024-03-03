@@ -10,7 +10,8 @@ const sacqulluqModel = new mongoose.model("Sacqulluq", (
         productImgUrl: String,
         postImgUrl: String,
         description: String,
-        poductDetails: String
+        poductDetails: String,
+        category: String
     })
 ))
 

@@ -11,7 +11,8 @@ const keratinModel = new mongoose.model("Keratin", (
         productDetails: String,
         bestSeller: String,
         filterName: String,
-        filterInput: String
+        filterInput: String,
+        category: String
     })
 ))
 

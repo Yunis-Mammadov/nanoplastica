@@ -563,7 +563,7 @@ const Navbar = () => {
               const truncatedDetails = item.productDetails ? item.productDetails.split(" ").slice(0, 18).join(" ") : '';
               return (
                 <Link
-                  to={item.name.toLowerCase() === "keratin" ? `/keratin/${item._id}` : `/sacqulluq/${item._id}`}
+                  to={item.category && item.category.toLowerCase() === "keratin" ? `/keratin/${item._id}` : `/sacqulluq/${item._id}`}
                   key={item.id}
                   className={styles.resultItem}
                   onClick={handleLinkClick}
@@ -572,7 +572,7 @@ const Navbar = () => {
                     display: "flex"
                   }}>
                     <div>
-                      <img style={{width:"150px"}} src={item.productImgUrl} alt={item.name} />
+                      <img style={{ width: "150px" }} src={item.productImgUrl} alt={item.name} />
                     </div>
                     <div>
                       <h6>{item.name}</h6>

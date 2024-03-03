@@ -26,7 +26,7 @@ const keratinController = {
         })
     },
     post: async (req, res) => {
-        const { name, brand, price, productImgUrl, postImgUrl, description, productDetails, bestSeller, filterName, filterInput } = req.body
+        const { name, brand, price, productImgUrl, postImgUrl, description, productDetails, bestSeller, filterName, filterInput, category } = req.body
         const newKeratin = new keratinModel({
             name: name,
             brand: brand,
@@ -37,7 +37,8 @@ const keratinController = {
             productDetails: productDetails,
             bestSeller: bestSeller,
             filterName: filterName,
-            filterInput: filterInput
+            filterInput: filterInput,
+            category: category
         })
         await newKeratin.save()
         res.status(201).send({
@@ -47,7 +48,7 @@ const keratinController = {
     },
     edit: async (req, res) => {
         const id = req.params.id
-        const { name, brand, price, productImgUrl, postImgUrl, description, productDetails, bestSeller, filterName, filterInput } = req.body
+        const { name, brand, price, productImgUrl, postImgUrl, description, productDetails, bestSeller, filterName, filterInput, category} = req.body
         const updatingKeratin = {
             name: name,
             brand: brand,
@@ -58,7 +59,8 @@ const keratinController = {
             productDetails: productDetails,
             bestSeller: bestSeller,
             filterName: filterName,
-            filterInput: filterInput
+            filterInput: filterInput,
+            category: category
         }
         const keratin = await keratinModel.findByIdAndUpdate(id, updatingKeratin)
         res.status(200).send({
