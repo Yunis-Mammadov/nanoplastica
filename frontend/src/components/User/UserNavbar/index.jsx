@@ -484,19 +484,29 @@ const Navbar = () => {
                       <AccordionDetails>
                         <List>
                           <ListItem button>
-                            <ListItemText primary={t('şampun')} />
+                            <Link to={'/shampoo'}>
+                              <ListItemText primary={t('şampun')} />
+                            </Link>
                           </ListItem>
                           <ListItem button>
-                            <ListItemText primary={t('balzam')} />
+                            <Link to={'/balsamo'}>
+                              <ListItemText primary={t('balzam')} />
+                            </Link>
                           </ListItem>
                           <ListItem button>
-                            <ListItemText primary={t('maska')} />
+                            <Link to={'/maska'}>
+                              <ListItemText primary={t('maska')} />
+                            </Link>
                           </ListItem>
                           <ListItem button>
-                            <ListItemText primary={t('kondisioner')} />
+                            <Link to={'/kondisioner'}>
+                              <ListItemText primary={t('kondisioner')} />
+                            </Link>
                           </ListItem>
                           <ListItem button>
-                            <ListItemText primary={t('botox')} />
+                            <Link to={'/botox'}>
+                              <ListItemText primary={t('botox')} />
+                            </Link>
                           </ListItem>
                         </List>
                       </AccordionDetails>
@@ -591,7 +601,7 @@ const Navbar = () => {
               )}
             </div>
           </div>
-        </div>
+        </div >
         {searchTerm && searchResults.length > 0 ? (
           <div className={styles.searchResults}>
             {searchResults.map(item => {
@@ -631,7 +641,8 @@ const Navbar = () => {
               <SentimentVeryDissatisfiedIcon sx={{ fontSize: "32px" }} />
             </div>
           </>
-        ) : null}
+        ) : null
+        }
       </>
     );
   }
