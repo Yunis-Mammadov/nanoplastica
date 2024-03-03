@@ -11,18 +11,29 @@ const About = () => {
         </div>
         <div className={styles.aboutText}>
           <div>
-            <label>Haqqımızda</label>
+            <label style={{fontWeight:"600",fontSize:"18px"}}>Haqqımızda</label>
           </div>
           <div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quae vero velit nesciunt nostrum optio commodi deleniti perspiciatis laborum, maxime sint dicta ex est. Molestiae aspernatur consectetur illo amet saepe.
-              Doloremque magni totam ad ratione nihil tempora deleniti nulla blanditiis suscipit quam magnam harum atque dolores veniam culpa, assumenda dicta voluptatibus ab velit necessitatibus. Sint doloremque fugit ipsa earum! Enim!
-              Sequi nam, incidunt maxime corrupti saepe quibusdam ea quaerat repellendus dolores ab? Doloribus exercitationem ducimus ab molestias iusto vitae voluptatum libero aliquid. Ut ducimus impedit temporibus! Vel laborum iure sed!
-              Dolore, eum quo dignissimos, quasi, et saepe sequi sapiente veritatis magni laboriosam voluptatum? Enim nesciunt dicta, praesentium quos porro quia error, voluptate qui deserunt in tenetur velit itaque iusto voluptates!
-              Ipsum officiis aspernatur soluta necessitatibus incidunt, aliquid, placeat eos quibusdam corrupti iste minus doloribus unde distinctio ratione sit suscipit voluptate ipsam quos possimus impedit in vitae earum repellat. Culpa, quam?</p>
+            <label>
+              Nanoplastica.az  saytı saça qulluq vasitələrinin,boyalarının,düzləçdiricilərinin və saç üçün elektron alətlərin bu kontekstdə ən yaxşısını təqdim edir.
+              Məhsullarımız istehsalçı ölkələrin lisenziyası və beynalxalq setifikatsiyadan keçmiş Azərbaycan Respublikası tərəfindən Səhiyyə nazirliyinin gigiyenik sertifikatını almış 100% orjinallığını təmin etmişdir.
+
+              Şaçlarınızın mükəmməl düzlüyünü əldə edib onları qorumaq üçün keyfiyyətli məhsul axtarışındasınız?
+              Saç prosedurları üçün keyfiyyətli elektron alətiniz yoxdur?
+              Bir sözlə saçınıza zərər verməyən məhsullara sahib olmaq istəyirsiniz?
+              Saç boyalarından istədiyiniz tonları ala bilmirsiniz?
+
+              Nanoplastica.az saytı mekəmməl seçimdir və nüfuzlu brendlərin məhsullarını Azərbaycan bazarına çatdırılmasında inqilab edir.
+              Bu online məkan peşəkarların seçimidir!
+
+              Sizə xidmət etmək üçün hər zaman ixtiyarınızda bir komandaya sahibik.
+            </label>
+            <p style={{paddingTop:"20px",fontWeight:"500"}}>Hörmətlə Nanoplastica.az komandası
+            </p>
           </div>
         </div>
       </div>
-      <WhyUs/>
+      <WhyUs />
     </>
   )
 }

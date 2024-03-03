@@ -1,45 +1,47 @@
 .parentCountdown {
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 20px;
     background-color: white;
-    margin-top: 15px;
+    margin-top: 100px;
 }
-
-.topCount {
-    display: flex;
-    flex-direction: column;
-    width: 280px;
-    padding: 20px;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
-}
-
 
 .dayCount {
     display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-
-.mainCount {
-    margin-top: 30px;
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.mainCount>img {
-    max-width: 280px;
+.imageContainer img {
+    width: 17%;
+    margin-bottom: 20px;
 }
 
-.mainCount>p {
+.infoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.time {
+    margin-top: 5px;
     text-align: center;
+    font-weight: 600;
 }
-
 
 .detailWhislistButton {
     margin-top: 10px;
-    width: 200px;
+    width: 350px;
     height: 7vh;
     display: flex;
     justify-content: center;
@@ -47,7 +49,8 @@
     gap: 10px;
     border: 2px solid black;
     transition: 0.4s ease;
-    margin: 0 auto;
+    margin-left: 2px;
+    margin-bottom: 10px;
 }
 
 .detailWhislistButton:hover {
@@ -57,88 +60,4 @@
 
 .detailWhislistButton:hover p {
     color: white;
-}
-
-.time {
-    text-align: center;
-}
-
-
-
-.parentCountdownMobile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: white;
-}
-
-.topCountMobile {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-}
-
-
-.weeklyTextMobile{
-    font-size: 20px;
-    padding-top: 10px;
-}
-
-.dayCountMobile {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-    width: 40%;
-    gap: 20px;
-}
-
-
-.mainCountMobile img {
-    max-width: 220px;
-}
-
-
-.mainCountMobile > p {
-    text-align: center;
-}
-
-.productContainer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.detailWhislistButtonMobile {
-    margin-top: 10px;
-    width: 150px;
-    height: 4vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border: 2px solid black;
-    transition: 0.4s ease;
-}
-
-.detailWhislistButton:hover {
-    background-color: rgb(216, 153, 16);
-    cursor: pointer;
-}
-
-.detailWhislistButton:hover p {
-    color: white;
-}
-
-.timeMobile {
-    text-align: center;
-    font-size: 15px;
-}
-
-.infoContainer > p{
-    font-weight: 600;
 }

@@ -1,15 +1,7 @@
-.slider {
-    width: 100%;
-    overflow: hidden;
-    /* display: flex */
-  }
-  
-  .slider-wrapper {
-    display: flex;
-  }
-  
-  .slide {
-    flex: 0 0 auto;
-    width: 100%;
-  }
-  
+.card {
+  margin: 10px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

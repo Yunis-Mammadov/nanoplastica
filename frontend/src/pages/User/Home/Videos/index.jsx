@@ -1,44 +1,44 @@
-import React, { useState, useEffect } from 'react';
-import './index.module.css'; // Stil dosyası
+import { Grid } from '@mui/material'
+import React from 'react'
+import styles from './index.module.css'
 
-const Slider = ({ interval = 3000 }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    // Slider için sabit veri öğeleri
-    const items = [
-        <div key={1}>İçerik 1</div>,
-        <div key={2}>İçerik 2</div>,
-        <div key={3}>İçerik 3</div>,
-        // Daha fazla öğe eklenebilir
-    ];
-
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setCurrentIndex((prevIndex) =>
-                prevIndex === items.length - 1 ? 0 : prevIndex + 1
-            );
-        }, interval);
-
-        return () => clearInterval(intervalId);
-    }, [items.length, interval]);
-
+const Vidoes = () => {
     return (
-        <div className="slider">
-            <div
-                className="slider-wrapper"
-                style={{
-                    transform: `translateX(-${currentIndex * 100}%)`,
-                    transition: 'transform 1s ease-in-out',
-                }}
-            >
-                {items.map((item, index) => (
-                    <div key={index} className="slide">
-                        {item}
+        <div>
+            <Grid container spacing={2} item margin={"30px auto"} xs={11}>
+                <Grid item xs={12} sm={6} md={4}>
+                    <div className={styles.card}>
+                        <video src='oneminute.mp4' />
                     </div>
-                ))}
-            </div>
+                </Grid>
+                <Grid item xs={12} sm={6} md={4}>
+                    <div className={styles.card}>
+                        <video src='oneminute.mp4' />
+                    </div>
+                </Grid>
+                <Grid item xs={12} sm={6} md={4}>
+                    <div className={styles.card}>
+                        <video src='oneminute.mp4' />
+                    </div>
+                </Grid>
+                <Grid item xs={12} sm={6} md={4}>
+                    <div className={styles.card}>
+                        <video src='oneminute.mp4' />
+                    </div>
+                </Grid>
+                <Grid item xs={12} sm={6} md={4}>
+                    <div className={styles.card}>
+                        <video src='oneminute.mp4' />
+                    </div>
+                </Grid>
+                <Grid item xs={12} sm={6} md={4}>
+                    <div className={styles.card}>
+                        <video src="oneminute.mp4" />
+                    </div>
+                </Grid>
+            </Grid>
         </div>
-    );
-};
+    )
+}
 
-export default Slider;
+export default Vidoes

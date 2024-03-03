@@ -1,115 +1,57 @@
-// import FacebookIcon from '@mui/icons-material/Facebook';
-// import InstagramIcon from '@mui/icons-material/Instagram';
-// import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-// import React, { useEffect, useState } from 'react';
-// import { getAllContact, getAllNavbarLinks, getAllSocialMediaLinks } from '../../../api/request';
-// import styles from "./index.module.css";
-
-
-// const UserFooter = () => {
-
-//   const [navbarLinks, setNavbarLinks] = useState([]);
-//   const [socialLinks, setSocialLinks] = useState([])
-//   const [contact, setContact] = useState([])
-
-//   useEffect(() => {
-//     getAllSocialMediaLinks().then(data => {
-//       setSocialLinks(data)
-//     })
-//   }, [])
-
-//   useEffect(() => {
-//     getAllContact().then(data => {
-//       setContact(data)
-//     })
-//   }, [])
-
-//   useEffect(() => {
-//     getAllNavbarLinks().then(data => {
-//       setNavbarLinks(data);
-//     });
-//   }, []);
-
-//   return (
-//     <>
-//       <footer className={styles.footer}>
-//         <div className={styles.container}>
-//           <div className={styles.row}>
-//             {/* <div className={styles.footerCol}>
-//               <img className={styles.logo} src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1704196009/NanoPlastica_1_qz64fz.jpg" alt="" />
-//             </div> */}
-//             <div className={styles.footerCol}>
-//               <h4>Şirkət</h4>
-//               <ul>
-//                 <li><a href="suallar">Ən Çox Verilən Suallar</a></li>
-//                 <li><a href="about">Haqqımızda</a></li>
-//                 <li><a href="contact">Sosial Media</a></li>
-//                 <li><a href="konfidensial">Konfidensiallıq Siyasəti</a></li>
-//               </ul>
-//             </div>
-//             <div className={styles.footerCol}>
-//               <h4>Digər Linklər</h4>
-//               <ul>
-//                 <a href="/">Əsas Səhifə</a>
-//                 <a href="/keratin">Keratin</a>
-//                 <a href="/sacqulluq">Sac Qulluq</a>
-//                 <a href="/setler">Setlər</a>
-//                 <a href="/suallar">Suallar</a>
-//               </ul>
-//             </div>
-//             <div className={styles.footerCol}>
-//               <h4>Bizimlə Əlaqə</h4>
-//               <div className={styles.socialLinks}>
-//                 <ul>
-//                   <div>
-//                     <a target='blank' >
-//                       <div className={styles.socialMediaLinks} >
-//                         <InstagramIcon sx={{ color: "black" }} />
-//                         Ozonio Instagram
-//                       </div>
-//                     </a>
-
-//                     <a target='blank'>
-//                       <div className={styles.socialMediaLinks} >
-//                         <FacebookIcon sx={{ color: "black" }} />
-//                         Ozonio Facebook
-//                       </div>
-//                     </a>
-
-//                     <a target='blank' >
-//                       <div className={styles.socialMediaLinks} >
-//                         <WhatsAppIcon sx={{ color: "black" }} />
-//                         Whatsapp 
-//                       </div>
-//                     </a>
-
-//                     {/* {item.platform === "Tiktok" && (
-//                         <a target='blank' >
-//                           <div className={styles.socialMediaLinks} >
-//                             <FontAwesomeIcon style={{ paddingLeft: "5px" }} icon={faTiktok} />
-
-//                             </div>
-//                         </a>
-//                       )} */}
-//                   </div>
-//                 </ul>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </footer>
-//     </>
-//   )
-// }
-
-// export default UserFooter
-
 import React from 'react'
+import styles from "./index.module.css"
+import { useTranslation } from 'react-i18next'
+import '../UserNavbar/i18n';
+import { Link } from 'react-router-dom';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+
 
 const Footer = () => {
+  const { t, i18n } = useTranslation();
+
   return (
     <>
-      FOOTER
+      <div className={styles.footer}>
+        <div className={styles.footerPartOne}>
+          <div className={styles.sendEmail}>
+            <div>
+              <h3 style={{ color: 'white', fontWeight: "500", textAlign: "center" }}>Mail göndərərək qeydiyyatdan keç</h3>
+            </div>
+            <div className={styles.sumbitEmail}>
+              <input className={styles.inputPlaceholder} type="email" placeholder='Email' />
+              <button className={styles.footerSubmit}>Submit</button>
+            </div>
+          </div>
+        </div>
+        <div className={styles.footerPartTwo}>
+          <div style={{width:"100%"}}> 
+            <div className={styles.logoFooter}>
+            </div>
+            <div className={styles.sosialFooter}>
+              <Link style={{ color: 'black' }} to={"https://www.instagram.com/ozonio.official.azerbaijan/?ref=oSa2ew7A&hl=am-et"}>
+                <InstagramIcon sx={{
+                  fontSize: "28px",
+                  marginTop: "10px",
+                }} />
+              </Link>
+              <Link style={{ color: 'black' }} to={"https://www.instagram.com/ozonio.official.azerbaijan/?ref=oSa2ew7A&hl=am-et"}>
+                <FacebookIcon sx={{
+                  fontSize: "28px",
+                  marginTop: "10px",
+                }} />
+              </Link>
+            </div>
+          </div>
+          <div className={styles.footerLink}>
+            <Link to={"/"}>{t('esas')}</Link>
+            <Link to={"/keratin"}>{t('keratin')}</Link>
+            <Link to={"/sacqulluq"}>{t('sacqulluq')}</Link>
+            <Link to={"/about"}>{t('about')}</Link>
+            <Link to={"/contact"}>{t('contact')}</Link>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
 const Countdown = () => {
     const calculateTimeLeft = () => {
-        let difference = +new Date('2024-02-24');
+        let difference = +new Date('2024-03-24');
         let currentTime = +new Date();
         let timeLeft = difference - currentTime;
         let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
@@ -59,87 +59,50 @@ const Countdown = () => {
         });
     };
 
-
-    if (isExtraLarge) {
-        return (
-            <div className={styles.parentCountdown}>
-                <div className={styles.topCount}>
-                    <h3 className={styles.weeklyText}>Həftənin Təklifi</h3>
-                    <div className={styles.dayCount}>
-                        <p className={styles.time}>{time.days.toString().padStart(2, '0')} <br /> gün</p>
-                        <p className={styles.time}>{time.hours.toString().padStart(2, '0')} <br /> saat</p>
-                        <p className={styles.time}>{time.minutes.toString().padStart(2, '0')} <br /> dəqiqə</p>
-                        <p className={styles.time}>{time.seconds.toString().padStart(2, '0')} <br /> saniyə</p>
-                    </div>
+    return (
+        <div className={styles.parentCountdown}>
+            <div className={styles.topCount}>
+                <h3 className={styles.weeklyText}>Həftənin Təklifi</h3>
+                <div className={styles.dayCount}>
+                    <p className={styles.time}>{time.days.toString().padStart(2, '0')} <br /> gün</p>
+                    <p className={styles.time}>{time.hours.toString().padStart(2, '0')} <br /> saat</p>
+                    <p className={styles.time}>{time.minutes.toString().padStart(2, '0')} <br /> dəqiqə</p>
+                    <p className={styles.time}>{time.seconds.toString().padStart(2, '0')} <br /> saniyə</p>
                 </div>
-                <div className={styles.mainCount}>
-                    {keratin && keratin.length > 0 && keratin.map(item => (
-                        item.bestSeller === "true" ? (
-                            <React.Fragment key={item._id}>
-                                <p>{item.name}</p>
+            </div>
+            <div className={styles.mainCount}>
+                {keratin && keratin.length > 0 && keratin.map(item => (
+                    item.bestSeller === "true" ? (
+                        <div key={item._id} className={styles.productContainer}>
+                            <div className={styles.imageContainer}>
                                 <img src={item.productImgUrl} alt={item.name} />
-                            </React.Fragment>
-                        ) : (
-                            <React.Fragment key={item._id}>
-                                <h3>NAME</h3>
+                            </div>
+                            <div className={styles.infoContainer}>
+                                <h6>{item.name}</h6>
+                                <p>{item.description}</p>
+                                <div className={styles.detailWhislistButton}>
+                                    <p onClick={handleAddToCart}>Səbətə Əlavə Et</p>
+                                </div>
+                            </div>
+                        </div>
+                    ) : (
+                        <div key={item._id} className={styles.productContainer}>
+                            <div className={styles.imageContainer}>
                                 <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1697288553/WhatsApp_Image_2023-08-09_at_20.17.03_hlnsjw.jpg" alt="" />
-                            </React.Fragment>
-                        )
-                    ))}
-                    <div className={styles.detailWhislistButton}>
-                        <p onClick={handleAddToCart}>Səbətə Əlavə Et</p>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    if (isLarge && !isExtraLarge) {
-        return (
-            <div className={styles.parentCountdownMobile}>
-                <div className={styles.topCountMobile}>
-                    <h3 className={styles.weeklyTextMobile}>Həftənin Təklifi</h3>
-                    <div className={styles.dayCountMobile}>
-                        <p className={styles.timeMobile}>{time.days.toString().padStart(2, '0')} <br /> gün</p>
-                        <p className={styles.timeMobile}>{time.hours.toString().padStart(2, '0')} <br /> saat</p>
-                        <p className={styles.timeMobile}>{time.minutes.toString().padStart(2, '0')} <br /> dəqiqə</p>
-                        <p className={styles.timeMobile}>{time.seconds.toString().padStart(2, '0')} <br /> saniyə</p>
-                    </div>
-                </div>
-                <div className={styles.mainCountMobile}>
-                    {keratin && keratin.length > 0 && keratin.map(item => (
-                        item.bestSeller === "true" ? (
-                            <div key={item._id} className={styles.productContainer}>
-                                <div className={styles.imageContainer}>
-                                    <img src={item.productImgUrl} alt={item.name} />
-                                </div>
-                                <div className={styles.infoContainer}>
-                                    <h6>{item.name}</h6>
-                                    <p>{item.description}</p>
-                                    <div className={styles.detailWhislistButtonMobile}>
-                                        <button onClick={handleAddToCart}>Səbətə Əlavə Et</button>
-                                    </div>
+                            </div>
+                            <div className={styles.infoContainer}>
+                                <p>NAME</p>
+                                <div className={styles.detailWhislistButton}>
+                                    <button onClick={handleAddToCart}>Səbətə Əlavə Et</button>
                                 </div>
                             </div>
-                        ) : (
-                            <div key={item._id} className={styles.productContainer}>
-                                <div className={styles.imageContainer}>
-                                    <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1697288553/WhatsApp_Image_2023-08-09_at_20.17.03_hlnsjw.jpg" alt="" />
-                                </div>
-                                <div className={styles.infoContainer}>
-                                    <p>NAME</p>
-                                    <div className={styles.detailWhislistButtonMobile}>
-                                        <button onClick={handleAddToCart}>Səbətə Əlavə Et</button>
-                                    </div>
-                                </div>
-                            </div>
-                        )
-                    ))}
-                </div>
+                        </div>
+                    )
+                ))}
             </div>
-        );
-    }
+        </div>
+    );
+}
 
-};
 
 export default Countdown;

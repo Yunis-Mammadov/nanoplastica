@@ -19,6 +19,13 @@ import Suallar from "../pages/User/Suallar";
 import UserMainRoot from "../pages/User/UserMainRoot";
 import Utuler from "../pages/User/Utuler";
 import SacBoya from "../pages/User/SacBoya";
+import Ozonio from "../pages/User/Keratin/Ozonio";
+import Revive from "../pages/User/Keratin/Revive";
+import Shampoo from "../pages/User/SacQulluq/Shampo";
+import Balsamo from "../pages/User/SacQulluq/Balsamo/index copy";
+import Maska from "../pages/User/SacQulluq/Maska";
+import Kondisioner from "../pages/User/SacQulluq/Kondisioner";
+import Botox from "../pages/User/SacQulluq/Botox/index copy";
 
 const addToCart = (product) => {
 
@@ -84,6 +91,34 @@ export const ROUTES = [
             {
                 path: 'suallar',
                 element: <Suallar />
+            },
+            {
+                path: 'ozonio',
+                element: <Ozonio />
+            },
+            {
+                path: 'revive',
+                element: <Revive />
+            },
+            {
+                path: 'shampoo',
+                element: <Shampoo />
+            },
+            {
+                path: 'balsamo',
+                element: <Balsamo />
+            },
+            {
+                path: 'maska',
+                element: <Maska />
+            },
+            {
+                path: 'kondisioner',
+                element: <Kondisioner />
+            },
+            {
+                path: 'botox',
+                element: <Botox />
             },
         ]
     },
