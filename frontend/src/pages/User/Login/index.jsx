@@ -1,17 +1,18 @@
 import CloseIcon from '@mui/icons-material/Close';
 import { useFormik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { signIN } from '../../../api/request';
 import styles from '../Login/index.module.css';
+import { useUserContext } from '../../../context/UserContext';
 
 
 
 const Login = () => {
-    // const [user, setUser] = useUserContext();
-    // const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [user, setUser] = useUserContext();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
 
     const handleSubmit = async (values, actions) => {
@@ -20,12 +21,12 @@ const Login = () => {
         if (response.auth) {
             localStorage.setItem('token', response.token);
             localStorage.setItem('user', JSON.stringify(response.user));
-            // setUser(response.user);
-            // setIsLoggedIn(true);
+            setUser(response.user);
+            setIsLoggedIn(true);
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: 'User signed in successfully!',
+                title: 'Daxil Olundu!',
                 showConfirmButton: false,
                 timer: 1200
             });

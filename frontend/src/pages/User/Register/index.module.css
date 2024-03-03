@@ -173,6 +173,7 @@
         height: 5vh;
         padding: 5px;
     }
+
     .RegisterInput select {
         display: flex;
         justify-content: center;
@@ -182,7 +183,7 @@
         height: 5vh;
         padding: 10px 8px;
     }
-    
+
     .RegisterLabel {
         width: 70%;
         display: flex;
@@ -190,18 +191,18 @@
         align-items: center;
         padding-bottom: 5px;
     }
-    
+
     .RegisterButtons {
         padding-bottom: 40px;
     }
-    
+
     .Register {
         display: flex;
         justify-content: center;
         align-items: center;
         padding-bottom: 10px;
     }
-    
+
     .RegisterButton {
         width: 100px;
         height: 40px;
@@ -212,25 +213,25 @@
         color: white;
         cursor: pointer
     }
-    
+
     .disabledButton {
         opacity: 0.5;
     }
-    
+
     .RegisterLink {
         color: rgb(115, 115, 115);
         padding-left: 5px;
     }
-    
+
     .RegisterLink:hover {
         cursor: pointer;
         color: rgb(25, 118, 210);
     }
-    
+
     .logoContainer {
         position: relative;
     }
-    
+
     .closeIcon {
         position: absolute;
         top: 10px;
@@ -239,7 +240,7 @@
         color: rgb(158, 153, 153);
         transition: 0.5s;
     }
-    
+
     .closeIcon:hover {
         cursor: pointer;
         color: rgb(114, 111, 111);

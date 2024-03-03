@@ -1,35 +1,20 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import React, { useEffect } from 'react';
+import { ThemeProvider } from '@mui/material/styles';
+import React from 'react';
+import { FloatingWhatsApp } from 'react-floating-whatsapp';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
+import { UserContextProvider } from './context/UserContext';
 import { ROUTES } from './routes/ROUTES';
-import { FloatingWhatsApp } from 'react-floating-whatsapp'
 
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#FFFFFF',
-    },
-    background: {
-      default: '#FFFFFF',
-    },
-  },
-});
 
 const App = () => {
 
-  useEffect(() => {
-    const timeout = setTimeout(() => { }, 1000);
-
-    return () => clearTimeout(timeout);
-  }, []);
 
   const routes = createBrowserRouter(ROUTES);
 
   return (
     <>
-      <ThemeProvider theme={theme}>
+      <UserContextProvider>
         <CartProvider>
           <RouterProvider router={routes} />
           <FloatingWhatsApp
@@ -39,10 +24,10 @@ const App = () => {
             avatar='https://res.cloudinary.com/dsb3j1ozv/image/upload/v1704196009/NanoPlastica_1_qz64fz.jpg'
             statusMessage='online'
             notification
-            notificationSound	
-            />
+            notificationSound
+          />
         </CartProvider>
-      </ThemeProvider>
+      </UserContextProvider>
     </>
   );
 };

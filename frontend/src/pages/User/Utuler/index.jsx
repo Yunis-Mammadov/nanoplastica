@@ -9,11 +9,11 @@ import { getAllHavaFenleri, getAllSocialMediaLinks } from '../../../api/request'
 import styles from './index.module.css';
 
 const Utuler = () => {
-  const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
   const [socialLinks, setSocialLinks] = useState([]);
   const [havaFenleri, setHavaFenleri] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
   const [showAccordion, setShowAccordion] = useState(false)
+  const isMobile = useMediaQuery('(min-width:270px)');
 
   const filterItems = () => {
     // ... (existing filterItems logic remains unchanged)

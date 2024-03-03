@@ -6,8 +6,15 @@ const bodyParser = require("body-parser");
 const app = express();
 
 
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  allowedHeaders: 'Content-Type,Authorization',
+};
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 dotenv.config();
 const router = require("./routes");
@@ -19,10 +26,10 @@ app.use("/api/utuler", router.utuler_router);
 app.use("/api/sacqulluq", router.sacqulluq_router);
 app.use("/api/contact", router.contact_router);
 app.use("/api/socialMediaLinks", router.socialMediaLinks_router);
-// app.use('/api/user', router.user_routes);
-// app.use("/api/login", router.login_routes)
 app.use("/api/setler", router.setler_routes)
 app.use("/api/suallar", router.suallar_routes)
+app.use("/api/user", router.user_routes)
+app.use("/api/login", router.login_routes)
 
 
 PORT = process.env.PORT;

@@ -12,7 +12,6 @@ import BeatLoader from "react-spinners/BeatLoader";
 import styles from './index.module.css';
 
 const SacQulluq = () => {
-  const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
   const [socialLinks, setSocialLinks] = useState([]);
   const [sacqulluq, setSacQulluq] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -23,6 +22,7 @@ const SacQulluq = () => {
   const [isMaskaChecked, setIsMaskaChecked] = useState(false);
   const [isBotoxChecked, setIsBotoxChecked] = useState(false);
   const [isConditionerChecked, setIsConditionerChecked] = useState(false);
+  const isMobile = useMediaQuery('(min-width:270px)');
 
   const filterItems = () => {
     const noFilterSelected =

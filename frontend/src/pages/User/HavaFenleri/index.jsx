@@ -9,7 +9,7 @@ import { getAllHavaFenleri, getAllSocialMediaLinks } from '../../../api/request'
 import styles from './index.module.css';
 
 const HavaFenleri = () => {
-  const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery('(min-width:270px)');
   const [socialLinks, setSocialLinks] = useState([]);
   const [havaFenleri, setHavaFenleri] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);

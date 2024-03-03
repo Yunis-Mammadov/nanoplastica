@@ -45,7 +45,7 @@ export const getKeratinById = async (id) => {
         return response.data;
     } catch (error) {
         console.error("Error fetching keratin by id:", error);
-        return null; 
+        return null;
     }
 }
 
@@ -112,7 +112,6 @@ export const signUP = async (payload) => {
     return response;
 };
 
-
 export const getUsers = async (token) => {
     try {
         const response = await axios.get(`${BASE_URL}/api/user`, {
@@ -120,11 +119,13 @@ export const getUsers = async (token) => {
                 'x-access-token': token
             }
         });
-        return response.data
+        return response.data;
     } catch (error) {
-        throw error
+        console.error("Error fetching user info:", error);
+        throw error; 
     }
 };
+
 
 export const signIN = async (payload) => {
     const response = await axios.post(`${BASE_URL}/api/login`, payload);

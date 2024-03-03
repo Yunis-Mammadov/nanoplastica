@@ -1,50 +1,75 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Dai Banna SIL', serif;
-    font-family: 'Inter', sans-serif;
-    font-family: 'Varela Round', sans-serif;
-    font-weight: 550;
-}
-
 .parentNavbar {
-    height: 24vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.toolbar {
+.topbar {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    gap: 60px;
     background-color: black;
-    height: 24vh;
+    min-height: 8vh;
+    gap: 50px;
+    position: static;
+}
+
+.registerBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.registerBtnMobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registerBtnMobile button {
+    background-color: black;
+    color: rgb(198, 204, 204);
+    border: 1px solid rgb(198, 204, 204);
+    border-radius: 10px;
+    padding: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+
+.registerBtn button {
+    background-color: black;
+    color: rgb(198, 204, 204);
+    border: 1px solid rgb(198, 204, 204);
+    border-radius: 10px;
+    padding: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.registerBtn button:hover {
+    background-color: rgb(198, 204, 204);
+    color: black;
+    border: none;
+}
+
+.searchAndBasket {
     padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 50%;
+}
+
+.navbar {
+    background-color: rgb(51, 51, 51);
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    height: 10vh;
 }
 
 .parentLogo {
-    height: 20vh;
-    width: 11%;
-}
-
-.parentIsLargeLogo {
-    width: 17%;
-    height: 13vh;
-}
-
-.parentIsSmallLogo {
-    width: 25%;
-    height: 12vh;
-}
-
-.parentIsSmallLogo img {
-    width: 100%;
-    height: 100%;
-}
-
-.parentIsLargeLogo img {
-    width: 100%;
-    height: 100%;
+    height: 19vh;
+    width: 10%;
 }
 
 .logoImg {
@@ -52,129 +77,185 @@
     height: 100%;
 }
 
-.searchAndBasket {
-    position: relative;
+.navbarLinks ul {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    /* background-color: yellow; */
-}
-
-.parentMainLinks {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100%;
     gap: 30px;
+}
+
+.navbarLinks li {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid rgb(198, 204, 204);
+    padding-right: 25px;
+}
+
+
+.navbarLinks a {
     color: white;
+    font-size: 17px;
+    text-decoration: none;
+    padding: 8px;
 }
 
-.registerButton {
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-size: 15px;
+.navbarLinks a:hover {
+    color: rgb(198, 204, 204);
 }
 
-.registerButton:hover {
-    cursor: pointer;
+.navbarLinks li:hover .dropdownMenu {
+    display: block;
 }
 
-.links {
-    color: white;
-    font-size: 18px;
+.dropdownWrapper {
+    position: relative;
 }
 
-.drawerLinks {
-    color: white;
-    font-size: 16px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 5vh;
-    margin-top: 30px;
+.dropdownWrapper:hover .dropdownContent {
+    display: block;
 }
 
-.drawerMainLinks {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-}
-
-
-.styles.parentMainLinksExtraSmall {
-    /* Extra Small Ekran Stili */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 5px;
-    /* Özgün padding değeri */
-}
-
-.styles.parentMainLinksSmall {
-    /* Small Ekran Stili */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    /* Özgün padding değeri */
-}
-
-.styles.parentMainLinksMedium {
-    /* Medium Ekran Stili */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    /* Özgün padding değeri */
-}
-
-.styles.parentMainLinksLarge {
-    /* Large Ekran Stili */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    /* Özgün padding değeri */
-}
-
-.styles.parentMainLinksExtraLarge {
-    /* Extra Large Ekran Stili */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 25px;
-    /* Özgün padding değeri */
-}
-
-.cartItemCount {
+.dropdownContent {
+    display: none;
     position: absolute;
-    right: -28px;
-    background-color: orange;
-    color: white;
-    border-radius: 50%;
-    padding: 4px 10px;
-    font-size: 12px;
-    min-width: 2 0px;
-    text-align: center;
+    min-width: 123px;
+    margin-top: 147px;
+    right: 0px;
+    z-index: 1000;
 }
 
-.parentSeachIcon {
-    width: 7%;
+.dropdownContent li {
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.dropdownContent a {
+    color: black;
+}
+
+.dropdownContent li:hover {
+    background-color: #33373d;
+}
+
+
+/* sacqulluq */
+
+.dropdownWrapper:hover .dropdownContentSacqulluq {
+    display: block;
+}
+
+.dropdownContentSacqulluq {
+    display: none;
+    position: absolute;
+    min-width: 223px;
+    margin-top: 147px;
+    right: 0px;
+    z-index: 1000;
+}
+
+.dropdownContentSacqulluq li {
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.dropdownContentSacqulluq a {
+    color: black;
+}
+
+.dropdownContentSacqulluq li:hover {
+    background-color: #33373d;
+}
+
+
+/* meiset */
+
+.dropdownWrapper:hover .dropdownContentMeiset {
+    display: block;
+}
+
+.dropdownContentMeiset {
+    display: none;
+    position: absolute;
+    min-width: 123px;
+    margin-top: 147px;
+    right: 0px;
+    z-index: 1000;
+}
+
+.dropdownContentMeiset li {
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.dropdownContentMeiset a {
+    color: black;
+}
+
+.dropdownContentMeiset li:hover {
+    background-color: #33373d;
+}
+
+.drawer {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: 1000;
+}
+
+.drawerList a {
+    color: black;
+    font-weight: 600;
+}
+
+.searchAndBasketSmall {
+    display: flex;
+    flex-direction: column;
+}
+
+.smallNavbar {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: none;
-    background-color: red;
+    flex-direction: column;
+    background-color: black;
 }
 
-.searchIcon {
-    color: black;
+.topbarSmall {
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     width: 100%;
+}
+
+.drawerAndRegister {
+    display: flex;
+    gap: 10px;
+}
+
+.registerSmall {
+    background-color: black;
+    color: rgb(198, 204, 204);
+    border: 1px solid rgb(198, 204, 204);
+    border-radius: 10px;
+    padding: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.registerSmall:hover {
+    background-color: rgb(198, 204, 204);
+    color: black;
+    border: none;
 }
 
 input[type="search"]::-webkit-search-cancel-button {
@@ -204,55 +285,85 @@ input[type="search"]:focus::placeholder {
     opacity: 0;
 }
 
-.searchResults {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+.search {
+    position: relative;
+    width: 380px;
+    height: 3vh;
+    margin: 10px;
 }
 
-.resultItem img {
+.searchLarge {
+    position: relative;
+    width: 480px;
+    height: 3vh;
+    margin: 10px;
+}
+
+.searchExtraLarge {
+    position: relative;
+    width: 550px;
+    height: 4vh;
+    margin: 10px;
+}
+
+.searchResultsExtra {
+    position: absolute;
+    width: 50%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    z-index: 1;
+    max-height: 500px;
+    overflow-y: auto;
+    margin: 0 380px;
+}
+
+.searchResultsExtra img{
+    width: 100px;
+}
+
+.searchInput {
     width: 100%;
-    max-height: 300px;
-}
-
-.resultItem p {
-    margin-bottom: 10px;
+    height: 100%;
 }
 
 .clearIcon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    color: red;
-}
-
-
-.searchButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: red;
-}
-
-.searchButton button {
-    width: 45px;
-    height: 100%;
-    background-color: white;
-}
-
-.mobilSearchAndBasket {
-    padding-right: 20px;
-}
-
-.mobileCartItemCount {
     position: absolute;
-    right: 10px;
-    background-color: orange;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.searchResults {
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    z-index: 1;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.resultItem {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.resultItem:hover {
+    background-color: #33373d;
     color: white;
-    border-radius: 50%;
-    padding: 4px 10px;
-    font-size: 12px;
-    min-width: 2 0px;
+}
+
+.resultItem img {
+    width: 200px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.noResults {
     text-align: center;
 }

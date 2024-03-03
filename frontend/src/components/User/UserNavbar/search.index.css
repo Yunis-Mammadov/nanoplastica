@@ -1,6 +1,3 @@
-body {
-    background-image: linear-gradient(to right , #cb2d3e , #ef473a);
-}
 
 .searchBox {
     position: absolute;
@@ -49,11 +46,4 @@ body {
     line-height: 40px;
     width: 0px;
 
-}
-
-@media screen and (max-width: 620px) {
-.searchBox:hover > .searchInput {
-    width: 150px;
-    padding: 0 6px;
-}
 }

@@ -34,23 +34,23 @@ const Home = () => {
   if (isExtraLarge) {
     return (
       <>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div>
+        {/* <div style={{ display: "flex", justifyContent: "space-between" }}> */}
+          {/* <div>
             <Sliders />
           </div>
           <div>
             <Countdown />
           </div>
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <Carousel />
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <WhyUs />
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <CoxSatan />
-        </div>
+        </div> */}
         {/* <div>
           <Videos />
         </div> */}
@@ -58,30 +58,30 @@ const Home = () => {
     );
   }
 
-  if (isLarge && !isExtraLarge) {
-    return (
-      <>
-        <div>
-          <Sliders />
-        </div>
-        <div>
-          <Carousel />
-        </div>
-        <div>
-          <WhyUs />
-        </div>
-        <div>
-          <Countdown />
-        </div>
-        <div>
-          <CoxSatan />
-        </div>
-        {/* <div>
-          <Videos />
-        </div> */}
-      </>
-    );
-  }
+  // if (isLarge && !isExtraLarge) {
+  //   return (
+  //     <>
+  //       <div>
+  //         <Sliders />
+  //       </div>
+  //       <div>
+  //         <Carousel />
+  //       </div>
+  //       <div>
+  //         <WhyUs />
+  //       </div>
+  //       <div>
+  //         <Countdown />
+  //       </div>
+  //       <div>
+  //         <CoxSatan />
+  //       </div>
+  //       {/* <div>
+  //         <Videos />
+  //       </div> */}
+  //     </>
+  //   );
+  // }
 
 };
 

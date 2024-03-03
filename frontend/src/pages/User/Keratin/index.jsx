@@ -15,7 +15,6 @@ import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 import styles from './index.module.css';
 
 const Keratin = () => {
-    const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
     const [socialLinks, setSocialLinks] = useState([]);
     const [keratin, setKeratin] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -23,6 +22,7 @@ const Keratin = () => {
     const [isHamısı, setIsHamısı] = useState(false);
     const [isBioCapilarChecked, setIsBioCapilarChecked] = useState(false);
     const [isNanoKeratinChecked, setIsNanoKeratinChecked] = useState(false);
+    const isMobile = useMediaQuery('(min-width:270px)');
 
     const filterItems = () => {
         const noFilterSelected =

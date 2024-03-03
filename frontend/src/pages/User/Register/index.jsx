@@ -1,9 +1,12 @@
-import CloseIcon from '@mui/icons-material/Close';
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link, useNavigate } from 'react-router-dom';
-import { signUP } from '../../../api/request';
-import styles from "../Register/index.module.css";
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import styles from "../Register/index.module.css"
+import { signUP, getUsers } from '../../../api/request';
+import * as Yup from "yup"
+import { useFormik } from "formik"
+import CloseIcon from '@mui/icons-material/Close';
 
 
 
@@ -16,38 +19,48 @@ const Register = () => {
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
-        try {
-            event.preventDefault();
+        event.preventDefault();
+        console.log(event);
 
-            if (name.trim() === "" || email.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') {
-                return;
-            }
-
-            if (password !== confirmPassword) {
-                return;
-            }
-
-            const user = {
-                name: name,
-                password: password,
-                email: email
-            };
-
-            const response = await signUP(user);
-            console.log("API Response:", response); // API yanıtını kontrol etmek için log
-            // ...
-
-        } catch (error) {
-            console.error("API Call Error:", error);
-            // Hata mesajını daha detaylı inceleyebilir ve hatanın kaynağını daha iyi anlamak için loglayabilirsiniz.
-        } finally {
-            setName('');
-            setEmail('');
-            setPassword('');
-            setConfirmPassword('');
+        if (name.trim() === "" || email.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') {
+            return;
         }
-    };
 
+        if (password !== confirmPassword) {
+            return;
+        }
+
+        const user = {
+            name: name,
+            password: password,
+            email: email
+        };
+
+        try {
+            const response = await signUP(user);
+            console.log(response.data);
+
+            if (response.data.auth) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Qeydiyyat olundu',
+                    showConfirmButton: false,
+                    timer: 1200
+                });
+                const token = response.data.token;
+                await getUsers(token);
+                navigate('/login');
+            }
+        } catch (error) {
+            console.log(error);
+        }
+
+        setName('');
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
+    };
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -63,13 +76,13 @@ const Register = () => {
         }
     };
 
-    // const formik = useFormik({
-    //     initialValues: {
-    //         imageURL: "",
-    //         name: "",
-    //         description: ""
-    //     },
-    // })
+    const formik = useFormik({
+        initialValues: {
+            imageURL: "",
+            name: "",
+            description: ""
+        },
+    })
 
 
     return (
@@ -84,12 +97,11 @@ const Register = () => {
                             <CloseIcon className={styles.closeIcon} onClick={() => {
                                 window.location.href = "http://localhost:3000"
                             }} />
-                            <img src="https://my.account.sony.com/central/signin/9fe91826ca150e7fa133749535fa2ed86e5c1b70/assets/images/logo_playstation.png" alt="" />
                         </div>
                     </div>
-                    <label className={styles.RegisterLabel}>
+                    {/* <label className={styles.RegisterLabel}>
                         Sign in to PlayStation with one of your Sony account
-                    </label>
+                    </label> */}
                     <div className={styles.RegisterInput}>
                         <div>
                             <input
@@ -124,8 +136,7 @@ const Register = () => {
                                 placeholder="Confirm Password"
                                 name="confirmPassword"
                                 value={confirmPassword}
-                                onChange={handleInputChange
-                                }
+                                onChange={handleInputChange}
                             />
                         </div>
                     </div>
@@ -141,14 +152,14 @@ const Register = () => {
                         </div>
                         <div>
                             <label>Do you have an account?</label>
-                            <Link
+                            <a
                                 className={styles.RegisterLink}
                                 onClick={() => {
                                     navigate('/login');
                                 }}
                             >
                                 Sign In
-                            </Link>
+                            </a>
                         </div>
                     </div>
                 </form>

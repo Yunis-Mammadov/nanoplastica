@@ -10,7 +10,7 @@ import styles from './index.module.css';
 import { getAllSetler, getAllSocialMediaLinks } from '../../../api/request';
 
 const Setler = () => {
-  const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery('(min-width:270px)');
   const [socialLinks, setSocialLinks] = useState([]);
   const [keratin, setKeratin] = useState([]);
   const [loading, setLoading] = useState(true);
