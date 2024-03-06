@@ -8,7 +8,7 @@ const verifyJWTMiddleware = async (req, res, next) => {
             // const { error, value } = verifyJWTMiddlewarePostSchema.validate(req.body);
             // if (error) {
             //     return res.status(400).send({ message: error.details[0].message })
-            // }
+            // }s
             req.userId = decoded.id;
             next();
         } catch (error) {

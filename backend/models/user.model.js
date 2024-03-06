@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 const jwt = require('jsonwebtoken');
-require('dotenv').config(); // .env dosyasını yükleyin
+require('dotenv').config();
 
 let validateEmail = function (email) {
     let re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     return re.test(email);
 };
 
-const secretKey = process.env.SECRET_KEY; // .env dosyasından secretKey'i alın
+const secretKey = process.env.SECRET_KEY
 
 const UserModel = new mongoose.model("Users", (
     new mongoose.Schema({
