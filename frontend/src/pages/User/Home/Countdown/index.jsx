@@ -21,8 +21,8 @@ const Countdown = () => {
     const [time, setTime] = useState(calculateTimeLeft());
     const [keratin, setKeratin] = useState([])
     const { addToCart } = useCart();
-    const isExtraLarge = useMediaQuery('(min-width:1200px)');
-    const isLarge = useMediaQuery('(min-width: 270px)')
+    const isExtraLarge = useMediaQuery('(min-width:600px)');
+    const isLarge = useMediaQuery('(max-width: 600px)')
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -74,7 +74,7 @@ const Countdown = () => {
                 {keratin && keratin.length > 0 && keratin.map(item => (
                     item.bestSeller === "true" ? (
                         <div key={item._id} className={styles.productContainer}>
-                            <div className={styles.imageContainer}>
+                            <div className={isLarge ? styles.imageContainerLarge : styles.imageContainer}>
                                 <img src={item.productImgUrl} alt={item.name} />
                             </div>
                             <div className={styles.infoContainer}>

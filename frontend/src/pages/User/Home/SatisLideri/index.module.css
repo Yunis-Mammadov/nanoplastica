@@ -76,19 +76,18 @@
 
     .card {
         position: relative;
-        width: calc(51% - 10px);
-        margin-bottom: 25px;
-        border: 1px solid #ccc;
+        width: calc(50% - 10px);
         border-radius: 5px;
+        border: 1px solid rgb(122, 122, 122);
         box-sizing: border-box;
-        padding: 20px;
+        padding: 10px;
+        margin: 5px;
     }
 
 
     .cardImg {
-        width: 80%;
+        width: 100%;
         max-height: 300px;
-        margin: 0 auto;
     }
 
     .keratinName {

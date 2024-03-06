@@ -22,7 +22,7 @@ const BasketPage = () => {
     const [address, setAddress] = useState('');
     const [isCartEmpty, setIsCartEmpty] = useState(true);
     const isExtraLarge = useMediaQuery('(min-width:1200px)');
-    const isMobile = useMediaQuery('(max-width:600px)'); // Adjusted media query for mobile devices
+    const isMobile = useMediaQuery('(max-width:600px)');
 
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {

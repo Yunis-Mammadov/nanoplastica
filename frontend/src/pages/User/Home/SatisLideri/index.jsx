@@ -43,11 +43,13 @@ const SatisLideri = () => {
         setSelectedSac(sac)
         setLoading(true);
         setSelectedSac(sac);
-        setLoading(false);;
-    };
+        setLoading(false);
+        document.body.style.overflow = 'hidden';
+    }
 
     const handleModalClose = () => {
         setSelectedSac(null);
+        document.body.style.overflow = 'auto'; 
     };
 
 

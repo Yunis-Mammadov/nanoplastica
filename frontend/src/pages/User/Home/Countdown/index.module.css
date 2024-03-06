@@ -21,7 +21,18 @@
 }
 
 .imageContainer img {
-    width: 17%;
+    width: 20%;
+    margin-bottom: 20px;
+}
+
+.imageContainerLarge{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageContainerLarge img{
+    width: 45%;
     margin-bottom: 20px;
 }
 
