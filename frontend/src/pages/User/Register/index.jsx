@@ -95,7 +95,7 @@ const Register = () => {
                     <div>
                         <div className={styles.logoContainer}>
                             <CloseIcon className={styles.closeIcon} onClick={() => {
-                                window.location.href = "http://localhost:3000"
+                                window.location.href = "/"
                             }} />
                         </div>
                     </div>

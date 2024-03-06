@@ -1,43 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { getAllKeratin, getAllSacQulluq } from '../../../../api/request';
-import { Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useCart } from '../../../../context/CartContext';
+import BeatLoader from "react-spinners/BeatLoader";
 import Swal from 'sweetalert2';
 import styles from './index.module.css';
+import Modal from '../Modal/index';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 
 const SatisLideri = () => {
     const [keratin, setKeratin] = useState([]);
     const [sacqulluq, setSacqulluq] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [quantity, setQuantity] = useState(1);
+    const [selectedSac, setSelectedSac] = useState(null);
     const { addToCart } = useCart();
-
-
 
     useEffect(() => {
         getAllKeratin()
             .then(data => {
                 setKeratin(data);
             })
-    }, []);
-
-    useEffect(() => {
+            .finally(() => setLoading(false));
         getAllSacQulluq()
             .then(data => {
                 setSacqulluq(data);
             })
+            .finally(() => setLoading(false));
     }, []);
 
-    const handleAddToCart = () => {
-        const item = {
-            id: keratin._id,
-            img: keratin.productImgUrl,
-            name: keratin.name,
-            brand: keratin.brand,
-            quantity: quantity,
-        };
-
-        console.log(keratin._id);
+    const handleAddToCart = (item) => {
         addToCart(item);
         Swal.fire({
             icon: 'success',
@@ -47,28 +39,63 @@ const SatisLideri = () => {
         });
     };
 
-    return (
-        <>
-            <div>
-                <Grid container width={"80%"} margin={"0 auto"}>
-                    {sacqulluq.map(keratins => (
-                        <Grid item xs={12} sm={6} md={4} key={keratins._id}>
-                            <div className={styles.card}>
-                                <Link to={"/keratin"}>
-                                    <img className={styles.cardImg} src={keratins.productImgUrl} alt='' />
-                                    <h3 className={styles.keratinName}>{keratins.name}</h3>
-                                    <p style={{ fontSize: '14px', color: '#555' }}>{keratins.description}</p>
-                                </Link>
-                                <div className={styles.detailWhislistButton}>
-                                    <button onClick={handleAddToCart}>Səbətə Əlavə Et</button>
-                                </div>
-                            </div>
-                        </Grid>
-                    ))}
-                </Grid>
+    const handleModalOpen = (sac) => {
+        setSelectedSac(sac)
+        setLoading(true);
+        setSelectedSac(sac);
+        setLoading(false);;
+    };
+
+    const handleModalClose = () => {
+        setSelectedSac(null);
+    };
+
+
+    if (loading) {
+        return (
+            <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "30vh",
+                color: "red",
+            }}>
+                <BeatLoader color="orange" />
             </div>
-        </>
-    )
-}
+        );
+    }
+
+    return (
+        <div>
+            <div className={styles.grid}>
+                {sacqulluq.map(sac => (
+                    <div className={styles.card} key={sac._id}>
+                        <Link to={"/keratin"}>
+                            <img className={styles.cardImg} src={sac.productImgUrl} alt='' />
+                            <h3 className={styles.keratinName}>{sac.name}</h3>
+                            <p style={{ fontSize: '14px', color: '#555' }}>{sac.description}</p>
+                        </Link>
+                        <div className={styles.detailWhislistButton}>
+                            <button className={styles.basketBtn} onClick={() => handleAddToCart({
+                                id: sac._id,
+                                img: sac.productImgUrl,
+                                name: sac.name,
+                                brand: sac.brand,
+                                quantity: quantity,
+                            })}>Səbətə Əlavə Et</button>
+                            <button className={styles.eyeBtn} onClick={() => handleModalOpen(sac)}>
+                                <RemoveRedEyeIcon />
+                            </button>
+                        </div>
+                    </div>
+                ))}
+
+            </div>
+            {selectedSac && (
+                <Modal handleClose={handleModalClose} sac={selectedSac} />
+            )}
+        </div>
+    );
+};
 
 export default SatisLideri;

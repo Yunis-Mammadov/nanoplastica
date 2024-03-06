@@ -21,7 +21,7 @@ export default function CoxSatan() {
   useEffect(() => {
     getAllSacQulluq().then(data => {
       setSacqulluq(data);
-      setLoading(false); // Set loading to false when data is fetched
+      setLoading(false);
     });
   }, []);
 

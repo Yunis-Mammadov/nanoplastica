@@ -113,7 +113,9 @@ const Navbar = () => {
           <div className={styles.parentNavbar}>
             <div className={styles.topbar}>
               <div className={styles.registerBtn}>
+                {/* <Link  to="/register"> */}
                 <button>{t('register')}</button>
+                {/* </Link> */}
               </div>
               <div className={styles.searchAndBasket}>
                 <div className={styles.searchExtraLarge}>
@@ -296,19 +298,29 @@ const Navbar = () => {
                       <AccordionDetails>
                         <List>
                           <ListItem button>
-                            <ListItemText primary={t('şampun')} />
+                            <Link to={'/shampoo'} onClick={handleDrawerClose}>
+                              <ListItemText primary={t('şampun')} />
+                            </Link>
                           </ListItem>
                           <ListItem button>
-                            <ListItemText primary={t('balzam')} />
+                            <Link to={'/balsamo'} onClick={handleDrawerClose}>
+                              <ListItemText primary={t('balzam')} />
+                            </Link>
                           </ListItem>
                           <ListItem button>
-                            <ListItemText primary={t('maska')} />
+                            <Link to={'/maska'} onClick={handleDrawerClose}>
+                              <ListItemText primary={t('maska')} />
+                            </Link>
                           </ListItem>
                           <ListItem button>
-                            <ListItemText primary={t('kondisioner')} />
+                            <Link to={'/kondisioner'} onClick={handleDrawerClose}>
+                              <ListItemText primary={t('kondisioner')} />
+                            </Link>
                           </ListItem>
                           <ListItem button>
-                            <ListItemText primary={t('botox')} />
+                            <Link to={'/botox'} onClick={handleDrawerClose}>
+                              <ListItemText primary={t('botox')} />
+                            </Link>
                           </ListItem>
                         </List>
                       </AccordionDetails>
@@ -367,11 +379,11 @@ const Navbar = () => {
                     </button>
                   </div>
                 </Drawer>
-                <Link to={"/register"}>
-                  <div className={styles.registerBtnMobile}>
-                    <button style={{ marginLeft: "10px" }}>{t('register')}</button>
-                  </div>
-                </Link>
+                {/* <Link to={"/register"}> */}
+                <div className={styles.registerBtnMobile}>
+                  <button style={{ marginLeft: "10px" }}>{t('register')}</button>
+                </div>
+                {/* </Link> */}
               </div>
             </div>
             <div className={styles.searchLarge}>
@@ -389,7 +401,7 @@ const Navbar = () => {
               )}
             </div>
             <div>
-              <Link to="/basket">
+              <Link to="/basket" onClick={handleDrawerClose} >
                 <LocalGroceryStoreIcon sx={{ fontSize: "28px", color: "white", backgroundColor: "transparent" }} />
                 {cartItemCount > 0 && <span className={styles.cartItemCount}>{cartItemCount}</span>}
               </Link>
@@ -467,10 +479,14 @@ const Navbar = () => {
                       <AccordionDetails>
                         <List>
                           <ListItem button>
-                            <ListItemText primary={t('ozonio')} />
+                            <Link to='ozonio' onClick={handleDrawerClose}>
+                              <ListItemText primary={t('ozonio')} />
+                            </Link>
                           </ListItem>
                           <ListItem button>
-                            <ListItemText primary={t('revive')} />
+                            <Link to='revive' onClick={handleDrawerClose}>
+                              <ListItemText primary={t('revive')} />
+                            </Link>
                           </ListItem>
                         </List>
                       </AccordionDetails>
@@ -484,27 +500,27 @@ const Navbar = () => {
                       <AccordionDetails>
                         <List>
                           <ListItem button>
-                            <Link to={'/shampoo'}>
+                            <Link to={'/shampoo'} onClick={handleDrawerClose}>
                               <ListItemText primary={t('şampun')} />
                             </Link>
                           </ListItem>
                           <ListItem button>
-                            <Link to={'/balsamo'}>
+                            <Link to={'/balsamo'} onClick={handleDrawerClose}>
                               <ListItemText primary={t('balzam')} />
                             </Link>
                           </ListItem>
                           <ListItem button>
-                            <Link to={'/maska'}>
+                            <Link to={'/maska'} onClick={handleDrawerClose}>
                               <ListItemText primary={t('maska')} />
                             </Link>
                           </ListItem>
                           <ListItem button>
-                            <Link to={'/kondisioner'}>
+                            <Link to={'/kondisioner'} onClick={handleDrawerClose}>
                               <ListItemText primary={t('kondisioner')} />
                             </Link>
                           </ListItem>
                           <ListItem button>
-                            <Link to={'/botox'}>
+                            <Link to={'/botox'} onClick={handleDrawerClose}>
                               <ListItemText primary={t('botox')} />
                             </Link>
                           </ListItem>
@@ -565,11 +581,11 @@ const Navbar = () => {
                     </button>
                   </div>
                 </Drawer>
-                <Link to={"/register"}>
-                  <div className={styles.registerBtnMobile}>
-                    <button style={{ marginLeft: "10px" }}>{t('register')}</button>
-                  </div>
-                </Link>
+                {/* <Link to={"/register"}> */}
+                <div className={styles.registerBtnMobile}>
+                  <button style={{ marginLeft: "10px" }}>{t('register')}</button>
+                </div>
+                {/* </Link> */}
               </div>
             </div>
             <div style={{
@@ -579,7 +595,7 @@ const Navbar = () => {
             }}>
             </div>
             <div>
-              <Link to="/basket">
+              <Link to="/basket" onClick={handleDrawerClose}>
                 <LocalGroceryStoreIcon sx={{ fontSize: "28px", color: "white", backgroundColor: "transparent" }} />
                 {cartItemCount > 0 && <span className={styles.cartItemCount}>{cartItemCount}</span>}
               </Link>

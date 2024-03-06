@@ -21,13 +21,14 @@ dotenv.config();
 
 DB_PASSWORD = process.env.DB_PASSWORD
 DB_CONNECTION = process.env.DB_CONNECTION
-mongoose.connect(DB_CONNECTION.replace('<password>', DB_PASSWORD), {
+const secretKey = process.env.SECRET_KEY;
+mongoose.connect(DB_CONNECTION.replace('<password>', secretKey), {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
   .then(() => {
-    console.log('Mongo DB connected');
-  })
+  console.log('Mongo DB connected');
+})
   .catch((error) => {
     console.error('Mongo DB connection error:', error);
   });
@@ -44,6 +45,7 @@ app.use("/api/setler", router.setler_routes)
 app.use("/api/suallar", router.suallar_routes)
 app.use("/api/user", router.user_routes)
 app.use("/api/login", router.login_routes)
+
 
 app.post("/api/send-email", (req, res) => {
   const { name, email, subject, message } = req.body;

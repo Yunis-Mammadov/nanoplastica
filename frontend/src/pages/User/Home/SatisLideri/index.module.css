@@ -1,134 +1,135 @@
-.parentKeratin {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
+@media screen and (min-width: 576px) {
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
 
-.parentColumn2 {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    background-color: rgb(245, 245, 245);
-    margin: 0 auto;
-}
-
-.card {
-    border-radius: 10px;
-    padding: 16px;
-    margin: 16px;
-    max-width: 300px;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    transition: 0.4s;
-}
-
-.card h3 {
-    text-align: center;
-    position: relative;
-    bottom: 30px;
-}
-
-.card p {
-    text-align: center;
-    position: relative;
-    bottom: 20px;
-}
+    .card {
+        position: relative;
+        width: calc(25% - 20px);
+        margin-bottom: 25px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        padding: 20px;
+    }
 
 
-.card:hover {
-    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-}
+    .cardImg {
+        width: 80%;
+        max-height: 300px;
+        margin: 20px auto;
+    }
 
-.cardImg {
-    width: 100%;
-    max-height: 300px;
-    margin-bottom: 30px;
-}
+    .keratinName {
+        margin: 0 auto;
+        font-size: 18px;
+        color: #737373;
+        text-decoration: none;
+        font-weight: 500;
+        width: 80%;
+    }
 
-.accordion {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 25%;
-}
+    .card p {
+        width: 80%;
+        margin: 0 auto;
+    }
 
-.accordion Button {
-    margin-top: 30px;
-    width: 80%;
-}
+    .detailWhislistButton {
+        width: 50%;
+        margin: 0 auto;
+    }
 
-.socialKeratin {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 125px 10px;
-    gap: 7px;
-}
+    .basketBtn {
+        width: 100%;
+        padding: 10px;
+        background-color: rgb(122, 122, 122);
+        color: white;
+        font-weight: 600;
+        margin-top: 15px;
+    }
 
-.parentSort {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    top: 30px;
-    width: 100%;
-    height: auto;
+    .eyeBtn {
+        background-color: rgb(122, 122, 122);
+        color: white;
+        border: none;
+        padding: 5px 7px;
+        border-radius: 50%;
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
 }
 
 
-.sortStyle {
-    width: 85%;
-    height: 7vh;
-    display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-    align-items: center;
-    border-radius: 10px;
-}
+@media screen and (max-width: 575px) {
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 
-.selectKeratin {
-    width: 20%;
-    height: 5vh;
-    border: none;
-    font-size: 15px;
-}
 
-.keratinName {
-    margin: 0;
-    font-size: 18px;
-    color: #737373;
-    text-decoration: none;
-    font-weight: 500;
-}
+    .card {
+        position: relative;
+        width: calc(51% - 10px);
+        margin-bottom: 25px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        padding: 20px;
+    }
 
-.filterButton {
-    background-color: black;
-    padding: 15px 10px;
-    color: rgb(221, 178, 107);
-    font-size: 18px;
-    font-weight: 600;
-    transition: 0.4s;
-    margin-bottom: 50px;
-}
 
-.filterButton:hover {
-    cursor: pointer;
-    border-color: rgb(221, 178, 107);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
-}
+    .cardImg {
+        width: 80%;
+        max-height: 300px;
+        margin: 0 auto;
+    }
 
-.detailWhislistButton {
-    width: 50%;
-    margin: 0 auto;
-}
+    .keratinName {
+        margin: 0;
+        font-size: 18px;
+        color: #737373;
+        text-decoration: none;
+        font-weight: 500;
+        width: 80%;
+        margin: 0 auto;
+    }
 
-.detailWhislistButton button{
-    width: 100%;
-    padding: 10px;
-    background-color: rgb(122,122,122);
-    color: white;
-    font-weight: 600;
+    .eyeBtn {
+        color: rgb(122, 122, 122);
+        background-color: transparent;
+        border: none;
+        padding: 5px 7px;
+        border-radius: 50%;
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 0px;
+    }
+
+    .card p {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .detailWhislistButton {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .basketBtn {
+        width: 100%;
+        padding: 5px;
+        background-color: rgb(122, 122, 122);
+        color: white;
+        font-weight: 600;
+        margin-top: 15px;
+    }
+
 }
