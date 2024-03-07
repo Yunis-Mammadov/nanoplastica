@@ -16,7 +16,7 @@ const App = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsModalOpen(true);
-    }, 5000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -43,7 +43,7 @@ const App = () => {
             notificationSound
           />
           <div>
-            {isModalOpen && <ComModal imageUrl="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1709726382/WhatsApp_Image_2024-03-04_at_01.30.16_cpufth.jpg" handleClose={handleCloseModal} />}
+            {isModalOpen && <ComModal style={{backgroundColor:"red"}} imageUrl="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1709726382/WhatsApp_Image_2024-03-04_at_01.30.16_cpufth.jpg" handleClose={handleCloseModal} />}
           </div>
         </CartProvider>
       </UserContextProvider>

@@ -72,7 +72,7 @@ const SatisLideri = () => {
             <div className={styles.grid}>
                 {sacqulluq.map(sac => (
                     <div className={styles.card} key={sac._id}>
-                        <Link to={"/keratin"}>
+                        <Link to={`${sac.id}`}>
                             <img className={styles.cardImg} src={sac.productImgUrl} alt='' />
                             <h3 className={styles.keratinName}>{sac.name}</h3>
                             <p style={{ fontSize: '14px', color: '#555' }}>{sac.description}</p>

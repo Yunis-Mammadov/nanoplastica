@@ -44,6 +44,10 @@
     gap: 5px;
 }
 
+.infoContainer p{
+    font-size: 15px;
+}
+
 .time {
     margin-top: 5px;
     text-align: center;
