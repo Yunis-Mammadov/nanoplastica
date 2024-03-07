@@ -1,3 +1,9 @@
+* {
+    font-family: "Merriweather", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
 .parentNavbar {
     display: flex;
     flex-direction: column;
@@ -123,7 +129,7 @@
     margin-top: 147px;
     right: 0px;
     z-index: 1000;
-    background-color: white !important; 
+    background-color: white !important;
 }
 
 .dropdownContent li {

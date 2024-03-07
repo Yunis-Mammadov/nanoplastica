@@ -1,18 +1,15 @@
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Typography, useMediaQuery } from '@mui/material';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getAllKeratin, getAllSocialMediaLinks } from '../../../api/request';
-import { Grid, Typography, useMediaQuery } from '@mui/material';
 import BeatLoader from "react-spinners/BeatLoader";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTiktok } from '@fortawesome/free-brands-svg-icons';
+import Swal from 'sweetalert2';
+import { getAllKeratin, getAllSocialMediaLinks } from '../../../api/request';
 import styles from './index.module.css';
+import { useCart } from '../../../context/CartContext';
 
 const Keratin = () => {
     const [socialLinks, setSocialLinks] = useState([]);
@@ -22,7 +19,9 @@ const Keratin = () => {
     const [isHamısı, setIsHamısı] = useState(false);
     const [isBioCapilarChecked, setIsBioCapilarChecked] = useState(false);
     const [isNanoKeratinChecked, setIsNanoKeratinChecked] = useState(false);
+    const [quantity, setQuantity] = useState(1);
     const isMobile = useMediaQuery('(min-width:270px)');
+    const { addToCart } = useCart();
 
     const filterItems = () => {
         const noFilterSelected =
@@ -83,52 +82,44 @@ const Keratin = () => {
         );
     }
 
+    const handleAddToCart = (item) => {
+        addToCart(item);
+        Swal.fire({
+            icon: 'success',
+            title: 'Məhsul səbətə əlavə edildi!',
+            showConfirmButton: false,
+            timer: 1500,
+        });
+    };
+
     return (
         <div className={styles.parentKeratin}>
             <div className={styles.accordion} style={{ width: isMobile ? "35%" : "30%" }}>
-                <Accordion style={{ marginTop: '95px', width: isMobile && isMobile ? "100%" : "80%" }} defaultExpanded={true}>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Typography>Növ</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails sx={{
-                        display: "flex",
-                        gap: "5px"
-                    }}>
-                        <input
-                            style={{ width: "20px" }}
-                            type="checkbox"
-                            checked={isHamısı}
-                            onChange={() => setIsHamısı(!isHamısı)}
-                        />
-                        <label style={{ fontSize: "17px" }}>Hamısı</label>
-                    </AccordionDetails>
-                    <AccordionDetails sx={{
-                        display: "flex",
-                        gap: "5px"
-                    }}>
-                        <input
-                            style={{ width: "20px" }}
-                            type="checkbox"
-                            checked={isBioCapilarChecked}
-                            onChange={() => setIsBioCapilarChecked(!isBioCapilarChecked)}
-                        />
-                        <label style={{ fontSize: "17px" }}>BioCapilar</label>
-                    </AccordionDetails>
-                    <AccordionDetails sx={{
-                        display: "flex",
-                        gap: "5px"
-                    }}>
-                        <input
-                            style={{ width: "20px" }}
-                            type="checkbox"
-                            checked={isNanoKeratinChecked}
-                            onChange={() => setIsNanoKeratinChecked(!isNanoKeratinChecked)}
-                        />
-                        <label style={{ fontSize: "17px" }}>NanoKeratin</label>
-                    </AccordionDetails>
-                </Accordion>
+                <select name="cars" id="cars">
+                    <option value="BIOTOP Ozonio">Biotop Ozonio</option>
+                    <option value="ReviveHairPRO">ReviveHairPro</option>
+                </select>            </div>
+            <div className={styles.grid}>
+                {keratin.map(keratin => (
+                    <div className={styles.card} key={keratin._id}>
+                        <Link to={`${keratin._xid}`}>
+                            <img className={styles.cardImg} src={keratin.productImgUrl} alt='' />
+                            <h3 className={styles.keratinName}>{keratin.name}</h3>
+                            <p style={{ fontSize: '14px', color: '#555' }}>{keratin.description}</p>
+                        </Link>
+                        <div className={styles.detailWhislistButton}>
+                            <button className={styles.basketBtn} onClick={() => handleAddToCart({
+                                id: keratin._id,
+                                img: keratin.productImgUrl,
+                                name: keratin.name,
+                                brand: keratin.brand,
+                                quantity: quantity,
+                            })}>Səbətə Əlavə Et</button>
+                        </div>
+                    </div>
+                ))}
             </div>
-            <div className={styles.parentColumn2}>
+            {/* <div className={styles.parentColumn2}>
                 <Grid container spacing={2} item margin={"30px auto"} xs={11}>
                     {filteredItems.length > 0 ? (
                         filteredItems.map((keratins) => (
@@ -146,30 +137,8 @@ const Keratin = () => {
                         <Typography style={{ marginLeft: '20px' }}>Məhsul Tapılmadı...</Typography>
                     )}
                 </Grid>
-            </div>
-            {!isMobile && (
-                <div className={styles.socialKeratin}>
-                    {socialLinks.map(item => (
-                        <a key={item.platform} target='_blank' href={item.link}>
-                            <div className={styles.socialMediaLinks} >
-                                {item.platform === 'Instagram' && (
-                                    <InstagramIcon sx={{ color: 'black' }} />
-                                )}
-                                {item.platform === 'Facebook' && (
-                                    <FacebookIcon sx={{ color: 'black' }} />
-                                )}
-                                {item.platform === 'Whatsapp' && (
-                                    <WhatsAppIcon sx={{ color: 'black' }} />
-                                )}
-                                {item.platform === 'Tiktok' && (
-                                    <FontAwesomeIcon style={{ paddingLeft: "5px", color: "black" }} icon={faTiktok} />
-                                )}
-                            </div>
-                        </a>
-                    ))}
-                </div>
-            )}
-        </div >
+            </div> */}
+        </div>
     )
 }
 
