@@ -152,20 +152,22 @@
 /* sacqulluq */
 
 .dropdownWrapper:hover .dropdownContentSacqulluq {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    gap: 0px;
 }
 
 .dropdownContentSacqulluq {
-    display: none;
     position: absolute;
-    min-width: 223px;
-    margin-top: 147px;
+    min-width: 228px;
+    top: 73px;
     right: 0px;
     z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.804);    
 }
 
 .dropdownContentSacqulluq li {
-    padding: 8px;
     display: flex;
     justify-content: center;
     cursor: pointer;

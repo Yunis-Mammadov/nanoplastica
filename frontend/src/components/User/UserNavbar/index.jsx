@@ -171,22 +171,24 @@ const Navbar = () => {
                       </ul>
                     )}
                   </li>
-                  <li
-                    className={`${styles.dropdownWrapper} ${isSacqulluqDropdownOpen ? styles.dropdownOpen : ''}`}
-                    onMouseEnter={handleMouseEnterSacqulluq}
-                    onMouseLeave={handleMouseLeaveSacqulluq}
-                  >
-                    <Link to="/sacqulluq" >{t('sacqulluq')}</Link>
-                    {isSacqulluqDropdownOpen && (
-                      <ul className={styles.dropdownContentSacqulluq}>
-                        <li><Link to="/shampoo">{t('şampun')}</Link></li>
-                        <li><Link to="/balsamo">{t('balzam')}</Link></li>
-                        <li><Link to="/maska">{t('maska')}</Link></li>
-                        <li><Link to="/kondisioner">{t('kondisioner')}</Link></li>
-                        <li><Link to="/botox">{t('botox')}</Link></li>
-                      </ul>
-                    )}
-                  </li>
+                  <div>
+                    <li
+                      className={`${styles.dropdownWrapper} ${isSacqulluqDropdownOpen ? styles.dropdownOpen : ''}`}
+                      onMouseEnter={handleMouseEnterSacqulluq}
+                      onMouseLeave={handleMouseLeaveSacqulluq}
+                    >
+                      <Link to="/sacqulluq" >{t('sacqulluq')}</Link>
+                      {isSacqulluqDropdownOpen && (
+                        <ul className={styles.dropdownContentSacqulluq}>
+                          <li><Link to="/shampoo">{t('şampun')}</Link></li>
+                          <li><Link to="/balsamo">{t('balzam')}</Link></li>
+                          <li><Link to="/maska">{t('maska')}</Link></li>
+                          <li><Link to="/kondisioner">{t('kondisioner')}</Link></li>
+                          <li><Link to="/botox">{t('botox')}</Link></li>
+                        </ul>
+                      )}
+                    </li>
+                  </div>
                   <li
                     className={`${styles.dropdownWrapper} ${isMeisetDropdownOpen ? styles.dropdownOpen : ''}`}
                     onMouseEnter={handleMouseEnterMeiset}

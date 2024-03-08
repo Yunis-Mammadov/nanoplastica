@@ -80,4 +80,4 @@ i18n
     resources
   })
 
-export default i18n
+export default i18n;

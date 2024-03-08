@@ -10,9 +10,13 @@
         font-size: 18px;
         width: 50%;
         display: flex;
-        background-color: yellow;
+        /* background-color: yellow; */
         justify-content: center;
         align-items: center;
+        background-image: url("https://res.cloudinary.com/dsb3j1ozv/image/upload/v1709901225/20240308_161314_0000_vmhs8t.png");
+        background-position: center;
+        background-size: contain;
+
     }
 
     .swiper-slide img {
@@ -26,18 +30,21 @@
 @media screen and (max-width:576px) {
     .swiper {
         width: 100vw;
-        height: 35vh;
+        height: 25vh;
         margin: 120px auto;
     }
 
     .swiper-slide {
         text-align: center;
         font-size: 18px;
-        width: 50%;
+        width: 30%;
+        height: 100%;
         display: flex;
-        background-color: yellow;
         justify-content: center;
         align-items: center;
+        background-image: url("https://res.cloudinary.com/dsb3j1ozv/image/upload/v1709901225/20240308_161314_0000_vmhs8t.png");
+        background-position: center center;
+        background-size: contain;
     }
 
     .swiper-slide img {
