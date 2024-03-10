@@ -583,11 +583,6 @@ const Navbar = () => {
                     </button>
                   </div>
                 </Drawer>
-                {/* <Link to={"/register"}> */}
-                <div className={styles.registerBtnMobile}>
-                  <button style={{ marginLeft: "10px" }}>{t('register')}</button>
-                </div>
-                {/* </Link> */}
               </div>
             </div>
             <div style={{
@@ -603,7 +598,7 @@ const Navbar = () => {
               </Link>
             </div>
           </div>
-          <div>
+          <div style={{display:"flex"}}>
             <div className={styles.search}>
               <input
                 className={styles.searchInput}
@@ -617,6 +612,9 @@ const Navbar = () => {
                   <ClearIcon />
                 </div>
               )}
+            </div>
+            <div className={styles.registerBtnMobile}>
+              <button style={{ marginLeft: "10px" }}>{t('register')}</button>
             </div>
           </div>
         </div >

@@ -19,6 +19,8 @@
     position: static;
 }
 
+
+
 .registerBtn {
     display: flex;
     justify-content: center;
@@ -119,17 +121,19 @@
 }
 
 .dropdownWrapper:hover .dropdownContent {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    gap: 0px;
 }
 
 .dropdownContent {
-    display: none;
     position: absolute;
-    min-width: 123px;
-    margin-top: 147px;
+    min-width: 133px;
+    top: 73px;
     right: 0px;
     z-index: 1000;
-    background-color: white !important;
+    background-color: rgba(255, 255, 255, 0.852);
 }
 
 .dropdownContent li {
@@ -164,7 +168,7 @@
     top: 73px;
     right: 0px;
     z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.804);    
+    background-color: rgba(255, 255, 255, 0.852);
 }
 
 .dropdownContentSacqulluq li {
@@ -186,16 +190,19 @@
 /* meiset */
 
 .dropdownWrapper:hover .dropdownContentMeiset {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    gap: 0px;
 }
 
 .dropdownContentMeiset {
-    display: none;
     position: absolute;
     min-width: 123px;
-    margin-top: 147px;
+    top: 73px;
     right: 0px;
     z-index: 1001;
+    background-color: rgba(255, 255, 255, 0.852);
 }
 
 .dropdownContentMeiset li {
@@ -236,7 +243,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: black;
+    background-color: rgb(51, 51, 51);
 }
 
 .topbarSmall {
@@ -296,7 +303,7 @@ input[type="search"]:focus::placeholder {
 
 .search {
     position: relative;
-    width: 380px;
+    width: 280px;
     height: 3vh;
     margin: 10px;
 }
@@ -387,4 +394,64 @@ input[type="search"]:focus::placeholder {
     font-size: 12px;
     min-width: 2 0px;
     text-align: center;
+}
+
+.ropdownLangToggle {
+    display: flex;
+    width: 100%;
+    height: 30px;
+}
+
+
+.dropdownLang {
+    position: relative;
+    display: inline-block;
+    z-index: 1000;
+}
+
+.dropdownLangToggle {
+    background-color: #f8f9fa;
+    color: #212529;
+    border: 1px solid #ced4da;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.dropdownLangMenu {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    margin-top: 4px;
+    list-style: none;
+    width: 80px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.dropdowLangMenu img {
+    width: 20%;
+    margin: 0 auto;
+}
+
+.dropdownLangMenu li {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.dropdowLangMenu li:hover {
+    background-color: #f8f9fa;
+}
+
+.azLi {
+    display: flex;
+    cursor: pointer;
+    background-color: #33373d;
+    ;
+    width: 80px;
+    height: 40px;
+    list-style: none;
+    padding: 3px 4px;
 }

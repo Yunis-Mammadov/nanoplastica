@@ -49,7 +49,7 @@ const SatisLideri = () => {
 
     const handleModalClose = () => {
         setSelectedSac(null);
-        document.body.style.overflow = 'auto'; 
+        document.body.style.overflow = 'auto';
     };
 
 
@@ -69,10 +69,11 @@ const SatisLideri = () => {
 
     return (
         <div>
+            <h4 className={styles.satisTag}>Satış Liderləri</h4>
             <div className={styles.grid}>
                 {sacqulluq.map(sac => (
                     <div className={styles.card} key={sac._id}>
-                        <Link to={`${sac.id}`}>
+                        <Link style={{ textDecoration: "none" }} to={`/sacqulluq/${sac._id}`}>
                             <img className={styles.cardImg} src={sac.productImgUrl} alt='' />
                             <h3 className={styles.keratinName}>{sac.name}</h3>
                             <p style={{ fontSize: '14px', color: '#555' }}>{sac.description}</p>

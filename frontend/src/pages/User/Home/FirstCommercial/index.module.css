@@ -1,19 +1,15 @@
-.dayCommerParent{
-    margin-top: 100px;
-    width: 100%;
+.dayCommerParent {
+    margin-top: 130px;
 }
 
-.dayCommer{
+.dayCommer {
+    text-align: center;
+    font-size: 18px;
     width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center center;
+    background-size: cover;
 }
-
-/* @media (max-width:560px){
-    .dayCommerParent{
-        width: 70%;
-    }
-    
-    .dayCommer{
-        width: 0%;
-    }
-} */
-

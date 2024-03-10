@@ -12,16 +12,7 @@ const Modal = ({ handleClose, sac }) => {
 
 
 
-    const handleAddToCart = () => {
-        const item = {
-            id: keratin._id,
-            img: keratin.productImgUrl,
-            name: keratin.name,
-            brand: keratin.brand,
-            quantity: quantity,
-        };
-
-        console.log(keratin._id);
+    const handleAddToCart = (item) => {
         addToCart(item);
         Swal.fire({
             icon: 'success',
@@ -53,12 +44,18 @@ const Modal = ({ handleClose, sac }) => {
                                 style={{ width: "15%", height: "5vh", padding: "10px" }}
                             />
                             <div className={styles.detailWhislistButton}>
-                                <p >Səbətə Əlavə Et</p>
+                                <p onClick={() => handleAddToCart({
+                                    id: sac._id,
+                                    img: sac.productImgUrl,
+                                    name: sac.name,
+                                    brand: sac.brand,
+                                    quantity: quantity,
+                                })}>Səbətə Əlavə Et</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button style={{backgroundColor:"transparent"}} className={styles.closeButton} onClick={handleClose}><CloseIcon className={styles.closeButtonIcon} style={{fontSize:"28px"}} /></button>
+                <button style={{ backgroundColor: "transparent" }} className={styles.closeButton} onClick={handleClose}><CloseIcon className={styles.closeButtonIcon} style={{ fontSize: "28px" }} /></button>
             </div>
         </div>
     );

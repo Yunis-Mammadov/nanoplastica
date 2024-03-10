@@ -105,6 +105,16 @@ export const getAllSuallar = async () => {
     return suallar
 }
 
+
+export const getAllImgs = async () => {
+    let imgs;
+    await axios.get(`${BASE_URL}/api/imgs`)
+    .then((res) => {
+        imgs = res.data
+    })
+    return imgs
+}
+
 export const signUP = async (payload) => {
     console.log('Gönderilen veriler:', payload);
     const response = await axios.post(`${BASE_URL}/api/user`, payload);

@@ -45,6 +45,7 @@ app.use("/api/setler", router.setler_routes)
 app.use("/api/suallar", router.suallar_routes)
 app.use("/api/user", router.user_routes)
 app.use("/api/login", router.login_routes)
+app.use("/api/imgs", router.img_routes)
 
 
 app.post("/api/send-email", (req, res) => {

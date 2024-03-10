@@ -43,8 +43,9 @@ const Setler = () => {
 
     return (
         <>
-            <div>
-                <Grid container spacing={2} item margin={"30px auto"} xs={11}>
+            <div style={{marginTop:'60px'}}>
+                <h3 className={styles.setlerTag}>Setlər</h3>
+                <Grid container spacing={2} item margin={"0px auto"} xs={11}>
                     {keratin.length > 0 ? filteredItems.map((keratins) => (
                         <Grid item xs={12} sm={6} md={4} key={keratins._id}>
                             <Link style={{ textDecoration: "none" }} to={`/keratin/${keratins._id}`}>

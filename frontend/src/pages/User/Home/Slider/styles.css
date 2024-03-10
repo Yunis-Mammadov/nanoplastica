@@ -10,7 +10,6 @@
         font-size: 18px;
         width: 50%;
         display: flex;
-        /* background-color: yellow; */
         justify-content: center;
         align-items: center;
         background-image: url("https://res.cloudinary.com/dsb3j1ozv/image/upload/v1709901225/20240308_161314_0000_vmhs8t.png");
@@ -30,8 +29,7 @@
 @media screen and (max-width:576px) {
     .swiper {
         width: 100vw;
-        height: 25vh;
-        margin: 120px auto;
+        height: 15vh;
     }
 
     .swiper-slide {

@@ -6,6 +6,10 @@
         gap: 30px;
     }
 
+    .satisTag{
+        margin-left: 660px;
+    }
+
     .card {
         position: relative;
         width: calc(25% - 20px);
@@ -14,6 +18,7 @@
         border-radius: 5px;
         box-sizing: border-box;
         padding: 20px;
+        margin-top: 40px;
     }
 
 
@@ -73,8 +78,14 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        margin-top: 40px;
     }
-
+    
+    .satisTag{
+        margin-left: 144px;
+        font-size: 23px;
+        margin-top: 40px;
+    }
 
     .card {
         position: relative;
@@ -82,7 +93,6 @@
         border-radius: 5px;
         box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;        box-sizing: border-box;
         padding: 10px;
-        margin: 5px;
     }
 
 

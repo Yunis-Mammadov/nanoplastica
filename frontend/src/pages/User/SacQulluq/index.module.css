@@ -19,7 +19,7 @@
     margin: 16px;
     max-width: 400px;
     min-height: 20vh;
-    background-color: white;
+    background-color: transparent;
     display: flex;
     justify-content: center;
     flex-direction: column;

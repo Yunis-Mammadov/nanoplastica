@@ -12,7 +12,6 @@ const Home = () => {
   const isExtraLarge = useMediaQuery('(min-width:1200px)');
   const isLarge = useMediaQuery('(min-width:270px)');
 
-  // if (isExtraLarge) {
   return (
     <>
       <div>

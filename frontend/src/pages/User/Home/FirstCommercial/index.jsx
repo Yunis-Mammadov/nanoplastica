@@ -1,14 +1,28 @@
-import React from 'react'
-import styles from './index.module.css'
+import React, { useState, useEffect } from 'react';
+import styles from './index.module.css';
+import { getAllImgs } from '../../../../api/request';
 
 const FirstCommercial = () => {
+    const [firstImage, setFirstImage] = useState(null);
+
+    useEffect(() => {
+        getAllImgs()
+            .then(data => {
+                const firstImg = data.length > 0 ? data[1].ComImg : null;
+                setFirstImage(firstImg);
+            })
+    }, []);
+
     return (
         <>
-            <div className={styles.dayCommerParent}>
-                <img className={styles.dayCommer} src="https://cdn11.bigcommerce.com/s-qaf2yg6x1o/images/stencil/original/image-manager/novo-banner-i-belli.jpg?t=1691776263&_gl=1*ard71p*_ga*MzU1OTM1NzIwLjE2NjgwNzkyNzU.*_ga_WS2VZYPC6G*MTY5MTc3NzM0MC4yMTAuMS4xNjkxNzc3NzEwLjI3LjAuMA.." alt="" />
+            <div className={styles.dayCommerParent} >
+                <div className={styles.dayCommer} style={{
+                    backgroundImage: `url(${firstImage})`,
+                }}>
+                </div>
             </div>
         </>
     )
 }
 
-export default FirstCommercial
+export default FirstCommercial;

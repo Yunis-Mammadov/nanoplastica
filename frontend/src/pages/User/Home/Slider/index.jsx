@@ -2,9 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import './styles.css';
+import { getAllImgs } from '../../../../api/request';
 
 export default function Slider() {
     const [swiper, setSwiper] = useState(null);
+    const [images, setImages] = useState([]);
+
+    useEffect(() => {
+        getAllImgs()
+            .then(data => {
+                setImages(data);
+            })
+    }, []);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -15,7 +24,7 @@ export default function Slider() {
                     swiper.slideNext();
                 }
             }
-        }, 3000);
+        }, 5000);
 
         return () => clearInterval(interval);
     }, [swiper]);
@@ -27,15 +36,12 @@ export default function Slider() {
             onSwiper={setSwiper}
             className="mySwiper"
         >
-            <SwiperSlide></SwiperSlide>
-            <SwiperSlide></SwiperSlide>
-            <SwiperSlide></SwiperSlide>
-            <SwiperSlide></SwiperSlide>
-            <SwiperSlide></SwiperSlide>
-            <SwiperSlide></SwiperSlide>
-            <SwiperSlide></SwiperSlide>
-            <SwiperSlide></SwiperSlide>
-            <SwiperSlide></SwiperSlide>
+            {images.map((image, index) => (
+                <SwiperSlide key={index} style={{ 
+                    backgroundImage: `url(${image.sliderImg})` 
+                    }}>
+                </SwiperSlide>
+            ))}
         </Swiper>
     );
 }
