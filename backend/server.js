@@ -51,13 +51,6 @@ app.use("/api/imgs", router.img_routes)
 app.post("/api/send-email", (req, res) => {
   const { name, email, subject, message } = req.body;
 
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'your_gmail_username@gmail.com',
-      pass: 'your_gmail_password'
-    }
-  });
 
   const mailOptions = {
     from: 'your_gmail_username@gmail.com',
