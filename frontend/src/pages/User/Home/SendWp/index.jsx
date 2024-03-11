@@ -5,7 +5,7 @@ import styles from "./index.module.css";
 const SendWp = () => {
     const sendWhatsAppMessage = () => {
         const phoneNumber = '+994708878799';
-        const message = encodeURIComponent('Mən Whatsapp Qrupuna daxil olmaq istəyirəm!');
+        const message = encodeURIComponent('Salam.Mən Whatsapp qrupuna daxil olmaq və ətraflı məlumat almaq istəyirəm!');
 
         const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
 
