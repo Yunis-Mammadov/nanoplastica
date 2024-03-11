@@ -87,7 +87,7 @@ const SatisLideri = () => {
                                 quantity: quantity,
                             })}>Səbətə Əlavə Et</button>
                             <button className={styles.eyeBtn} onClick={() => handleModalOpen(sac)}>
-                                <RemoveRedEyeIcon />
+                                <RemoveRedEyeIcon sx={{fontSize:"30px"}} />
                             </button>
                         </div>
                     </div>

@@ -6,7 +6,8 @@ import Countdown from "./Countdown"
 import FirstCommercial from "./FirstCommercial"
 import Setler from './Setler';
 import Vidoes from './Videos';
-import WhyUs from './WhyUs'; 
+import WhyUs from './WhyUs';
+import SendWp from './SendWp';
 
 const Home = () => {
   const isExtraLarge = useMediaQuery('(min-width:1200px)');
@@ -33,8 +34,11 @@ const Home = () => {
         <Vidoes />
       </div>
       <div>
-        <WhyUs />
+        <SendWp />
       </div>
+      {/* <div>
+        <WhyUs />
+      </div> */}
     </>
   );
   // }

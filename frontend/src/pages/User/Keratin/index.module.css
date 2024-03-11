@@ -1,11 +1,4 @@
-.parentKeratin {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    width: 100%;
-}
-
-/* .parentColumn2 {
+    /* .parentColumn2 {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -229,15 +222,13 @@
     }
 
     .accordion select {
-        width: 70%;
+        width: 90%;
+        background-color: transparent;
+        border: 1px solid black;
     }
 
     .accordion option{
         width: 100%;
-    }
-
-    .keratinOption {
-        background-color: red;
     }
 
     .accordion option {

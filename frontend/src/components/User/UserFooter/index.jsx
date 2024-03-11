@@ -25,7 +25,7 @@ const Footer = () => {
           </div>
         </div>
         <div className={styles.footerPartTwo}>
-          <div style={{width:"100%"}}> 
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
             <div className={styles.logoFooter}>
             </div>
             <div className={styles.sosialFooter}>
@@ -43,12 +43,20 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          <div className={styles.footerLink}>
-            <Link to={"/"}>{t('esas')}</Link>
-            <Link to={"/keratin"}>{t('keratin')}</Link>
-            <Link to={"/sacqulluq"}>{t('sacqulluq')}</Link>
-            <Link to={"/about"}>{t('about')}</Link>
-            <Link to={"/contact"}>{t('contact')}</Link>
+          <div>
+            <div className={styles.footerLink}>
+              <Link to={"/"}>{t('esas')}</Link>
+              <Link to={"/keratin"}>{t('keratin')}</Link>
+              <Link to={"/sacqulluq"}>{t('sacqulluq')}</Link>
+              <Link to={"/about"}>{t('about')}</Link>
+              <Link to={"/contact"}>{t('contact')}</Link>
+            </div>
+            <div className={styles.mobileCopyright} style={{ marginTop: "30px", display: "flex", alignItems: "center", gap: "8px" }}>
+              &copy;
+              <a target='blank' href={"https://www.linkedin.com/in/yunis-mammadov-a91135275/"}>
+                <p style={{ fontSize: "13px", paddingBottom: "6px", color: "rgb(115, 116, 117)" }}>yunismammadov</p>
+              </a>
+            </div>
           </div>
         </div>
       </div>
