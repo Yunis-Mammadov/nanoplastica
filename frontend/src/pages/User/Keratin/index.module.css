@@ -229,8 +229,15 @@
     }
 
     .accordion select {
-        min-width: 400px;
-        padding: 5px;
+        width: 70%;
+    }
+
+    .accordion option{
+        width: 100%;
+    }
+
+    .keratinOption {
+        background-color: red;
     }
 
     .accordion option {

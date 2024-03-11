@@ -26,6 +26,7 @@ import Balsamo from "../pages/User/SacQulluq/Balsamo/index copy";
 import Maska from "../pages/User/SacQulluq/Maska";
 import Kondisioner from "../pages/User/SacQulluq/Kondisioner";
 import Botox from "../pages/User/SacQulluq/Botox/index copy";
+import Test from "../pages/User/Test";
 
 const addToCart = (product) => {
 
@@ -119,6 +120,10 @@ export const ROUTES = [
             {
                 path: 'botox',
                 element: <Botox />
+            },
+            {
+                path: 'test',
+                element: <Test />
             },
         ]
     },

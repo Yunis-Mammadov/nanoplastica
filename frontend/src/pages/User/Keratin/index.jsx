@@ -212,9 +212,9 @@ const Keratin = () => {
         <div className={styles.parentKeratin}>
             <div className={styles.accordion}>
                 <select name="cars" id="cars" onChange={handleSelectChange}>
-                    <option value="">Hamısı</option>
-                    <option value="BIOTOP Ozonio">Biotop Ozonio</option>
-                    <option value="ReviveHairPRO">ReviveHairPro</option>
+                    <option className={styles.keratinOption} value="">Hamısı</option>
+                    <option className={styles.keratinOption} value="BIOTOP Ozonio">Biotop Ozonio</option>
+                    <option className={styles.keratinOption} value="ReviveHairPRO">ReviveHairPro</option>
                 </select>
             </div>
             <div className={styles.grid}>
