@@ -143,36 +143,3 @@ export const ROUTES = [
     },
 ]
 
-
-const RouteComponents = () => {
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        // Simulated loading time, replace this with actual loading logic
-        const timeout = setTimeout(() => {
-            setIsLoading(false);
-        }, 2000); // Example duration, replace with the actual loading duration
-
-        return () => clearTimeout(timeout);
-    }, []);
-
-    if (isLoading) {
-        return <Loading />;
-    }
-
-    return (
-        <>
-            {ROUTES.map((route, index) => (
-                <React.Fragment key={index}>
-                    {route.children.map((childRoute, childIndex) => (
-                        <React.Fragment key={childIndex}>
-                            <Route path={childRoute.path} element={childRoute.element} />
-                        </React.Fragment>
-                    ))}
-                </React.Fragment>
-            ))}
-        </>
-    );
-};
-
-export default RouteComponents;

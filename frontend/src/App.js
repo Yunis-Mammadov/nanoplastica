@@ -31,7 +31,7 @@ const App = () => {
   return (
     <>
       <UserContextProvider>
-        {/* <CartProvider> */}
+        <CartProvider>
           <RouterProvider router={routes} />
           <FloatingWhatsApp
             phoneNumber="+994708878799"
@@ -45,7 +45,7 @@ const App = () => {
           <div>
             {isModalOpen && <ComModal style={{backgroundColor:"red"}} imageUrl="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1709726382/WhatsApp_Image_2024-03-04_at_01.30.16_cpufth.jpg" handleClose={handleCloseModal} />}
           </div>
-        {/* </CartProvider> */}
+        </CartProvider>
       </UserContextProvider>
     </>
   );
