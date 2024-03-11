@@ -582,7 +582,7 @@ const Navbar = () => {
               </div>
             </div>
             <div className={styles.logoContainerMobile}>
-              <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1710189321/Ba%C5%9Fl%C4%B1qs%C4%B1z_dizayn_back_ohl3qw.png" alt="" />
+              <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1710185551/WhatsApp_Image_2024-03-11_at_23.30.17-removebg-preview_v7n93l.png" alt="" />
             </div>
             <div>
               <Link to="/basket" onClick={handleDrawerClose}>

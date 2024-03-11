@@ -27,6 +27,7 @@ const Footer = () => {
         <div className={styles.footerPartTwo}>
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
             <div className={styles.logoFooter}>
+              <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1710185551/WhatsApp_Image_2024-03-11_at_23.30.17-removebg-preview_v7n93l.png" alt="" />
             </div>
             <div className={styles.sosialFooter}>
               <Link style={{ color: 'black' }} to={"https://www.instagram.com/ozonio.official.azerbaijan/?ref=oSa2ew7A&hl=am-et"}>

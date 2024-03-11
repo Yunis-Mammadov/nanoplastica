@@ -19,8 +19,8 @@
 }
 
 .logoContainerMobile{
-    width: 200px;
-    height: 80px;
+    width: 300px;
+    height: 130px;
  }
 
  .logoContainerMobile img{
@@ -262,7 +262,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: rgb(51, 51, 51);
+    /* background-color: rgb(51, 51, 51); */
+    background-color: rgb(25, 25, 22);
     /* height: 300px; */
 }
 
@@ -272,7 +273,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    gap: 50px;
+    /* gap: 50px; */
 }
 
 .drawerAndRegister {
