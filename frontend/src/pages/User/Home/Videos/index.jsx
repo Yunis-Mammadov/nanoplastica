@@ -1,64 +1,45 @@
-import { Grid } from '@mui/material'
-import React from 'react'
-import styles from './index.module.css'
+import React, { useState } from 'react';
+import SlowMotionVideoIcon from '@mui/icons-material/SlowMotionVideo';
+import CloseIcon from '@mui/icons-material/Close';
+import './styles.css';
 
-const Vidoes = () => {
+const Videos = ({ videoId }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const openModal = () => {
+        setIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsOpen(false);
+    };
+
     return (
-        <div>
-            {/* <Grid container spacing={2} item margin={"30px auto"} xs={11}>
-                <Grid item xs={12} sm={6} md={4}> */}
-            <div className={styles.card}>
-                {/* <video src='../../../../../public/instagram_vide01' /> */}
-                {/* <video width="750" height="500" controls >
-                    <source src="https://www.youtube.com/shorts/oTcabS-evW8" />
-                </video> */}
-                <div style={{ display: 'flex', justifyContent: 'center' ,margin:"60px"}}>
-                    <iframe
-                        
-                        width="560"
-                        height="315"
-                        src="https://www.youtube.com/embed/Oflbho9ZG2U?start=103"
-                        // src="https://www.youtube.com/shorts/oTcabS-evW8"
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; 
-                    autoplay; 
-                    clipboard-write; 
-                    encrypted-media; 
-                    gyroscope; 
-                    picture-in-picture; 
-                    web-share" allowfullscreen></iframe>
+        <div className="video-modal">
+            <div className="open-button-container" onClick={openModal}>
+                <div className="blinking-background">
                 </div>
-            </div>
-            {/* </Grid> */}
-            {/* <Grid item xs={12} sm={6} md={4}> */}
-            {/* <div className={styles.card}>
-                        <video src='oneminute.mp4' />
-                    </div> */}
-            {/* </Grid> */}
-            {/* <Grid item xs={12} sm={6} md={4}> */}
-            {/* <div className={styles.card}>
-                        <video src='oneminute.mp4' />
-                    </div> */}
-            {/* </Grid> */}
-            {/* <Grid item xs={12} sm={6} md={4}> */}
-            {/* <div className={styles.card}>
-                        <video src='oneminute.mp4' />
-                    </div> */}
-            {/* </Grid> */}
-            {/* <Grid item xs={12} sm={6} md={4}> */}
-            {/* <div className={styles.card}>
-                        <video src='oneminute.mp4' />
-                    </div> */}
-            {/* </Grid> */}
-            {/* <Grid item xs={12} sm={6} md={4}> */}
-            {/* <div className={styles.card}>
-                        <video src="oneminute.mp4" />
-                    </div> */}
-            {/* </Grid> */}
-            {/* </Grid> */}
-        </div>
-    )
-}
+                <button className="open-button"><SlowMotionVideoIcon sx={{ fontSize: "80px" }} />
+                </button>
 
-export default Vidoes
+            </div>
+            {isOpen && (
+                <div className="overlay" onClick={closeModal}>
+                    <div className="modal">
+                        <button className="closeButton" onClick={closeModal}><CloseIcon className="closeButtonIcon" style={{ fontSize: "28px", color:"white"}} /></button>
+                        <iframe
+                            width="560"
+                            height="315"
+                            src={`https://www.youtube.com/embed/NMu6PjdTIgk`}
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default Videos;

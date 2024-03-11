@@ -26,9 +26,9 @@ const Home = () => {
       <div>
         <FirstCommercial />
       </div>
-      <div>
+      {/* <div>
         <Setler />
-      </div>
+      </div> */}
       <div>
         <Vidoes />
       </div>
