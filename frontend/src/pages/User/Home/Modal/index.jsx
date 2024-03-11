@@ -4,10 +4,9 @@ import styles from './modal.module.css';
 import { useCart } from '../../../../context/CartContext';
 import CloseIcon from '@mui/icons-material/Close';
 
-const Modal = ({ handleClose, sac }) => {
+const Modal = ({ handleClose, keratins }) => {
 
     const [quantity, setQuantity] = useState(1);
-    const [keratin, setKeratin] = useState(null);
     const { addToCart } = useCart();
 
 
@@ -27,12 +26,12 @@ const Modal = ({ handleClose, sac }) => {
             <div className={styles.modalContent}>
                 <div className={styles.imgModalDetail}>
                     <div>
-                        <img src={sac.productImgUrl} alt='' />
+                        <img src={keratins.productImgUrl} alt='' />
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: "20px" }}>
                         <div className={styles.textDetail}>
-                            <h5>{sac.name}</h5>
-                            <p>{sac.description}</p>
+                            <h5>{keratins.name}</h5>
+                            <p>{keratins.description}</p>
                         </div>
                         <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
                             <input
@@ -45,10 +44,10 @@ const Modal = ({ handleClose, sac }) => {
                             />
                             <div className={styles.detailWhislistButton}>
                                 <p onClick={() => handleAddToCart({
-                                    id: sac._id,
-                                    img: sac.productImgUrl,
-                                    name: sac.name,
-                                    brand: sac.brand,
+                                    id: keratins._id,
+                                    img: keratins.productImgUrl,
+                                    name: keratins.name,
+                                    brand: keratins.brand,
                                     quantity: quantity,
                                 })}>Səbətə Əlavə Et</p>
                             </div>
