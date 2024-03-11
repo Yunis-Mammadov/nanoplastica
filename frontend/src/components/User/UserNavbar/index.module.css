@@ -9,12 +9,31 @@
     flex-direction: column;
 }
 
+.logoContainer{
+   width: 300px;
+}
+
+.logoContainer img{
+    width: 100%;
+    height: 100%;
+}
+
+.logoContainerMobile{
+    width: 250px;
+    height: 100px;
+ }
+
+ .logoContainerMobile img{
+    height: 100%;
+    width: 100%;
+ }
+
 .topbar {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: black;
-    min-height: 8vh;
+    min-height: 10vh;
     gap: 50px;
     position: static;
 }
@@ -71,8 +90,8 @@
     background-color: rgb(51, 51, 51);
     display: flex;
     justify-content: center;
-    gap: 70px;
-    height: 10vh;
+    gap: 0px;
+    height: 15vh;
 }
 
 .parentLogo {
@@ -244,6 +263,7 @@
     align-items: center;
     flex-direction: column;
     background-color: rgb(51, 51, 51);
+    height: 200px;
 }
 
 .topbarSmall {

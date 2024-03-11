@@ -148,12 +148,8 @@ const Navbar = () => {
               </div>
             </div>
             <div className={styles.navbar}>
-              <div style={{
-                marginTop: "10px",
-                width: "138px",
-                height: "54px",
-                backgroundColor: "yellow"
-              }}>
+              <div className={styles.logoContainer}>
+                <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1710185551/WhatsApp_Image_2024-03-11_at_23.30.17-removebg-preview_v7n93l.png" alt="" />
               </div>
               <div className={styles.navbarLinks}>
                 <ul>
@@ -585,11 +581,8 @@ const Navbar = () => {
                 </Drawer>
               </div>
             </div>
-            <div style={{
-              width: "138px",
-              height: "54px",
-              backgroundColor: "yellow"
-            }}>
+            <div className={styles.logoContainerMobile}>
+              <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1710185551/WhatsApp_Image_2024-03-11_at_23.30.17-removebg-preview_v7n93l.png" alt="" />
             </div>
             <div>
               <Link to="/basket" onClick={handleDrawerClose}>
@@ -598,7 +591,7 @@ const Navbar = () => {
               </Link>
             </div>
           </div>
-          <div style={{display:"flex"}}>
+          <div style={{ display: "flex" }}>
             <div className={styles.search}>
               <input
                 className={styles.searchInput}
