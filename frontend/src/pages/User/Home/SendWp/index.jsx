@@ -15,9 +15,9 @@ const SendWp = () => {
     return (
         <div className={styles.parentSendWp}>
             <div className={styles.cardSendWp}>
-                <h4>Siz hələdə bizim məhsulları işlətməmisiniz?</h4>
+                <h4>Siz hələdə bizim məhsulları istifadə etməmisiniz?</h4>
                 <p style={{ textAlign: "center", fontSize: "13px", fontWeight: '200' }}>İstifadə qaydalarını bilmirsiniz?
-                    Bizim prossesional saç ustaları qurupuna qoşul və daha mükəmməl biliklərə sahib olun</p>
+                    Bizim peşəkar saç ustaları qurupuna qoşulun və daha mükəmməl biliklərə sahib olun</p>
                 <p className={styles.sendWpButton} onClick={sendWhatsAppMessage}><WhatsAppIcon/> Whatsapp Qrupuna Qoşul</p>
             </div>
         </div>

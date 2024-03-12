@@ -20,7 +20,7 @@ const Footer = () => {
             </div>
             <div className={styles.sumbitEmail}>
               <input className={styles.inputPlaceholder} type="email" placeholder='Email' />
-              <button className={styles.footerSubmit}>Submit</button>
+              <button className={styles.footerSubmit}>Göndər</button>
             </div>
           </div>
         </div>

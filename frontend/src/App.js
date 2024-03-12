@@ -15,13 +15,13 @@ const App = () => {
   const [isOpen, setOpen] = useState(false)
   const routes = createBrowserRouter(ROUTES);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsModalOpen(true);
-    }, 1000);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setIsModalOpen(true);
+  //   }, 1000);
 
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -44,9 +44,9 @@ const App = () => {
             notification
             notificationSound
           />
-          <div>
+          {/* <div>
             {isModalOpen && <ComModal style={{ backgroundColor: "red" }} imageUrl="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1709726382/WhatsApp_Image_2024-03-04_at_01.30.16_cpufth.jpg" handleClose={handleCloseModal} />}
-          </div>
+          </div> */}
         </CartProvider>
       </UserContextProvider>
     </>

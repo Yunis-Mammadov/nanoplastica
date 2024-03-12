@@ -10,6 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import { styled } from '@mui/material/styles';
 import React, { useEffect, useState } from 'react';
 import { useCart } from '../../../context/CartContext';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import styles from './index.module.css';
 
 const BasketPage = () => {
@@ -118,8 +119,8 @@ const BasketPage = () => {
     };
 
     return (
-        <div>
-            <TableContainer component={Paper} style={{ width: isMobile ? '100%' : '60%' }}>
+        <div style={{ width: "100%" }}>
+            <TableContainer component={Paper} style={{ width: isMobile ? '100%' : '60%', margin: "0 auto" }}>
                 <Table className={styles.tableBasket}>
                     <TableHead>
                         <TableRow>
@@ -158,7 +159,7 @@ const BasketPage = () => {
                         <label>Özel Mesaj:</label>
                         <input type="text" value={specialMessage} onChange={handleSpecialMessage} />
                         <label onClick={getLocation} style={{ cursor: 'pointer', border: '1px solid #ccc', padding: '5px' }}>Adress: {userLocation ? userLocation : 'Konum Seç'}</label>
-                        <button onClick={sendWhatsAppMessage}>WhatsApp'a Göndər</button>
+                        <p className={styles.sendWpButton} onClick={sendWhatsAppMessage}><WhatsAppIcon /> Whatsapp Qrupuna Qoşul</p>
                     </div>
                 </Modal>
             )}
