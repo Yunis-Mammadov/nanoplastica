@@ -1,14 +1,15 @@
 const Joi = require("joi")
 
 const sacqulluqPostSchema = Joi.object({
-    name: Joi.string().required(),
-    brand: Joi.string().required(),
-    type: Joi.string().required(),
-    price: Joi.number().required(),
-    productImgUrl: Joi.string().required(),
-    postImgUrl: Joi.string().required(),
-    description: Joi.string().required(),
-    poductDetails: Joi.string().required()
+    name: Joi.string(),
+    brand: Joi.string(),
+    type: Joi.string(),
+    price: Joi.number(),
+    productImgUrl: Joi.string(),
+    postImgUrl: Joi.string(),
+    description: Joi.string(),
+    poductDetails: Joi.string(),
+    category: Joi.string()
 })
 
 module.exports = sacqulluqPostSchema

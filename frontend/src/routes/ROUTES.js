@@ -22,10 +22,10 @@ import SacBoya from "../pages/User/SacBoya";
 import Ozonio from "../pages/User/Keratin/Ozonio";
 import Revive from "../pages/User/Keratin/Revive";
 import Shampoo from "../pages/User/SacQulluq/Shampo";
-import Balsamo from "../pages/User/SacQulluq/Balsamo/index copy";
+import Balsamo from "../pages/User/SacQulluq/Balsamo";
 import Maska from "../pages/User/SacQulluq/Maska";
 import Kondisioner from "../pages/User/SacQulluq/Kondisioner";
-import Botox from "../pages/User/SacQulluq/Botox/index copy";
+import Botox from "../pages/User/SacQulluq/Botox";
 import Test from "../pages/User/Test";
 
 const addToCart = (product) => {

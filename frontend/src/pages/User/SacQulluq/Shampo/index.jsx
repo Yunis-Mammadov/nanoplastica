@@ -1,44 +1,86 @@
-import { Grid, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styles from "./index.module.css";
+import BeatLoader from "react-spinners/BeatLoader";
+import Swal from 'sweetalert2';
+import styles from './index.module.css';
+import { useCart } from '../../../../context/CartContext';
 import { getAllSacQulluq } from '../../../../api/request';
 
 const Shampoo = () => {
-    const [sacqulluq, setAllSacQulluq] = useState([]);
+    const [sacqulluq, setSacqulluq] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [filteredItems, setFilteredItems] = useState([]);
+    const [selectedOption, setSelectedOption] = useState('');
+    const [quantity, setQuantity] = useState(1);
+    const { addToCart } = useCart();
 
     useEffect(() => {
         getAllSacQulluq()
             .then(data => {
-                setAllSacQulluq(data);
+                setSacqulluq(data);
+            })
+            .catch(error => console.error(error))
+            .finally(() => setLoading(false));
+    }, []);
+
+    const handleAddToCart = (item) => {
+        addToCart(item);
+        Swal.fire({
+            icon: 'success',
+            title: 'Məhsul səbətə əlavə edildi!',
+            showConfirmButton: false,
+            timer: 1500,
+        });
+    };
+
+
+    useEffect(() => {
+        getAllSacQulluq()
+            .then(data => {
+                setSacqulluq(data);
                 const shampoFiltered = data.filter(sacqulluq => sacqulluq.type === "Shampoo");
                 setFilteredItems(shampoFiltered);
             })
     }, []);
 
-    return (
-        <>
-            <div className={styles.parentColumn2}>
-                <Grid container spacing={2} item margin={"30px auto"} xs={11}>
-                    {filteredItems.length > 0 ? (
-                        filteredItems.map((keratins) => (
-                            <Grid item xs={12} sm={6} md={4} key={keratins._id}>
-                                <Link style={{ textDecoration: "none" }} to={`/keratin/${keratins._id}`}>
-                                    <div className={styles.card}>
-                                        <img className={styles.cardImg} src={keratins.productImgUrl} alt='' />
-                                        <h3 className={styles.keratinName}>{keratins.name}</h3>
-                                        <p style={{ fontSize: '14px', color: '#555' }}>{keratins.description}</p>
-                                    </div>
-                                </Link>
-                            </Grid>
-                        ))
-                    ) : (
-                        <Typography style={{ marginLeft: '20px' }}>Məhsul Tapılmadı...</Typography>
-                    )}
-                </Grid>
+
+    if (loading) {
+        return (
+            <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "30vh",
+                color: "red",
+            }}>
+                <BeatLoader color="orange" />
             </div>
-        </>
+        );
+    }
+
+    return (
+        <div className={styles.parentKeratin}>
+            <div className={styles.grid}>
+                {filteredItems.map(keratin => (
+                    <div className={styles.card} key={keratin._id}>
+                        <Link to={`${keratin._id}`}>
+                            <img className={styles.cardImg} src={keratin.productImgUrl} alt='' />
+                            <h3 className={styles.keratinName}>{keratin.name}</h3>
+                            {/* <p style={{ fontSize: '14px', color: '#555' }}>{keratin.description}</p> */}
+                        </Link>
+                        <div className={styles.detailWhislistButton}>
+                            <button className={styles.basketBtn} onClick={() => handleAddToCart({
+                                id: keratin._id,
+                                img: keratin.productImgUrl,
+                                name: keratin.name,
+                                brand: keratin.brand,
+                                quantity: quantity,
+                            })}>Səbətə Əlavə Et</button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
     )
 }
 

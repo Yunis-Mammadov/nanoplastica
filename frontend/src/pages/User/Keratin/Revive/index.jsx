@@ -1,45 +1,84 @@
 import { Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import styles from "./index.module.css";
 import { getAllKeratin } from '../../../../api/request';
+import { useCart } from '../../../../context/CartContext';
 
 const Revive = () => {
-    const [allKeratin, setAllKeratin] = useState([]);
+    const [keratin, setKeratin] = useState([]);
     const [filteredItems, setFilteredItems] = useState([]);
+    const [selectedOption, setSelectedOption] = useState('');
+    const [quantity, setQuantity] = useState(1);
+    const { addToCart } = useCart();
+
+
 
     useEffect(() => {
         getAllKeratin()
             .then(data => {
-                setAllKeratin(data);
+                setKeratin(data);
                 // Filtreleme işlemi burada yapılıyor
                 const reviveKeratin = data.filter(keratin => keratin.brand === "Revive Hair Pro");
                 setFilteredItems(reviveKeratin);
             })
     }, []);
 
+    const handleAddToCart = (item) => {
+        addToCart(item);
+        Swal.fire({
+            icon: 'success',
+            title: 'Məhsul səbətə əlavə edildi!',
+            showConfirmButton: false,
+            timer: 1500,
+        });
+    };
+
+    const handleSelectChange = (event) => {
+        setSelectedOption(event.target.value);
+        if (event.target.value === 'BIOTOP Ozonio') {
+            const filtered = keratin.filter(item => item.brand === 'Ozonio');
+            setFilteredItems(filtered);
+        } else if (event.target.value === 'ReviveHairPRO') {
+            const filtered = keratin.filter(item => item.brand === 'Revive Hair Pro');
+            setFilteredItems(filtered);
+        } else {
+            setFilteredItems(keratin);
+        }
+    };
+
+
     return (
-        <>
-            <div className={styles.parentColumn2}>
-                <Grid container spacing={2} item margin={"30px auto"} xs={11}>
-                    {filteredItems.length > 0 ? (
-                        filteredItems.map((keratins) => (
-                            <Grid item xs={12} sm={6} md={4} key={keratins._id}>
-                                <Link style={{ textDecoration: "none" }} to={`/keratin/${keratins._id}`}>
-                                    <div className={styles.card}>
-                                        <img className={styles.cardImg} src={keratins.productImgUrl} alt='' />
-                                        <h3 className={styles.keratinName}>{keratins.name}</h3>
-                                        <p style={{ fontSize: '14px', color: '#555' }}>{keratins.description}</p>
-                                    </div>
-                                </Link>
-                            </Grid>
-                        ))
-                    ) : (
-                        <Typography style={{ marginLeft: '20px' }}>Məhsul Tapılmadı...</Typography>
-                    )}
-                </Grid>
+        <div className={styles.parentKeratin}>
+            <div className={styles.accordion}>
+                <select name="cars" id="cars" onChange={handleSelectChange}>
+                    <option className={styles.keratinOption} value="">Hamısı</option>
+                    <option className={styles.keratinOption} value="BIOTOP Ozonio">Biotop Ozonio</option>
+                    <option className={styles.keratinOption} value="ReviveHairPRO">ReviveHairPro</option>
+                </select>
             </div>
-        </>
+            <div className={styles.grid}>
+                {filteredItems.map(keratin => (
+                    <div className={styles.card} key={keratin._id}>
+                        <Link to={`${keratin._id}`}>
+                            <img className={styles.cardImg} src={keratin.productImgUrl} alt='' />
+                            <h3 className={styles.keratinName}>{keratin.name}</h3>
+                            {/* <p style={{ fontSize: '14px', color: '#555' }}>{keratin.description}</p> */}
+                        </Link>
+                        <div className={styles.detailWhislistButton}>
+                            <button className={styles.basketBtn} onClick={() => handleAddToCart({
+                                id: keratin._id,
+                                img: keratin.productImgUrl,
+                                name: keratin.name,
+                                brand: keratin.brand,
+                                quantity: quantity,
+                            })}>Səbətə Əlavə Et</button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
     )
 }
 

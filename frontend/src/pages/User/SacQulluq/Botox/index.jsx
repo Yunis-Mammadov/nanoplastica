@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import BeatLoader from "react-spinners/BeatLoader";
 import Swal from 'sweetalert2';
-import { getAllKeratin } from '../../../api/request';
 import styles from './index.module.css';
-import { useCart } from '../../../context/CartContext';
+import { useCart } from '../../../../context/CartContext';
+import { getAllSacQulluq } from '../../../../api/request';
 
-const Keratin = () => {
-    const [keratin, setKeratin] = useState([]);
+const Botox = () => {
+    const [sacqulluq, setSacqulluq] = useState([]);
     const [loading, setLoading] = useState(true);
     const [filteredItems, setFilteredItems] = useState([]);
     const [selectedOption, setSelectedOption] = useState('');
@@ -15,10 +15,9 @@ const Keratin = () => {
     const { addToCart } = useCart();
 
     useEffect(() => {
-        getAllKeratin()
+        getAllSacQulluq()
             .then(data => {
-                setKeratin(data);
-                setFilteredItems(data);
+                setSacqulluq(data);
             })
             .catch(error => console.error(error))
             .finally(() => setLoading(false));
@@ -34,18 +33,16 @@ const Keratin = () => {
         });
     };
 
-    const handleSelectChange = (event) => {
-        setSelectedOption(event.target.value);
-        if (event.target.value === 'BIOTOP Ozonio') {
-            const filtered = keratin.filter(item => item.brand === 'Ozonio');
-            setFilteredItems(filtered);
-        } else if (event.target.value === 'ReviveHairPRO') {
-            const filtered = keratin.filter(item => item.brand === 'Revive Hair Pro');
-            setFilteredItems(filtered);
-        } else {
-            setFilteredItems(keratin);
-        }
-    };
+
+    useEffect(() => {
+        getAllSacQulluq()
+            .then(data => {
+                setSacqulluq(data);
+                const shampoFiltered = data.filter(sacqulluq => sacqulluq.type === "Botox");
+                setFilteredItems(shampoFiltered);
+            })
+    }, []);
+
 
     if (loading) {
         return (
@@ -63,13 +60,6 @@ const Keratin = () => {
 
     return (
         <div className={styles.parentKeratin}>
-            <div className={styles.accordion}>
-                <select name="cars" id="cars" onChange={handleSelectChange}>
-                    <option className={styles.keratinOption} value="">Hamısı</option>
-                    <option className={styles.keratinOption} value="BIOTOP Ozonio">Biotop Ozonio</option>
-                    <option className={styles.keratinOption} value="ReviveHairPRO">ReviveHairPro</option>
-                </select>
-            </div>
             <div className={styles.grid}>
                 {filteredItems.map(keratin => (
                     <div className={styles.card} key={keratin._id}>
@@ -94,4 +84,4 @@ const Keratin = () => {
     )
 }
 
-export default Keratin;
+export default Botox;

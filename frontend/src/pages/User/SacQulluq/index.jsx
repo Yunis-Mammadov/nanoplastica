@@ -111,7 +111,7 @@ const SacQulluq = () => {
             <Link to={`${sacqulluq._id}`}>
               <img className={styles.cardImg} src={sacqulluq.productImgUrl} alt='' />
               <h3 className={styles.keratinName}>{sacqulluq.name}</h3>
-              <p style={{ fontSize: '14px', color: '#555' }}>{sacqulluq.description}</p>
+              {/* <p style={{ fontSize: '14px', color: '#555' }}>{sacqulluq.description}</p> */}
             </Link>
             <div className={styles.detailWhislistButton}>
               <button className={styles.basketBtn} onClick={() => handleAddToCart({

@@ -70,7 +70,7 @@ const SatisLideri = () => {
                         <Link style={{ textDecoration: "none" }} to={`/keratins/${keratins._id}`}>
                             <img className={styles.cardImg} src={keratins.productImgUrl} alt='' />
                             <h3 className={styles.keratinName}>{keratins.name}</h3>
-                            <p style={{ fontSize: '14px', color: '#555' }}>{keratins.description}</p>
+                            {/* <p style={{ fontSize: '14px', color: '#555' }}>{keratins.description}</p> */}
                         </Link>
                         <div className={styles.detailWhislistButton}>
                             <button className={styles.basketBtn} onClick={() => handleAddToCart({
