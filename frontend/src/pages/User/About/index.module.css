@@ -9,12 +9,13 @@
 .imgParent {
     text-align: center;
     font-size: 18px;
-    width: 100vw;
-    height: 200px;
+    width: 100%;
+    height: 450px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-position: center center;
+    /* background-attachment: fixed; */
     background-size: cover;
 }
 
