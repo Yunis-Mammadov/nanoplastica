@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import BeatLoader from "react-spinners/BeatLoader";
 import Swal from 'sweetalert2';
 import { getAllKeratin } from '../../../api/request';
+import { useTranslation } from 'react-i18next';
 import styles from './index.module.css';
 import { useCart } from '../../../context/CartContext';
 
@@ -13,6 +14,8 @@ const Keratin = () => {
     const [selectedOption, setSelectedOption] = useState('');
     const [quantity, setQuantity] = useState(1);
     const { addToCart } = useCart();
+    const [language, setLanguage] = useState('az');
+    const { t, i18n } = useTranslation();
 
     useEffect(() => {
         getAllKeratin()
@@ -33,6 +36,18 @@ const Keratin = () => {
             timer: 1500,
         });
     };
+
+    useEffect(() => {
+        const handleLanguageChange = () => {
+            setLanguage(i18n.language);
+        };
+
+        i18n.on('languageChanged', handleLanguageChange);
+
+        return () => {
+            i18n.off('languageChanged', handleLanguageChange);
+        };
+    }, [i18n]);
 
     const handleSelectChange = (event) => {
         setSelectedOption(event.target.value);
@@ -65,7 +80,7 @@ const Keratin = () => {
         <div className={styles.parentKeratin}>
             <div className={styles.accordion}>
                 <select name="cars" id="cars" onChange={handleSelectChange}>
-                    <option className={styles.keratinOption} value="">Hamısı</option>
+                    <option className={styles.keratinOption} value="">{t("all")}</option>
                     <option className={styles.keratinOption} value="BIOTOP Ozonio">Biotop Ozonio</option>
                     <option className={styles.keratinOption} value="ReviveHairPRO">ReviveHairPro</option>
                 </select>
@@ -85,7 +100,7 @@ const Keratin = () => {
                                 name: keratin.name,
                                 brand: keratin.brand,
                                 quantity: quantity,
-                            })}>Səbətə Əlavə Et</button>
+                            })}>{t("basket")}</button>
                         </div>
                     </div>
                 ))}

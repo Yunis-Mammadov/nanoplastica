@@ -17,6 +17,7 @@
     "antd": "^5.8.4",
     "axios": "^1.6.7",
     "bootstrap": "^5.3.3",
+    "flag-icons": "^7.2.1",
     "flowbite-react": "^0.7.2",
     "formik": "^2.4.5",
     "i18next": "^23.10.0",

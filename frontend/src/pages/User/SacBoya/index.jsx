@@ -5,6 +5,7 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import { Accordion, AccordionDetails, AccordionSummary, Grid, Typography, useMediaQuery } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { getAllHavaFenleri, getAllSocialMediaLinks } from '../../../api/request';
 import styles from './index.module.css';
 
@@ -14,11 +15,11 @@ const SacBoya = () => {
   const [socialLinks, setSocialLinks] = useState([]);
   const [showAccordion, setShowAccordion] = useState(false)
   const isMobile = useMediaQuery('(min-width:270px)');
-
+  const [language, setLanguage] = useState('az');
+  const { t, i18n } = useTranslation();
   const filterItems = () => {
     // ... (existing filterItems logic remains unchanged)
   };
-
   const [isHamısı, setIsHamısı] = useState(false);
   const [isBioCapilarChecked, setIsBioCapilarChecked] = useState(false);
   const [isNanoKeratinChecked, setIsNanoKeratinChecked] = useState(false);
@@ -42,6 +43,19 @@ const SacBoya = () => {
       setSocialLinks(data)
     })
   }, [])
+
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setLanguage(i18n.language);
+    };
+
+    i18n.on('languageChanged', handleLanguageChange);
+
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n]);
+
 
   return (
     <div className={styles.parentKeratin}>
@@ -115,7 +129,7 @@ const SacBoya = () => {
               </Link>
             </Grid>
           )) : (
-            <Typography sx={{ width: "100%", height: "65vh", textAlign: "center" }}>Məhsul Tapılmadı...</Typography>
+            <Typography sx={{ width: "100%", height: "65vh", textAlign: "center" }}>{t("notfound")}</Typography>
           )}
         </Grid>
       </div>

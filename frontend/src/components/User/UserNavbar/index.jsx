@@ -66,9 +66,9 @@ const Navbar = () => {
     setIsMeisetDropdownOpen(false);
   };
 
-  const handleLanguageChange = async lang => {
-    await i18n.changeLanguage(lang)
-  }
+  const handleLanguageChange = async (lang) => {
+    await i18n.changeLanguage(lang);
+  };
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -136,7 +136,7 @@ const Navbar = () => {
                   <LocalGroceryStoreIcon sx={{ fontSize: "28px", color: "white" }} />
                   {cartItemCount > 0 && <span className={styles.cartItemCount}>{cartItemCount}</span>}
                 </Link>
-                {/* <button style={{ width: "4%" }} onClick={() => handleLanguageChange("az")}>
+                <button style={{ width: "4%" }} onClick={() => handleLanguageChange("az")}>
                   <img style={{ width: "100%" }} src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/2560px-Flag_of_Azerbaijan.svg.png" alt="Azerbaijan" />
                 </button>
                 <button style={{ width: "3%" }} onClick={() => handleLanguageChange("ru")}>
@@ -144,7 +144,7 @@ const Navbar = () => {
                 </button>
                 <button style={{ width: "3%" }} onClick={() => handleLanguageChange("en")}>
                   <img style={{ width: "100%" }} src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png" alt="America" />
-                </button> */}
+                </button>
               </div>
             </div>
             <div className={styles.navbar}>
@@ -190,7 +190,7 @@ const Navbar = () => {
                     onMouseEnter={handleMouseEnterMeiset}
                     onMouseLeave={handleMouseLeaveMeiset}
                   >
-                    <Link to="/setler">{t('meiset')}</Link>
+                    <Link to="/meiset">{t('meiset')}</Link>
                     {isMeisetDropdownOpen && (
                       <ul className={styles.dropdownContentMeiset}>
                         <li><Link to="/fenler">{t('fenler')}</Link></li>
@@ -581,9 +581,9 @@ const Navbar = () => {
                 </Drawer>
               </div>
             </div>
-            <div className={styles.logoContainer}>
-              <img src="https://yberausa.com/wp-content/uploads/2019/03/WHITE-NEW-YBERA-LOGO-1536x597.png" alt="" />
-            </div>
+            {/* <div className={styles.logoContainerMobile}>
+              <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1710185551/WhatsApp_Image_2024-03-11_at_23.30.17-removebg-preview_v7n93l.png" alt="" />
+            </div> */}
             <div>
               <Link to="/basket" onClick={handleDrawerClose}>
                 <LocalGroceryStoreIcon sx={{ fontSize: "28px", color: "white", backgroundColor: "transparent" }} />

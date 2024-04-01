@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import styles from "./index.module.css"
 import { useTranslation } from 'react-i18next'
 import '../UserNavbar/i18n';
@@ -9,6 +9,19 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 
 const Footer = () => {
   const { t, i18n } = useTranslation();
+  const [language, setLanguage] = useState('az');
+
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setLanguage(i18n.language);
+    };
+
+    i18n.on('languageChanged', handleLanguageChange);
+
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n]);
 
   return (
     <>
@@ -16,11 +29,11 @@ const Footer = () => {
         <div className={styles.footerPartOne}>
           <div className={styles.sendEmail}>
             <div>
-              <h3 style={{ color: 'white', fontWeight: "500", textAlign: "center" }}>Mail göndərərək qeydiyyatdan keç</h3>
+              <h3 style={{ color: 'white', fontWeight: "500", textAlign: "center" }}>{t("sendMail")}</h3>
             </div>
             <div className={styles.sumbitEmail}>
               <input className={styles.inputPlaceholder} type="email" placeholder='Email' />
-              <button className={styles.footerSubmit}>Göndər</button>
+              <button className={styles.footerSubmit}>{t("send")}</button>
             </div>
           </div>
         </div>

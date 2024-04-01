@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from "./index.module.css"
 import { getAllKeratin } from '../../../../api/request';
 import { useMediaQuery } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 import { useCart } from '../../../../context/CartContext';
 import Swal from 'sweetalert2';
 
@@ -23,6 +24,9 @@ const Countdown = () => {
     const { addToCart } = useCart();
     const isExtraLarge = useMediaQuery('(min-width:600px)');
     const isLarge = useMediaQuery('(max-width: 600px)')
+    const { t, i18n } = useTranslation();
+    const [language, setLanguage] = useState('az');
+
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -40,6 +44,18 @@ const Countdown = () => {
             console.error("Keratin verileri getirilirken bir hata oluştu:", error);
         });
     }, []);
+
+    useEffect(() => {
+        const handleLanguageChange = () => {
+            setLanguage(i18n.language);
+        };
+
+        i18n.on('languageChanged', handleLanguageChange);
+
+        return () => {
+            i18n.off('languageChanged', handleLanguageChange);
+        };
+    }, [i18n]);
 
     const handleAddToCart = () => {
         const item = {
@@ -62,12 +78,12 @@ const Countdown = () => {
     return (
         <div className={styles.parentCountdown}>
             <div className={styles.topCount}>
-                <h3 className={styles.weeklyText}>Həftənin Təklifi</h3>
+                <h3 className={styles.weeklyText}>{t('topseller')}</h3>
                 <div className={styles.dayCount}>
-                    <p className={styles.time}>{time.days.toString().padStart(2, '0')} <br /> gün</p>
-                    <p className={styles.time}>{time.hours.toString().padStart(2, '0')} <br /> saat</p>
-                    <p className={styles.time}>{time.minutes.toString().padStart(2, '0')} <br /> dəqiqə</p>
-                    <p className={styles.time}>{time.seconds.toString().padStart(2, '0')} <br /> saniyə</p>
+                    <p className={styles.time}>{time.days.toString().padStart(2, '0')} <br />{t("day")}</p>
+                    <p className={styles.time}>{time.hours.toString().padStart(2, '0')} <br /> {t("hour")}</p>
+                    <p className={styles.time}>{time.minutes.toString().padStart(2, '0')} <br /> {t("minute")}</p>
+                    <p className={styles.time}>{time.seconds.toString().padStart(2, '0')} <br /> {t("second")}</p>
                 </div>
             </div>
             <div className={styles.mainCount}>
@@ -81,7 +97,7 @@ const Countdown = () => {
                                 <h6>{item.name}</h6>
                                 <p>{item.description}</p>
                                 <div className={styles.detailWhislistButton}>
-                                    <p onClick={handleAddToCart}>Səbətə Əlavə Et</p>
+                                    <p onClick={handleAddToCart}>{t("basket")}</p>
                                 </div>
                             </div>
                         </div>

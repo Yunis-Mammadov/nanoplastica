@@ -14,7 +14,7 @@ import LoginRoot from "../pages/User/LoginRoot";
 import Register from "../pages/User/Register";
 import SacQulluq from "../pages/User/SacQulluq";
 import SacQulluqDetail from "../pages/User/SacQulluqDetail";
-import Setler from "../pages/User/Setler";
+import Meiset from "../pages/User/Meiset";
 import Suallar from "../pages/User/Suallar";
 import UserMainRoot from "../pages/User/UserMainRoot";
 import Utuler from "../pages/User/Utuler";
@@ -70,8 +70,8 @@ export const ROUTES = [
                 element: <SacBoya />
             },
             {
-                path: "setler",
-                element: <Setler />
+                path: "meiset",
+                element: <Meiset />
             },
             {
                 path: "about",

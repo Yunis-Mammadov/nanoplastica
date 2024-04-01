@@ -1,7 +1,7 @@
 const Joi = require("joi")
 
 const imgPostSchema = Joi.object({
-    sliderImg: Joi.string().required(),
+    sliderImg: Joi.string(),
     aboutImg: Joi.string(),
     ComImg: Joi.string(),
 })

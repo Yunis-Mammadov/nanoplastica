@@ -1,10 +1,10 @@
-import { Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import styles from "./index.module.css";
 import Swal from 'sweetalert2';
 import { getAllKeratin } from '../../../../api/request';
+import { useTranslation } from 'react-i18next';
 import { useCart } from '../../../../context/CartContext';
+import styles from "./index.module.css";
 
 const Ozonio = () => {
     const [keratin, setKeratin] = useState([]);
@@ -12,6 +12,8 @@ const Ozonio = () => {
     const [selectedOption, setSelectedOption] = useState('');
     const [quantity, setQuantity] = useState(1);
     const { addToCart } = useCart();
+    const [language, setLanguage] = useState('az');
+    const { t, i18n } = useTranslation();
 
 
 
@@ -47,11 +49,23 @@ const Ozonio = () => {
         }
     };
 
+    useEffect(() => {
+        const handleLanguageChange = () => {
+            setLanguage(i18n.language);
+        };
+
+        i18n.on('languageChanged', handleLanguageChange);
+
+        return () => {
+            i18n.off('languageChanged', handleLanguageChange);
+        };
+    }, [i18n]);
+
     return (
         <div className={styles.parentKeratin}>
             <div className={styles.accordion}>
                 <select name="cars" id="cars" onChange={handleSelectChange}>
-                    <option className={styles.keratinOption} value="">Hamısı</option>
+                    <option className={styles.keratinOption} value="">{t("all")}</option>
                     <option className={styles.keratinOption} value="BIOTOP Ozonio">Biotop Ozonio</option>
                     <option className={styles.keratinOption} value="ReviveHairPRO">ReviveHairPro</option>
                 </select>
@@ -59,10 +73,9 @@ const Ozonio = () => {
             <div className={styles.grid}>
                 {filteredItems.map(keratin => (
                     <div className={styles.card} key={keratin._id}>
-                        <Link to={`${keratin._id}`}>
+                        <Link to={`/keratin/${keratin._id}`}>
                             <img className={styles.cardImg} src={keratin.productImgUrl} alt='' />
                             <h3 className={styles.keratinName}>{keratin.name}</h3>
-                            {/* <p style={{ fontSize: '14px', color: '#555' }}>{keratin.description}</p> */}
                         </Link>
                         <div className={styles.detailWhislistButton}>
                             <button className={styles.basketBtn} onClick={() => handleAddToCart({
@@ -71,7 +84,7 @@ const Ozonio = () => {
                                 name: keratin.name,
                                 brand: keratin.brand,
                                 quantity: quantity,
-                            })}>Səbətə Əlavə Et</button>
+                            })}>{t("basket")}</button>
                         </div>
                     </div>
                 ))}

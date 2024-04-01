@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 import { useCart } from '../../../../context/CartContext';
 import BeatLoader from "react-spinners/BeatLoader";
 import Swal from 'sweetalert2';
-import styles from './index.module.css';
-import Modal from '../Modal/index';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import { useTranslation } from 'react-i18next';
+import "../../../../components/User/UserNavbar/i18n"
+import Modal from '../Modal/index';
+import styles from './index.module.css';
 
 const SatisLideri = () => {
     const [keratin, setKeratin] = useState([]);
@@ -14,6 +16,9 @@ const SatisLideri = () => {
     const [quantity, setQuantity] = useState(1);
     const [selectedKeratin, setSelectedKeratin] = useState(null);
     const { addToCart } = useCart();
+    const { t, i18n } = useTranslation();
+    const [language, setLanguage] = useState('az'); 
+
 
     useEffect(() => {
         getAllKeratin()
@@ -22,6 +27,20 @@ const SatisLideri = () => {
             })
             .finally(() => setLoading(false));
     }, []);
+
+    useEffect(() => {
+        const handleLanguageChange = () => {
+            setLanguage(i18n.language);
+        };
+
+        i18n.on('languageChanged', handleLanguageChange);
+
+        return () => {
+            i18n.off('languageChanged', handleLanguageChange);
+        };
+    }, [i18n]);
+
+
 
     const handleAddToCart = (item) => {
         addToCart(item);
@@ -63,14 +82,13 @@ const SatisLideri = () => {
 
     return (
         <div>
-            <h4 className={styles.satisTag}>Satış Liderləri</h4>
+            <h4 className={styles.satisTag}>{t('topseller')}</h4>
             <div className={styles.grid}>
                 {keratin.map(keratins => (
                     <div className={styles.card} key={keratins._id}>
                         <Link style={{ textDecoration: "none" }} to={`/keratins/${keratins._id}`}>
                             <img className={styles.cardImg} src={keratins.productImgUrl} alt='' />
                             <h3 className={styles.keratinName}>{keratins.name}</h3>
-                            {/* <p style={{ fontSize: '14px', color: '#555' }}>{keratins.description}</p> */}
                         </Link>
                         <div className={styles.detailWhislistButton}>
                             <button className={styles.basketBtn} onClick={() => handleAddToCart({
@@ -79,9 +97,9 @@ const SatisLideri = () => {
                                 name: keratins.name,
                                 brand: keratins.brand,
                                 quantity: quantity,
-                            })}>Səbətə Əlavə Et</button>
+                            })}>{t('basket')}</button>
                             <button className={styles.eyeBtn} onClick={() => handleModalOpen(keratins)}>
-                                <RemoveRedEyeIcon sx={{fontSize:"30px"}} />
+                                <RemoveRedEyeIcon sx={{ fontSize: "30px" }} />
                             </button>
                         </div>
                     </div>

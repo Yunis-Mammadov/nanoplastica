@@ -10,8 +10,9 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllSacQulluq, getAllSocialMediaLinks } from '../../../api/request';
 import BeatLoader from "react-spinners/BeatLoader";
-import styles from './index.module.css';
+import { useTranslation } from 'react-i18next';
 import { useCart } from '../../../context/CartContext';
+import styles from './index.module.css';
 
 const SacQulluq = () => {
   const [socialLinks, setSocialLinks] = useState([]);
@@ -22,12 +23,10 @@ const SacQulluq = () => {
   const isMobile = useMediaQuery('(min-width:270px)');
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
+  const [language, setLanguage] = useState('az');
+  const { t, i18n } = useTranslation();
 
 
-
-  // useEffect(() => {
-  //   filterItems();
-  // }, [isHamısı, isShampooChecked, isBalsamoChecked, isMaskaChecked, isConditionerChecked, isBotoxChecked]);
 
   useEffect(() => {
     getAllSacQulluq()
@@ -54,6 +53,18 @@ const SacQulluq = () => {
       timer: 1500,
     });
   };
+
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setLanguage(i18n.language);
+    };
+
+    i18n.on('languageChanged', handleLanguageChange);
+
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n]);
 
 
   if (loading) {
@@ -97,12 +108,12 @@ const SacQulluq = () => {
     <div className={styles.parentKeratin}>
       <div className={styles.accordion}>
         <select name="cars" id="cars" onChange={handleSelectChange}>
-          <option className={styles.keratinOption} value="Hamısı">Hamısı</option>
-          <option className={styles.keratinOption} value="Şampun">Şampun</option>
-          <option className={styles.keratinOption} value="Balzam">Balzam</option>
-          <option className={styles.keratinOption} value="Botox">Botox</option>
-          <option className={styles.keratinOption} value="Maska">Maska</option>
-          <option className={styles.keratinOption} value="Kondisioner">Kondisioner</option>
+          <option className={styles.keratinOption} value="Hamısı">{t('all')}</option>
+          <option className={styles.keratinOption} value="Şampun">{t('şampun')}</option>
+          <option className={styles.keratinOption} value="Balzam">{t('balzam')}</option>
+          <option className={styles.keratinOption} value="Maska">{t('maska')}</option>
+          <option className={styles.keratinOption} value="Botox">{t('botox')}</option>
+          <option className={styles.keratinOption} value="Kondisioner">{t('kondisioner')}</option>
         </select>
       </div>
       <div className={styles.grid}>
@@ -120,7 +131,7 @@ const SacQulluq = () => {
                 name: sacqulluq.name,
                 brand: sacqulluq.brand,
                 quantity: quantity,
-              })}>Səbətə Əlavə Et</button>
+              })}>{t('basket')}</button>
             </div>
           </div>
         ))}

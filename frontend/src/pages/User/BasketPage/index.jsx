@@ -10,6 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import { styled } from '@mui/material/styles';
 import React, { useEffect, useState } from 'react';
 import { useCart } from '../../../context/CartContext';
+import { useTranslation } from 'react-i18next';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import styles from './index.module.css';
 
@@ -24,6 +25,8 @@ const BasketPage = () => {
     const [isCartEmpty, setIsCartEmpty] = useState(true);
     const isExtraLarge = useMediaQuery('(min-width:1200px)');
     const isMobile = useMediaQuery('(max-width:600px)');
+    const [language, setLanguage] = useState('az');
+    const { t, i18n } = useTranslation();
 
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {
@@ -63,6 +66,18 @@ const BasketPage = () => {
             setCartItems(prevItems => [...prevItems, product]);
         }
     };
+
+    useEffect(() => {
+        const handleLanguageChange = () => {
+            setLanguage(i18n.language);
+        };
+
+        i18n.on('languageChanged', handleLanguageChange);
+
+        return () => {
+            i18n.off('languageChanged', handleLanguageChange);
+        };
+    }, [i18n]);
 
     const handleRemoveFromCart = (index) => {
         removeFromCart(index);
@@ -124,10 +139,10 @@ const BasketPage = () => {
                 <Table className={styles.tableBasket}>
                     <TableHead>
                         <TableRow>
-                            <StyledTableCell sx={{ width: '50%' }} align='left'>Məhsul</StyledTableCell>
+                            <StyledTableCell sx={{ width: '50%' }} align='left'>{t("product")}</StyledTableCell>
                             <StyledTableCell align="center"></StyledTableCell>
-                            <StyledTableCell align="center">Brend</StyledTableCell>
-                            <StyledTableCell align="center">Sayı</StyledTableCell>
+                            <StyledTableCell align="center">{t("brand")}</StyledTableCell>
+                            <StyledTableCell align="center">{t("count")}</StyledTableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -146,20 +161,20 @@ const BasketPage = () => {
                     </TableBody>
                 </Table>
                 <div style={{ textAlign: "center", marginBottom: "80px" }}>
-                    <button {...isButtonDisabled} onClick={openModal} className={styles.detailWhislistButton}>Sifarişi Tamamla</button>
+                    <button {...isButtonDisabled} onClick={openModal} className={styles.detailWhislistButton}>{t("order")}</button>
                 </div>
             </TableContainer>
             {isModalOpen && (
                 <Modal open={isModalOpen} onClose={closeModal}>
                     <div className={styles.modalContent}>
-                        <label>Ad:</label>
+                        <label>{t("name")}:</label>
                         <input type="text" value={name} onChange={handleNameChange} />
-                        <label>Soyad:</label>
+                        <label>{t("surname")}:</label>
                         <input type="text" value={surname} onChange={handleSurnameChange} />
-                        <label>Özel Mesaj:</label>
+                        <label>{t("message")}:</label>
                         <input type="text" value={specialMessage} onChange={handleSpecialMessage} />
-                        <label onClick={getLocation} style={{ cursor: 'pointer', border: '1px solid #ccc', padding: '5px' }}>Adress: {userLocation ? userLocation : 'Konum Seç'}</label>
-                        <p className={styles.sendWpButton} onClick={sendWhatsAppMessage}><WhatsAppIcon /> Whatsapp Qrupuna Qoşul</p>
+                        <label onClick={getLocation} style={{ cursor: 'pointer', border: '1px solid #ccc', padding: '5px' }}>{t("adress")}: {userLocation ? userLocation : 'Konum Seç'}</label>
+                        <p className={styles.sendWpButton} onClick={sendWhatsAppMessage}><WhatsAppIcon />{t("wpSend")}</p>
                     </div>
                 </Modal>
             )}

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import styles from "./index.module.css";
 import WhyUs from '../Home/WhyUs';
+import { useTranslation } from 'react-i18next';
 import { getAllImgs } from '../../../api/request';
+import styles from "./index.module.css";
 
 const About = () => {
   const [firstAboutImg, setFirstAboutImg] = useState(null);
+  const [language, setLanguage] = useState('az');
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     getAllImgs()
@@ -14,35 +17,37 @@ const About = () => {
       })
   }, []);
 
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setLanguage(i18n.language);
+    };
+
+    i18n.on('languageChanged', handleLanguageChange);
+
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n]);
+
+
   return (
     <>
       <div className={styles.parentAbout}>
         <div className={styles.imgParent} style={{
           backgroundImage: `url(${firstAboutImg})`,
         }}>
-          
+
         </div>
         <div className={styles.aboutText} style={{ marginTop: "30px" }}>
-          <label style={{ fontWeight: "600", fontSize: "18px" }}>Haqqımızda</label>
+          <label style={{ fontWeight: "600", fontSize: "18px" }}>{t("about")}</label>
           <label >
-            Nanoplastica.az  saytı saça qulluq vasitələrinin,boyalarının,düzləçdiricilərinin və saç üçün elektron alətlərin bu kontekstdə ən yaxşısını təqdim edir.
-            Məhsullarımız istehsalçı ölkələrin lisenziyası və beynalxalq setifikatsiyadan keçmiş Azərbaycan Respublikası tərəfindən Səhiyyə nazirliyinin gigiyenik sertifikatını almış 100% orjinallığını təmin etmişdir.
-
-            Şaçlarınızın mükəmməl düzlüyünü əldə edib onları qorumaq üçün keyfiyyətli məhsul axtarışındasınız?
-            Saç prosedurları üçün keyfiyyətli elektron alətiniz yoxdur?
-            Bir sözlə saçınıza zərər verməyən məhsullara sahib olmaq istəyirsiniz?
-            Saç boyalarından istədiyiniz tonları ala bilmirsiniz?
-
-            Nanoplastica.az saytı mekəmməl seçimdir və nüfuzlu brendlərin məhsullarını Azərbaycan bazarına çatdırılmasında inqilab edir.
-            Bu online məkan peşəkarların seçimidir!
-
-            Sizə xidmət etmək üçün hər zaman ixtiyarınızda bir komandaya sahibik.
+           {t("aboutText")}
           </label>
-          <p style={{ paddingTop: "20px", fontWeight: "500" }}>Hörmətlə Nanoplastica.az komandası
+          <p style={{ paddingTop: "20px", fontWeight: "500" }}>{t("aboutFooter")}
           </p>
         </div>
       </div>
-      <WhyUs />
+      {/* <WhyUs /> */}
     </>
   )
 }

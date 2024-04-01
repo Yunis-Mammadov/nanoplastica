@@ -19,18 +19,18 @@ const Videos = ({ videoId }) => {
             <div className="open-button-container" onClick={openModal}>
                 <div className="blinking-background">
                 </div>
-                <button className="open-button"><SlowMotionVideoIcon sx={{ fontSize: "80px" }} />
-                </button>
-
+                <button className="open-button"><SlowMotionVideoIcon sx={{ fontSize: "80px" }} /></button>
             </div>
             {isOpen && (
                 <div className="overlay" onClick={closeModal}>
                     <div className="modal">
-                        <button className="closeButton" onClick={closeModal}><CloseIcon className="closeButtonIcon" style={{ fontSize: "28px", color:"white"}} /></button>
+                        <button className="closeButton" onClick={closeModal}>
+                            <CloseIcon className="closeButtonIcon" style={{ fontSize: "28px", color: "white" }} />
+                        </button>
                         <iframe
                             width="560"
                             height="315"
-                            src={`https://www.youtube.com/embed/NMu6PjdTIgk`}
+                            src="https://www.youtube.com/embed/63TyiWRZrlE" // Video ID buraya gelir
                             title="YouTube video player"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
