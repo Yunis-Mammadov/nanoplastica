@@ -149,7 +149,7 @@ const Navbar = () => {
             </div>
             <div className={styles.navbar}>
               <div className={styles.logoContainer}>
-                <img src="https://yberausa.com/wp-content/uploads/2019/03/WHITE-NEW-YBERA-LOGO-1536x597.png" alt="" />
+                <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1712001072/Nanoplastika.az_2_-1_qy5ivx.png" alt="" />
               </div>
               <div className={styles.navbarLinks}>
                 <ul>
@@ -581,9 +581,9 @@ const Navbar = () => {
                 </Drawer>
               </div>
             </div>
-            {/* <div className={styles.logoContainerMobile}>
-              <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1710185551/WhatsApp_Image_2024-03-11_at_23.30.17-removebg-preview_v7n93l.png" alt="" />
-            </div> */}
+            <div className={styles.logoContainerMobile}>
+            <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1712001072/Nanoplastika.az_2_-1_qy5ivx.png" alt="" />
+            </div>
             <div>
               <Link to="/basket" onClick={handleDrawerClose}>
                 <LocalGroceryStoreIcon sx={{ fontSize: "28px", color: "white", backgroundColor: "transparent" }} />
