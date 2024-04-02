@@ -149,7 +149,7 @@ const Navbar = () => {
             </div>
             <div className={styles.navbar}>
               <div className={styles.logoContainer}>
-                <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1712002002/Nanoplastika.az__2_-1-removebg-preview_ghgyzt.png" alt="" />
+                <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1712062947/Nanoplastika.az__3_-1-removebg-preview_v8deco.png" alt="" />
               </div>
               <div className={styles.navbarLinks}>
                 <ul>
@@ -582,7 +582,7 @@ const Navbar = () => {
               </div>
             </div>
             <div className={styles.logoContainerMobile}>
-              <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1712002002/Nanoplastika.az__2_-1-removebg-preview_ghgyzt.png" alt="" />
+              <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1712062947/Nanoplastika.az__3_-1-removebg-preview_v8deco.png" alt="" />
             </div>
             <div>
               <Link to="/basket" onClick={handleDrawerClose}>
