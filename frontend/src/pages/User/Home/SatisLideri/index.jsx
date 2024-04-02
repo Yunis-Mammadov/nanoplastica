@@ -86,7 +86,7 @@ const SatisLideri = () => {
             <div className={styles.grid}>
                 {keratin.map(keratins => (
                     <div className={styles.card} key={keratins._id}>
-                        <Link style={{ textDecoration: "none" }} to={`/keratins/${keratins._id}`}>
+                        <Link style={{ textDecoration: "none" }} to={`/keratin/${keratins._id}`}>
                             <img className={styles.cardImg} src={keratins.productImgUrl} alt='' />
                             <h3 className={styles.keratinName}>{keratins.name}</h3>
                         </Link>
