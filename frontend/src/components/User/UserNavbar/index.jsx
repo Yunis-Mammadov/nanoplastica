@@ -17,7 +17,7 @@ import styles from "./index.module.css";
 const Navbar = () => {
   const [isKeratinDropdownOpen, setIsKeratinDropdownOpen] = useState(false);
   const [isSacqulluqDropdownOpen, setIsSacqulluqDropdownOpen] = useState(false);
-  const [isMeisetDropdownOpen, setIsMeisetDropdownOpen] = useState(false);
+  const [isHavaFenleriDropdownOpen, setIsHavaFenleriDropdownOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [keratin, setKeratin] = useState([]);
@@ -58,12 +58,12 @@ const Navbar = () => {
     setIsSacqulluqDropdownOpen(false);
   };
 
-  const handleMouseEnterMeiset = () => {
-    setIsMeisetDropdownOpen(true);
+  const handleMouseEnterHavaFenleri = () => {
+    setIsHavaFenleriDropdownOpen(true);
   };
 
-  const handleMouseLeaveMeiset = () => {
-    setIsMeisetDropdownOpen(false);
+  const handleMouseLeaveHavaFenleri = () => {
+    setIsHavaFenleriDropdownOpen(false);
   };
 
   const handleLanguageChange = async (lang) => {
@@ -93,7 +93,9 @@ const Navbar = () => {
 
     if (term.trim() !== '') {
       const filteredResults = [...keratin, ...sacqulluq].filter(item =>
-        item.name.toLowerCase().includes(term.toLowerCase())
+        (item.name && item.name.toLowerCase().includes(term.toLowerCase())) ||
+        (item.category && item.category.toLowerCase().includes(term.toLowerCase())) ||
+        (item.searchValue && item.searchValue.toLowerCase().includes(term.toLowerCase()))
       );
       setSearchResults(filteredResults);
     } else {
@@ -186,14 +188,13 @@ const Navbar = () => {
                     </li>
                   </div>
                   <li
-                    className={`${styles.dropdownWrapper} ${isMeisetDropdownOpen ? styles.dropdownOpen : ''}`}
-                    onMouseEnter={handleMouseEnterMeiset}
-                    onMouseLeave={handleMouseLeaveMeiset}
+                    className={`${styles.dropdownWrapper} ${isHavaFenleriDropdownOpen ? styles.dropdownOpen : ''}`}
+                    onMouseEnter={handleMouseEnterHavaFenleri}
+                    onMouseLeave={handleMouseLeaveHavaFenleri}
                   >
-                    <Link to="/meiset">{t('meiset')}</Link>
-                    {isMeisetDropdownOpen && (
+                    <Link to="/havafenleri">{t('fenler')}</Link>
+                    {isHavaFenleriDropdownOpen && (
                       <ul className={styles.dropdownContentMeiset}>
-                        <li><Link to="/fenler">{t('fenler')}</Link></li>
                         <li><Link to="/utuler">{t('utuler')}</Link></li>
                       </ul>
                     )}

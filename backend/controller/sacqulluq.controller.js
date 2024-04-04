@@ -27,7 +27,7 @@ const sacqulluqController = {
         })
     },
     post: async (req, res) => {
-        const { name, brand, type, price, productImgUrl, postImgUrl, description, productDetails, category } = req.body
+        const { name, brand, type, price, productImgUrl, postImgUrl, description, productDetails, category, searchValue } = req.body
         const newSacqulluq = new sacqulluqModel({
             name: name,
             brand: brand,
@@ -37,7 +37,8 @@ const sacqulluqController = {
             postImgUrl: postImgUrl,
             description: description,
             productDetails: productDetails,
-            category: category
+            category: category,
+            searchValue: searchValue,
         })
         await newSacqulluq.save(),
             res.status(201).send({
@@ -47,7 +48,7 @@ const sacqulluqController = {
     },
     edit: async (req, res) => {
         const id = req.params.id
-        const { name, brand, type, price, productImgUrl, postImgUrl, description, productDetails, category } = req.body
+        const { name, brand, type, price, productImgUrl, postImgUrl, description, productDetails, category, searchValue } = req.body
         const updatingSacqulluq = {
             name: name,
             brand: brand,
@@ -57,7 +58,8 @@ const sacqulluqController = {
             postImgUrl: postImgUrl,
             description: description,
             productDetails: productDetails,
-            category: category
+            category: category,
+            searchValue: searchValue
         }
         const sacqulluq = await sacqulluqModel.findByIdAndUpdate(id, updatingSacqulluq)
         res.status(200).send({

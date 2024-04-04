@@ -11,7 +11,8 @@ const sacqulluqModel = new mongoose.model("Sacqulluq", (
         postImgUrl: String,
         description: String,
         poductDetails: String,
-        category: String
+        category: String,
+        searchValue: String,
     })
 ))
 

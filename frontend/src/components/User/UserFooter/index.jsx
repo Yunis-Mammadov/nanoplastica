@@ -33,6 +33,7 @@ const Footer = () => {
             </div>
             <div className={styles.sumbitEmail}>
               <input className={styles.inputPlaceholder} type="email" placeholder='Email' />
+              <textarea className={styles.textareaFooter} placeholder='Mesajınız' name="" id="" cols="30" rows="3"></textarea>
               <button className={styles.footerSubmit}>{t("send")}</button>
             </div>
           </div>

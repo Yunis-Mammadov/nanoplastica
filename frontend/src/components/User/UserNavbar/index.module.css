@@ -212,13 +212,13 @@
 .dropdownWrapper:hover .dropdownContentMeiset {
     display: flex;
     flex-direction: column;
-    height: 200px;
+    height: 120px;
     gap: 0px;
 }
 
 .dropdownContentMeiset {
     position: absolute;
-    min-width: 123px;
+    min-width: 176px;
     top: 73px;
     right: 0px;
     z-index: 1001;

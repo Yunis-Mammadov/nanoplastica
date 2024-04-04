@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 
 const Countdown = () => {
     const calculateTimeLeft = () => {
-        let difference = +new Date('2024-03-24');
+        let difference = +new Date('2024-04-20');
         let currentTime = +new Date();
         let timeLeft = difference - currentTime;
         let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));

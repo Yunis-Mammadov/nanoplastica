@@ -6,8 +6,11 @@ import { getAllKeratin } from '../../../api/request';
 import { useTranslation } from 'react-i18next';
 import styles from './index.module.css';
 import { useCart } from '../../../context/CartContext';
+import { Grid } from '@mui/material';
+
 
 const Keratin = () => {
+
     const [keratin, setKeratin] = useState([]);
     const [loading, setLoading] = useState(true);
     const [filteredItems, setFilteredItems] = useState([]);
@@ -62,20 +65,6 @@ const Keratin = () => {
         }
     };
 
-    if (loading) {
-        return (
-            <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "30vh",
-                color: "red",
-            }}>
-                <BeatLoader color="orange" />
-            </div>
-        );
-    }
-
     return (
         <div className={styles.parentKeratin}>
             <div className={styles.accordion}>
@@ -85,26 +74,27 @@ const Keratin = () => {
                     <option className={styles.keratinOption} value="ReviveHairPRO">ReviveHairPro</option>
                 </select>
             </div>
-            <div className={styles.grid}>
+            <Grid justifyContent="center" container rowSpacing={6} spacing={{ xs: 12, sm: 6, md: 4, lg: 3 }} direction="row">
                 {filteredItems.map(keratin => (
-                    <div className={styles.card} key={keratin._id}>
-                        <Link to={`${keratin._id}`}>
-                            <img className={styles.cardImg} src={keratin.productImgUrl} alt='' />
-                            <h3 className={styles.keratinName}>{keratin.name}</h3>
-                            {/* <p style={{ fontSize: '14px', color: '#555' }}>{keratin.description}</p> */}
-                        </Link>
-                        <div className={styles.detailWhislistButton}>
-                            <button className={styles.basketBtn} onClick={() => handleAddToCart({
-                                id: keratin._id,
-                                img: keratin.productImgUrl,
-                                name: keratin.name,
-                                brand: keratin.brand,
-                                quantity: quantity,
-                            })}>{t("basket")}</button>
+                    <Grid item lg={4} key={keratin._id}>
+                        <div className={styles.card} >
+                            <Link to={`${keratin._id}`}>
+                                <img src={keratin.productImgUrl} alt='' />
+                                <h3 className={styles.keratinName}>{keratin.name}</h3>
+                            </Link>
+                            <div>
+                                <button onClick={() => handleAddToCart({
+                                    id: keratin._id,
+                                    img: keratin.productImgUrl,
+                                    name: keratin.name,
+                                    brand: keratin.brand,
+                                    quantity: quantity,
+                                })}>{t("basket")}</button>
+                            </div>
                         </div>
-                    </div>
+                    </Grid>
                 ))}
-            </div>
+            </Grid>
         </div>
     )
 }
