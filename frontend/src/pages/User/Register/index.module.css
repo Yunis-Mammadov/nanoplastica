@@ -6,7 +6,6 @@
 
 @media screen and (max-width: 2000px) {
     .parentRegister {
-        background-image: url("https://my.account.sony.com/central/signin/9fe91826ca150e7fa133749535fa2ed86e5c1b70/assets/images/wallpaper.jpg");
         height: 100vh;
         display: flex;
         justify-content: center;
@@ -119,7 +118,6 @@
 
 @media screen and (max-width: 768px) {
     .parentRegister {
-        background-image: url("https://my.account.sony.com/central/signin/9fe91826ca150e7fa133749535fa2ed86e5c1b70/assets/images/wallpaper.jpg");
         height: 100vh;
         display: flex;
         justify-content: center;
@@ -138,7 +136,6 @@
 
 @media screen and (max-width: 576px) {
     .parentRegister {
-        background-image: url("https://my.account.sony.com/central/signin/9fe91826ca150e7fa133749535fa2ed86e5c1b70/assets/images/wallpaper.jpg");
         height: 100vh;
         display: flex;
         justify-content: center;

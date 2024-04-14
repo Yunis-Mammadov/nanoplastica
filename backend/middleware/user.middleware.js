@@ -11,10 +11,8 @@ const verifyTokenMiddleware = (req, res, next) => {
         if (err) {
             return res.status(401).json({ message: 'Invalid token' });
         }
-
-        // Token geçerli, decoded içinde kullanıcı bilgileri var
         req.user = decoded;
-        next(); // Middleware'den sonra bir sonraki işlemi devam ettir
+        next();
     });
 };
 

@@ -1,10 +1,10 @@
 import CloseIcon from '@mui/icons-material/Close';
 import { useFormik } from 'formik';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
-import { signIN } from '../../../api/request';
+import { getUsers, signIN } from '../../../api/request';
 import styles from '../Login/index.module.css';
 import { useUserContext } from '../../../context/UserContext';
 
@@ -32,7 +32,7 @@ const Login = () => {
             });
             setTimeout(() => {
                 navigate('/');
-              }, 2000);
+            }, 2000);
         }
         actions.resetForm();
     };
@@ -44,6 +44,8 @@ const Login = () => {
         },
         onSubmit: handleSubmit
     })
+
+
 
     return (
         <>

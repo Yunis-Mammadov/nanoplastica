@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
+const Verifier = require("email-verifier");
 
 const app = express();
 
@@ -27,8 +28,8 @@ mongoose.connect(DB_CONNECTION.replace('<password>', secretKey), {
   useUnifiedTopology: true,
 })
   .then(() => {
-  console.log('Mongo DB connected');
-})
+    console.log('Mongo DB connected');
+  })
   .catch((error) => {
     console.error('Mongo DB connection error:', error);
   });
@@ -47,10 +48,44 @@ app.use("/api/user", router.user_routes)
 app.use("/api/login", router.login_routes)
 app.use("/api/imgs", router.img_routes)
 
+// Nodemailer transporter
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USERNAME,
+    pass: process.env.EMAIL_PASSWORD,
+  },
+});
+
+// Email verification endpoint
+app.post("/api/verify-email", (req, res) => {
+  const { email } = req.body;
+
+  const verifier = new Verifier(
+    process.env.WHOISAPI_USERNAME,
+    process.env.WHOISAPI_PASSWORD
+  );
+
+  verifier.verify(email, (err, data) => {
+    if (err) {
+      console.error("Error verifying email:", err);
+      res.status(500).json({ error: "An error occurred while verifying email" });
+    } else {
+      console.log("Email verification data:", data);
+      // Check if the email is valid and deliverable
+      if (data.formatCheck && data.deliverability) {
+        // E-posta doğrulama başarılıysa, istediğiniz işlemleri yapabilirsiniz.
+        // Örneğin, kullanıcının e-posta adresini kaydedebilir veya doğrulanmış bir kullanıcı olarak işaretleyebilirsiniz.
+        res.json({ message: "Email is valid and deliverable" });
+      } else {
+        res.status(400).json({ error: "Email is not valid or deliverable" });
+      }
+    }
+  });
+});
 
 app.post("/api/send-email", (req, res) => {
   const { name, email, subject, message } = req.body;
-
 
   const mailOptions = {
     from: 'your_gmail_username@gmail.com',

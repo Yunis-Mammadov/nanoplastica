@@ -9,6 +9,8 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { getAllKeratin, getAllSacQulluq } from '../../../api/request';
 import { useCart, useCartItemCount } from '../../../context/CartContext';
+import { useUserContext } from '../../../context/UserContext';
+import BasicMenu from './BasicMenu';
 import './i18n';
 import styles from "./index.module.css";
 
@@ -25,6 +27,7 @@ const Navbar = () => {
   const [searchResults, setSearchResults] = useState([]);
   const cartItemCount = useCartItemCount();
   const { addToCart, setCartItemCount } = useCart();
+  const [user, setUser, isLoggedIn, setIsLoggedIn] = useUserContext();
   const isExtraLarge = useMediaQuery('(min-width:1100px)');
   const isLarge = useMediaQuery('(min-width:700px)');
   const isSmallLarge = useMediaQuery('(min-width:270px)');
@@ -103,10 +106,10 @@ const Navbar = () => {
     }
   };
 
-
   const handleLinkClick = () => {
     clearSearch();
   };
+
 
   if (isExtraLarge) {
     return (
@@ -115,9 +118,13 @@ const Navbar = () => {
           <div className={styles.parentNavbar}>
             <div className={styles.topbar}>
               <div className={styles.registerBtn}>
-                {/* <Link  to="/register"> */}
-                <button>{t('register')}</button>
-                {/* </Link> */}
+                {isLoggedIn ? (
+                  <BasicMenu />
+                ) : (
+                <Link to="/register">
+                  <button>{t('register')}</button>
+                </Link>
+                  )}
               </div>
               <div className={styles.searchAndBasket}>
                 <div className={styles.searchExtraLarge}>
@@ -148,6 +155,8 @@ const Navbar = () => {
                   <img style={{ width: "100%" }} src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png" alt="America" />
                 </button>
               </div>
+            </div>
+            <div className={styles.RegisterBtn}>
             </div>
             <div className={styles.navbar}>
               <div className={styles.logoContainer}>

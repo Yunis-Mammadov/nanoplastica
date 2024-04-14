@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
+
 const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
@@ -9,10 +10,9 @@ export const UserContextProvider = ({ children }) => {
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
         if (storedUser) {
-            setUser(JSON.parse(storedUser));
             setIsLoggedIn(true)
         }
-    }, []);
+    }, );
 
     const logout = () => {
         setUser(null);
