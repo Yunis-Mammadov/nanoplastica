@@ -9,7 +9,7 @@ const Verifier = require("email-verifier");
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: 'https://www.nanoplastica.az',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   preflightContinue: false,
   optionsSuccessStatus: 204,
@@ -48,7 +48,6 @@ app.use("/api/user", router.user_routes)
 app.use("/api/login", router.login_routes)
 app.use("/api/imgs", router.img_routes)
 
-// Nodemailer transporter
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -57,7 +56,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// Email verification endpoint
 app.post("/api/verify-email", (req, res) => {
   const { email } = req.body;
 
@@ -72,10 +70,7 @@ app.post("/api/verify-email", (req, res) => {
       res.status(500).json({ error: "An error occurred while verifying email" });
     } else {
       console.log("Email verification data:", data);
-      // Check if the email is valid and deliverable
       if (data.formatCheck && data.deliverability) {
-        // E-posta doğrulama başarılıysa, istediğiniz işlemleri yapabilirsiniz.
-        // Örneğin, kullanıcının e-posta adresini kaydedebilir veya doğrulanmış bir kullanıcı olarak işaretleyebilirsiniz.
         res.json({ message: "Email is valid and deliverable" });
       } else {
         res.status(400).json({ error: "Email is not valid or deliverable" });

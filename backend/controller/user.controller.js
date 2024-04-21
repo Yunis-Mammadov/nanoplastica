@@ -33,7 +33,7 @@ const userController = {
             })
             return;
         }
-        const salt = await bcrypt.genSalt(10); //500ms
+        const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
         const newUser = await UserModel({
             name: name,

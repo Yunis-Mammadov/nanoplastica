@@ -2,7 +2,7 @@
     .swiper {
         width: 70vw;
         height: 35vh;
-        margin: 120px auto;
+        margin: 70px auto;
     }
 
     .swiper-slide {
@@ -30,6 +30,7 @@
     .swiper {
         width: 100vw;
         height: 15vh;
+        margin-top: 0px;
     }
 
     .swiper-slide {

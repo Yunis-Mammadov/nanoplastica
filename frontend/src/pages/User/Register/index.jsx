@@ -99,9 +99,6 @@ const Register = () => {
                             }} />
                         </div>
                     </div>
-                    {/* <label className={styles.RegisterLabel}>
-                        Sign in to PlayStation with one of your Sony account
-                    </label> */}
                     <div className={styles.RegisterInput}>
                         <div>
                             <input

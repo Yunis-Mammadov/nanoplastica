@@ -145,7 +145,7 @@ const Navbar = () => {
                   <LocalGroceryStoreIcon sx={{ fontSize: "28px", color: "white" }} />
                   {cartItemCount > 0 && <span className={styles.cartItemCount}>{cartItemCount}</span>}
                 </Link>
-                <button style={{ width: "4%" }} onClick={() => handleLanguageChange("az")}>
+                {/* <button style={{ width: "4%" }} onClick={() => handleLanguageChange("az")}>
                   <img style={{ width: "100%" }} src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/2560px-Flag_of_Azerbaijan.svg.png" alt="Azerbaijan" />
                 </button>
                 <button style={{ width: "3%" }} onClick={() => handleLanguageChange("ru")}>
@@ -153,7 +153,7 @@ const Navbar = () => {
                 </button>
                 <button style={{ width: "3%" }} onClick={() => handleLanguageChange("en")}>
                   <img style={{ width: "100%" }} src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png" alt="America" />
-                </button>
+                </button> */}
               </div>
             </div>
             <div className={styles.RegisterBtn}>
@@ -537,17 +537,12 @@ const Navbar = () => {
                     </Accordion>
                     <Accordion sx={{ boxShadow: "none" }}>
                       <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3a-content" id="panel3a-header">
-                        <Link onClick={handleDrawerClose} to="/setler">
-                          <ListItemText primary={t('meiset')} />
+                        <Link onClick={handleDrawerClose} to="/havafenleri">
+                          <ListItemText primary={t('fenler')} />
                         </Link>
                       </AccordionSummary>
                       <AccordionDetails>
                         <List>
-                          <ListItem button>
-                            <Link onClick={handleDrawerClose} to="/fenler">
-                              <ListItemText primary={t('fenler')} />
-                            </Link>
-                          </ListItem>
                           <ListItem button>
                             <Link onClick={handleDrawerClose} to="/utuler">
                               <ListItemText primary={t('utuler')} />

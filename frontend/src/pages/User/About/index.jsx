@@ -36,18 +36,19 @@ const About = () => {
         <div className={styles.imgParent} style={{
           backgroundImage: `url(${firstAboutImg})`,
         }}>
-
         </div>
         <div className={styles.aboutText} style={{ marginTop: "30px" }}>
-          <label style={{ fontWeight: "600", fontSize: "18px" }}>{t("about")}</label>
-          <label >
-           {t("aboutText")}
-          </label>
-          <p style={{ paddingTop: "20px", fontWeight: "500" }}>{t("aboutFooter")}
-          </p>
+          <div style={{ fontWeight: "600", fontSize: "18px", marginBottom: "10px" }}>
+            {t("about")}
+          </div>
+          <div style={{ textAlign: "justify", marginBottom: "5px" }}>
+            {t("aboutText")}
+          </div>
+          <div style={{ paddingTop: "20px", fontWeight: "500" }}>
+            {t("aboutFooter")}
+          </div>
         </div>
       </div>
-      {/* <WhyUs /> */}
     </>
   )
 }

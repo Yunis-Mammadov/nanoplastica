@@ -2,14 +2,26 @@ import React, { useState, useEffect } from 'react';
 import styles from "./index.module.css"
 import { useTranslation } from 'react-i18next'
 import '../UserNavbar/i18n';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 
 const Footer = () => {
   const { t, i18n } = useTranslation();
   const [language, setLanguage] = useState('az');
+
+
+  function ScrollToTopOnMount() {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+
+    return null;
+  }
 
   useEffect(() => {
     const handleLanguageChange = () => {
@@ -44,15 +56,21 @@ const Footer = () => {
               <img src="https://res.cloudinary.com/dsb3j1ozv/image/upload/v1712085676/WhatsApp_Image_2024-04-02_at_11.17.21_PM-removebg-preview_ayixmk.png" alt="" />
             </div>
             <div className={styles.sosialFooter}>
-              <Link style={{ color: 'black' }} to={"https://www.instagram.com/ozonio.official.azerbaijan/?ref=oSa2ew7A&hl=am-et"}>
+              <Link style={{ color: 'black' }} target='blank' to={"https://www.instagram.com/ozonio.official.azerbaijan/?ref=oSa2ew7A&hl=am-et"}>
                 <InstagramIcon sx={{
                   fontSize: "28px",
                   marginTop: "10px",
                 }} />
               </Link>
-              <Link style={{ color: 'black' }} to={"https://www.instagram.com/ozonio.official.azerbaijan/?ref=oSa2ew7A&hl=am-et"}>
+              <Link style={{ color: 'black' }} target='blank' to={"https://www.instagram.com/ozonio.official.azerbaijan/?ref=oSa2ew7A&hl=am-et"}>
                 <FacebookIcon sx={{
                   fontSize: "28px",
+                  marginTop: "10px",
+                }} />
+              </Link>
+              <Link style={{ color: 'black' }} target='blank' to={"https://www.youtube.com/@nanoplastica_az"}>
+                <YouTubeIcon sx={{
+                  fontSize: "30px",
                   marginTop: "10px",
                 }} />
               </Link>
@@ -60,6 +78,7 @@ const Footer = () => {
           </div>
           <div>
             <div className={styles.footerLink}>
+              <ScrollToTopOnMount />
               <Link to={"/"}>{t('esas')}</Link>
               <Link to={"/keratin"}>{t('keratin')}</Link>
               <Link to={"/sacqulluq"}>{t('sacqulluq')}</Link>

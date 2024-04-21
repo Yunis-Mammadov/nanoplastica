@@ -79,13 +79,13 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin-top: 40px;
+        margin-top: 20px;
     }
 
     .satisTag {
         margin-left: 144px;
         font-size: 23px;
-        margin-top: 40px;
+        margin-top: 20px;
     }
 
     .card {

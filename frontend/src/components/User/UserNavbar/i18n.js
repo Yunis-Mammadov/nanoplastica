@@ -1,6 +1,11 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
+const aboutTextAz = `Nanoplastica.az saytı saça qulluq vasitələrinin, boyalarının, düzləçdiricilərinin və saç üçün elektron alətlərin bu kontekstdə ən yaxşısını təqdim edir.
+Məhsullarımız istehsalçı ölkələrin lisenziyası və beynalxalq setifikatsiyadan keçmiş Azərbaycan Respublikası tərəfindən Səhiyyə nazirliyinin gigiyenik sertifikatını almış 100% orjinallığını təmin etmişdir.
+Saçlarınızın mükəmməl düzlüyünü əldə edib onları qorumaq üçün keyfiyyətli məhsul axtarışındasınız? Saç prosedurları üçün keyfiyyətli elektron alətiniz yoxdur? Bir sözlə saçınıza zərər verməyən məhsullara sahib olmaq istəyirsiniz? Saç boyalarından istədiyiniz tonları ala bilmirsiniz?
+Nanoplastica.az saytı mekəmməl seçimdir və nüfuzlu brendlərin məhsullarını Azərbaycan bazarına çatdırılmasında inqilab edir. Bu online məkan peşəkarların seçimidir! Sizə xidmət etmək üçün hər zaman ixtiyarınızda bir komandaya sahibik.`;
+
 const resources = {
     az: {
         translation: {
@@ -36,14 +41,17 @@ const resources = {
             sendMail: "Mail göndərərək qeydiyyatdan keç",
             send: "Göndər",
             all: "Hamısı",
-            aboutText: "Nanoplastica.az  saytı saça qulluq vasitələrinin,boyalarının,düzləçdiricilərinin və saç üçün elektron alətlərin bu kontekstdə ən yaxşısını təqdim edir.Məhsullarımız istehsalçı ölkələrin lisenziyası və beynalxalq setifikatsiyadan keçmiş Azərbaycan Respublikası tərəfindən Səhiyyə nazirliyinin gigiyenik sertifikatını almış 100% orjinallığını təmin etmişdir. \nSaçlarınızın mükəmməl düzlüyünü əldə edib onları qorumaq üçün keyfiyyətli məhsul axtarışındasınız?Saç prosedurları üçün keyfiyyətli elektron alətiniz yoxdur?Bir sözlə saçınıza zərər verməyən məhsullara sahib olmaq istəyirsiniz?Saç boyalarından istədiyiniz tonları ala bilmirsiniz?\nNanoplastica.az saytı mekəmməl seçimdir və nüfuzlu brendlərin məhsullarını Azərbaycan bazarına çatdırılmasında inqilab edir.Bu online məkan peşəkarların seçimidir!Sizə xidmət etmək üçün hər zaman ixtiyarınızda bir komandaya sahibik",
+            aboutText: `Nanoplastica.az saytı saça qulluq vasitələrinin, boyalarının, düzləçdiricilərinin və saç üçün elektron alətlərin bu kontekstdə ən yaxşısını təqdim edir.
+            Məhsullarımız istehsalçı ölkələrin lisenziyası və beynalxalq setifikatsiyadan keçmiş Azərbaycan Respublikası tərəfindən Səhiyyə nazirliyinin gigiyenik sertifikatını almış 100% orjinallığını təmin etmişdir.
+            Saçlarınızın mükəmməl düzlüyünü əldə edib onları qorumaq üçün keyfiyyətli məhsul axtarışındasınız? Saç prosedurları üçün keyfiyyətli elektron alətiniz yoxdur? Bir sözlə saçınıza zərər verməyən məhsullara sahib olmaq istəyirsiniz? Saç boyalarından istədiyiniz tonları ala bilmirsiniz?
+            Nanoplastica.az saytı mekəmməl seçimdir və nüfuzlu brendlərin məhsullarını Azərbaycan bazarına çatdırılmasında inqilab edir. Bu online məkan peşəkarların seçimidir! Sizə xidmət etmək üçün hər zaman ixtiyarınızda bir komandaya sahibik.`,
             aboutFooter: "Hörmətlə Nanoplastica.az komandası",
             name: "Ad",
             surname: "Soyad",
             subject: "Mövzu",
             mail: "Email",
             message: "Mesajınız",
-            notfound:"Məhsul Tapılmadı...",
+            notfound: "Məhsul Tapılmadı...",
             product: "Məhsul",
             brand: "Brend",
             count: "Sayı",
@@ -93,7 +101,7 @@ const resources = {
             subject: "Предмет",
             mail: "Электронная почта",
             message: "Сообщение",
-            notfound:"Товар не найден...",
+            notfound: "Товар не найден...",
             product: "Продукт",
             brand: "Бренд",
             count: "Число",
