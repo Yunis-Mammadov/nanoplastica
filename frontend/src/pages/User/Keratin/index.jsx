@@ -76,7 +76,7 @@ const Keratin = () => {
             </div>
             <Grid justifyContent="center" container rowSpacing={6} spacing={{ xs: 12, sm: 6, md: 4, lg: 3 }} direction="row">
                 {filteredItems.map(keratin => (
-                    <Grid item lg={4} key={keratin._id}>
+                    <Grid item lg={4} key={keratin._id} sx={{margin:"0 auto"}}>
                         <div className={styles.card} >
                             <Link to={`${keratin._id}`}>
                                 <img src={keratin.productImgUrl} alt='' />

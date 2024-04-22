@@ -1,27 +1,66 @@
-.parentAbout {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+@media screen and (min-width: 575px) {
+    .parentAbout {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .imgParent {
+        text-align: center;
+        font-size: 18px;
+        width: 100%;
+        height: 450px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .aboutText {
+        background-color: rgb(222, 222, 217);
+        width: 900px;
+        min-height: 20px;
+        padding: 20px;
+        margin: 30px;
+        float: right;
+        line-break: 30px;
+    }
+
+    .textAbout{
+        margin-top: 10px;
+        text-align: justify;
+    }
 }
 
-.imgParent {
-    text-align: center;
-    font-size: 18px;
-    width: 100%;
-    height: 450px;  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-position: center center;
-    background-size: cover;
-}
 
-.aboutText {
-    background-color: rgb(222, 222, 217);
-    width: 400px;
-    min-height: 20px;
-    padding: 20px;
-    margin: 30px;
-    float: right;
+@media screen and (max-width: 575px) {
+    .parentAbout {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .imgParent {
+        text-align: center;
+        font-size: 18px;
+        width: 100%;
+        height: 450px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .aboutText {
+        background-color: rgb(222, 222, 217);
+        width: 400px;
+        min-height: 20px;
+        padding: 20px;
+        margin: 30px;
+        float: right;
+    }
 }

@@ -78,7 +78,7 @@ const Countdown = () => {
     return (
         <div className={styles.parentCountdown}>
             <div className={styles.topCount}>
-                <h3 className={styles.weeklyText}>{t('topseller')}</h3>
+                <h3 className={styles.weeklyText}>{t('weekly')}</h3>
                 <div className={styles.dayCount}>
                     <p className={styles.time}>{time.days.toString().padStart(2, '0')} <br />{t("day")}</p>
                     <p className={styles.time}>{time.hours.toString().padStart(2, '0')} <br /> {t("hour")}</p>

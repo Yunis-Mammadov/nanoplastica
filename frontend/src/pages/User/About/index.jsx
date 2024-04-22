@@ -38,13 +38,13 @@ const About = () => {
         }}>
         </div>
         <div className={styles.aboutText} style={{ marginTop: "30px" }}>
-          <div style={{ fontWeight: "600", fontSize: "18px", marginBottom: "10px" }}>
+          <div style={{ display: "flex", justifyContent: "center", fontWeight: 600 }} >
             {t("about")}
           </div>
-          <div style={{ textAlign: "justify", marginBottom: "5px" }}>
+          <div className={styles.textAbout}>
             {t("aboutText")}
           </div>
-          <div style={{ paddingTop: "20px", fontWeight: "500" }}>
+          <div style={{ display: "flex", justifyContent: "flex-start", fontWeight: 600, paddingTop:"7px" }}>
             {t("aboutFooter")}
           </div>
         </div>
