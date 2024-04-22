@@ -1,0 +1,62 @@
+@media screen and (min-width:576px) {
+    .parentContact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 400px;
+    gap: 60px;
+}
+
+.textContact{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.textContact p{
+    font-size: 15px;
+    text-align: center;
+}
+
+.iconContact{
+    display: flex;
+    gap: 20px;
+}
+}
+
+
+@media screen and (max-width:575px) {
+    .parentContact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 500px;
+    gap: 40px;
+}
+
+.headerContact{
+    font-size: 40px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.textContact{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.textContact p{
+    font-size: 14px;
+    text-align: center;
+}
+
+.iconContact{
+    display: flex;
+    gap: 0px;
+}
+}
