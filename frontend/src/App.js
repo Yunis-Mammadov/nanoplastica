@@ -34,7 +34,7 @@ const App = () => {
         <UserContextProvider>
           <CartProvider>
             <RouterProvider router={routes} />
-            <FloatingWhatsApp
+            <FloatingWhatsApp 
               phoneNumber="+994708878799"
               accountName='Nanoplastica.az'
               chatMessage='Salam. Sizə necə kömək edə bilərik?'
